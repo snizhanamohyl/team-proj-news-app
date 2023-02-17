@@ -1,1 +1,0 @@
-import SearchNews from './api';
