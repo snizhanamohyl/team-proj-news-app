@@ -1,7 +1,3 @@
-// body {
-//   @extend %container;
-// }
-
 .container {
   max-width: 480px;
   margin: 0 auto;
@@ -352,18 +348,12 @@ input:checked + .slider:before {
     opacity: 0.4;
   }
 }
-input:checked + .theme__dark {
-  // color: var(--accent-color);
-}
+
 .theme__light {
   color: var(--switcher-accent-day);
 }
-.theme__dark:checked + .slider {
-  // color: var(--accent-color);
-}
+
 .sun {
-  // fill: var(--accent-color);
-  // fill: var(--switcher-accent);
   fill: var(--switcher-accent-day);
 }
 .moon {
