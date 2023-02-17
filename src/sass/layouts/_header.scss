@@ -360,3 +360,99 @@ input:checked + .slider:before {
   // fill: var(--switcher-gray);
   fill: var(--switcher-gray-moon);
 }
+
+// Burger-menu
+
+.close__button{
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 28px;
+  right: 16px;
+  cursor: pointer;
+  transition: fill 250ms var(--time-function);
+
+  &:hover, &:focus{
+      fill: var(--accent-color);
+  }
+}
+
+.menu__container{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+  padding-top: 125px;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(-200%);
+  transition: transform 250ms var(--time-function);
+}
+
+.menu__container.is-open{
+  transform: translateY(0);
+}
+
+.menu__logo{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: calc(33 / 24);
+  display: inline-block;
+  position: absolute;
+  top: 24px;
+  left: 16px;
+}
+
+.menu a{
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  transition: color 250ms var(--time-function);
+
+  &:hover, &:focus{
+      color: var(--accent-color);
+  }
+}
+
+.menu__item{
+   &:not(:last-child){
+      margin-bottom: 32px;
+   }
+}
+
+.menu__theme{
+  position: absolute;
+  bottom: 18px;
+  left: 16px;
+}
+
+.menu .link.current{
+  background-color: var(--accent-color);
+  padding-top: 11px;
+  padding-bottom: 11px;
+  margin-left: 0px;
+  margin-right: 0px;
+  color: var(--white);
+}
+
+.menu svg{
+  margin-right: 14px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  border: 1px solid var(--white);
+}
+
+
+
