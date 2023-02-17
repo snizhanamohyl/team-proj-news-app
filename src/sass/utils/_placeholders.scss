@@ -1,18 +1,18 @@
 %container {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-    @include mobile {
-        padding-left: 16px;
-        padding-right: 16px;
-        max-width: 480px;
-    }
+  @include mobile {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 480px;
+  }
 
-    @include tablet {
-        width: 768px;
-    }
+  @include tablet {
+    width: 768px;
+  }
 
-    @include desktop {
-        width: 1280px;
-    }
+  @include desktop {
+    width: 1280px;
+  }
 }
