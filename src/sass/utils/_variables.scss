@@ -1,11 +1,22 @@
 :root {
-    --accent-color: #4440F6;
-    --text-color: #111321;
-    --grey: #A8A8A8;
-    --white: #FFFFFF;
-    --disabled-color: #5F6775;
-    --dark-bcg-color: #686868;
-    --footer-bcg-color: #7A7A7A;
-    --line-color: #929292;
-    --header-border: rgba(0, 0, 0, 0.2);
+  --accent-color: #4440f6;
+  --text-color: #111321;
+  --grey: #a8a8a8;
+  --white: #ffffff;
+  --disabled-color: #5f6775;
+  --bcg-color: #F4F4F4;
+  --dark-bcg-color: #2E2E2E;
+  --footer-bcg-color: #7a7a7a;
+  --line-color: #929292;
+  --header-border: rgba(0, 0, 0, 0.2);
+
+  // DarkMode
+  //body.darkMode {
+    //--bg-color: #2e2e2e;
+   // --text-color: #f4f4f4;
+    // switcher colors
+
+    //--switcher-accent-day: #f4f4f4;
+    //--switcher-gray-moon: #4440f7;
+  //}
 }
