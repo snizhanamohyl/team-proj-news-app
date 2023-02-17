@@ -7,10 +7,12 @@
     padding-right: 16px;
     max-width: 480px;
   }
-
-  @include tablet {
-    width: 768px;
-  }
+  
+    @include tablet {
+        width: 768px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
   @include desktop {
     width: 1280px;
