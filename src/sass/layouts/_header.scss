@@ -414,6 +414,10 @@ input:checked + .slider:before {
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  margin-left: 0px;
+  margin-right: 0px;
   color: var(--text-color);
   font-weight: 500;
   font-size: 16px;
@@ -422,7 +426,8 @@ input:checked + .slider:before {
   transition: color 250ms var(--time-function);
 
   &:hover, &:focus{
-      color: var(--accent-color);
+      background-color: var(--accent-color);
+      color: var(--white);
   }
 }
 
@@ -438,15 +443,6 @@ input:checked + .slider:before {
   left: 16px;
 }
 
-.menu .link.current{
-  background-color: var(--accent-color);
-  padding-top: 11px;
-  padding-bottom: 11px;
-  margin-left: 0px;
-  margin-right: 0px;
-  color: var(--white);
-}
-
 .menu__svg{
   background-color: var(--accent-color);
   width: 32px;
@@ -457,7 +453,7 @@ input:checked + .slider:before {
   margin-right: 14px;
 }
 
-.menu svg{
+.theme__svg{
   position: absolute;
   top: 50%;
   left: 50%;
