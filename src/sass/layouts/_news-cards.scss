@@ -3,6 +3,8 @@
 // const textValue=textEl.textContent.slice(0, 112);
 // textEl.textContent=textValue+"...";
 
+
+
 .container {
     padding-left: 16px;
     padding-right: 16px;
@@ -57,7 +59,6 @@
 
     &__img {
         margin-bottom: 20px;
-
     }
 
     &__titel {
@@ -153,7 +154,7 @@
     &__text {
         position: absolute;
         top: 20px;
-        right: 21px;
+        right: 20px;
         // opacity: 0;
 
         display: flex;
@@ -165,28 +166,11 @@
         color: #00DD73;
     }
 
-    &__inform--icon {
-        margin-left: 6px;
+     
+    &__icon {
+        margin-left: 4px;
     }
-
-    &__text {
-        position: absolute;
-        top: 20px;
-        right: 21px;
-        opacity: 0;
-
-        display: flex;
-        align-items: center;
-
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1.35;
-        color: #00DD73;
-    }
-
-    &__inform--icon {
-        margin-left: 6px;
-    }
+  
 }
 
 .favorite-btn {
@@ -196,10 +180,7 @@
 
     display: flex;
     min-width: 126px;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 6px 12px;
     border: none;
 
     cursor: pointer;
