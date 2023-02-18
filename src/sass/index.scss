@@ -4,8 +4,5 @@
 @import './utils/mixins';
 @import './utils/placeholders';
 @import './layouts/header';
-// <<<<<<< HEAD
-@import "./layouts/news-cards"
-// =======
-// @import './layouts/categories';
-// >>>>>>> main
+@import "./layouts/categories";
+@import "./layouts/news-cards";
