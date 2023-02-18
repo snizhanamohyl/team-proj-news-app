@@ -3,13 +3,21 @@
 // const textValue=textEl.textContent.slice(0, 112);
 // textEl.textContent=textValue+"...";
 
-
-
-.container {
+.news-container {
     @extend %container;
 
-    padding-top: 60px;
-    padding-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+    
+        @media screen and (min-width: 1280px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
 }
 
 
@@ -23,9 +31,6 @@
         flex-wrap: wrap;
         margin: -15px;
     }
-
-    @media screen and (min-width: 1280px) {}
-
 }
 
 .news-card {

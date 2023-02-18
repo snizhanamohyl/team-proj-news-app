@@ -77,26 +77,26 @@ svg {
   fill: currentColor;
 }
 
-.container {
+.news-container {
   margin-left: auto;
   margin-right: auto;
 }
 @media screen and (max-width: 767px) {
-  .container {
+  .news-container {
     padding-left: 16px;
     padding-right: 16px;
     max-width: 480px;
   }
 }
 @media screen and (min-width: 768px) {
-  .container {
+  .news-container {
     width: 768px;
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .container {
+  .news-container {
     width: 1280px;
   }
 }
@@ -594,9 +594,21 @@ input:checked + .slider:before {
   }
 }
 
-.container {
-  padding-top: 60px;
-  padding-top: 60px;
+.news-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .news-container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .news-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 .is-hidden {
@@ -610,6 +622,7 @@ input:checked + .slider:before {
     margin: -15px;
   }
 }
+
 .news-card {
   text-align: start;
 }
