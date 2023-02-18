@@ -1,0 +1,140 @@
+.weather__app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 32px 36px;
+    border: 0 solid;
+    border-radius: 4px;
+    height: 100%;
+
+      @media screen and(min-width: $tablet) {
+        width: 353px;
+        padding: 40px 32px 60px 32px;
+      }
+
+      @media screen and(min-width: $desktop) {
+        width: 395px;
+        padding: 40px 53px;
+      }
+
+    &--info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 14px;
+        margin-bottom: 40px;    
+
+        @media screen and(min-width: $pre_tablet) {
+            margin-bottom: 90px;
+          } 
+    }
+
+    &--d {
+        font-size: 55px;
+        line-height: 1.18;
+
+        @media screen and (min-width: $pre_tablet) {
+            font-size: 64px;
+            line-height: 1.17;
+            padding-right: 8px;
+          }
+    }
+
+    &--g {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 11px;
+        border-left: 1px solid var(--white);
+
+        @media screen and(min-width: $pre_tablet) {
+            padding-left: 8px;
+          }
+    }
+    
+    &--days--value{
+        font-size: 24px;
+        line-height: 1.17;
+        margin-bottom: 5px;
+
+        @media screen and (min-width: $pre_tablet) {
+            font-size: 36px;
+            line-height: 1.17;
+          }   
+    }
+
+    &--location{
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 8px;
+
+        background-color: rgba(254, 254, 255, 0.3);
+        border-radius: 10px;
+
+        @media screen and(min-width: $pre_tablet) {
+            font-size: 20px;
+            line-height: 1.15;
+          }
+    }
+    
+    svg{
+        width: 18px;
+        height: 18px;
+
+        @media screen and(min-width: $pre_tablet) {
+            width: 27px;
+            height: 27px;
+          }
+    }
+
+    &--sun{
+        width: 128px;
+        height: 121px;
+        margin: 0 auto;
+        background: linear-gradient(180deg, #FA6C21 0%, rgba(255, 211, 88, 0.2) 100%);
+        border-radius: 50%;
+        margin-bottom: 40px;   
+        
+        @media screen and(min-width: $pre_tablet) {
+            width: 165px;
+            height: 156px;
+            margin-bottom: 90px;
+          }
+    }
+
+    &--date{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 28px;
+        line-height: 1.14;
+        margin-bottom: 18px;
+
+        @media screen and(min-width: $pre_tablet) {
+            font-size: 36px;
+            line-height: 1.17;
+            margin-bottom: 28px;
+          }
+    }
+
+    &--link{
+        width: fit-content;
+        font-size: 16px;
+        line-height: 1.19;
+        padding: 8px 14px;
+
+        background-color: rgba(254, 254, 255, 0.3);
+        border-radius: 10px;
+
+        @media screen and(min-width: $pre_tablet) {
+            padding: 10px 12px;
+            font-size: 20px;
+            line-height: 1.15;
+          }
+    }
+}
