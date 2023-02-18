@@ -1,0 +1,132 @@
+.categories {
+  padding-left: 16px;
+  padding-top: 24px;
+
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 28px;
+  }
+}
+
+.categories__list {
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.categories__item {
+  margin-right: 14px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 16px;
+  }
+}
+
+.categories__btn {
+  padding: 8px 24px;
+
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--accent-color);
+
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: background-color var(--transition);
+  transition: color var(--transition);
+
+  &:hover,
+  &:focus {
+    color: var(--white);
+    background-color: var(--accent-color);
+  }
+}
+
+.dropdown {
+  width: 148px;
+  padding: 14px 24px;
+
+  background: var(--dropdown-list);
+  border-radius: 20px;
+
+  position: absolute;
+  left: 18px;
+  top: 140px;
+
+  opacity: 1;
+  transition: opacity var(--transition);
+
+  @media screen and (min-width: 768px) {
+    width: 168px;
+    top: 169px;
+    left: 435px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 176px;
+    left: 667px;
+  }
+}
+
+.dropdown li {
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dropdown-item {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.01em;
+
+  color: var(--accent-color);
+
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  &::after {
+    transition: opacity var(--transition);
+    content: '';
+    opacity: 0;
+    width: 100%;
+    display: flex;
+    height: 0.5px;
+    background-color: var(--accent-color);
+    bottom: 0;
+    position: relative;
+  }
+}
+
+.dropdown-item:hover::after,
+.dropdown-item:focus::after {
+  opacity: 1;
+}
+
+.js-is-hidden {
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.display-desk {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.display-tab {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
