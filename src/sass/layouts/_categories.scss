@@ -44,16 +44,21 @@
   transition: background-color var(--transition);
   transition: color var(--transition);
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: var(--white);
     background-color: var(--accent-color);
   }
 }
 
+.is-active {
+  color: var(--white);
+  background-color: var(--accent-color);
+}
+
 .dropdown {
   width: 148px;
   padding: 14px 24px;
+  z-index: 1000;
 
   background: var(--dropdown-list);
   border-radius: 20px;
@@ -129,4 +134,19 @@
   @media screen and (max-width: 767px) {
     display: none;
   }
+}
+
+#others {
+  display: flex;
+  align-items: center;
+}
+
+.categories__arrow {
+  margin-left: 10px;
+}
+
+.categories__btn.is-active .categories__arrow {
+  fill: var(--white);
+  transition: transform var(--transition);
+  transform: rotateX(180deg);
 }
