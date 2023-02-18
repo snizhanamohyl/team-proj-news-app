@@ -1,8 +1,14 @@
+.categories-container {
+  @extend %container;
+}
+
 .categories {
-  padding-left: 16px;
+  // padding-left: 16px;
   padding-top: 24px;
 
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     padding-top: 28px;
