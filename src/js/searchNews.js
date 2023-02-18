@@ -1,4 +1,4 @@
-import SearchNews from '../src/js/api';
+import SearchNews from './api';
 
 const form = document.getElementById('form-field');
 
@@ -34,8 +34,6 @@ function createMarkup({ docs }) {
         lead_paragraph,
         headline,
         pub_date,
-        comments,
-        downloads,
       }) => `<div class="news-card">
             <div class="box-img">
                 <img src="#" class="news-card__img" width="395" height="395" alt="img-news">
