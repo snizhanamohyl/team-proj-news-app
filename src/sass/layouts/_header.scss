@@ -1,17 +1,17 @@
 .container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  // max-width: 480px;
+  // margin: 0 auto;
+  // padding-left: 16px;
+  // padding-right: 16px;
 
-  @media screen and (min-width: 767px) {
-    max-width: 768px;
-  }
+  // @media screen and (min-width: 767px) {
+  //   max-width: 768px;
+  // }
 
-  @media screen and (min-width: 1279px) {
-    max-width: 1280px;
-  }
-  // @extend %container;
+  // @media screen and (min-width: 1280px) {
+  //   max-width: 1280px;
+  // }
+  @extend %container;
 }
 
 body.darkMode {
@@ -33,7 +33,7 @@ body.darkMode {
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 767px) {
+  in {
     align-items: none;
   }
 }
@@ -45,14 +45,14 @@ body.darkMode {
   display: inline-block;
   padding: 24px 0;
 
-  @media screen and (min-width: 767px) {
+  @include tablet {
     padding-top: 32px;
     padding-bottom: 30px;
     font-size: 32px;
     line-height: calc(44 / 32);
   }
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     padding: 28px 0;
     font-size: 42px;
     line-height: calc(57 / 42);
@@ -62,13 +62,13 @@ body.darkMode {
 .navbar {
   display: none;
 
-  @media screen and (min-width: 767px) {
+  @include tablet {
     display: flex;
     margin-left: 48px;
     gap: 44px;
   }
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     margin-left: 102px;
     gap: 69px;
   }
@@ -78,7 +78,7 @@ body.darkMode {
   padding-top: 48px;
   padding-bottom: 36px;
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     padding-top: 55px;
     padding-bottom: 33px;
   }
@@ -88,7 +88,7 @@ body.darkMode {
   font-weight: 700;
   line-height: calc(22 / 16);
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     font-size: 18px;
     line-height: calc(25 / 18);
   }
@@ -99,7 +99,7 @@ body.darkMode {
     padding-left: 6px;
     padding-right: 6px;
 
-    @media screen and (min-width: 1279px) {
+    @include desktop {
       padding-bottom: 5px;
     }
   }
@@ -116,7 +116,7 @@ body.darkMode {
   background-color: transparent;
   height: 31px;
 
-  @media screen and (min-width: 767px) {
+  @include tablet {
     border: 1px solid var(--text-color);
     border-radius: 20px;
     margin-top: 44px;
@@ -124,7 +124,7 @@ body.darkMode {
     width: 213px;
   }
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     margin: 0 auto;
     width: 288px;
     margin-top: 51px;
@@ -156,7 +156,7 @@ body.darkMode {
       width: 0;
     }
 
-    @media screen and (min-width: 767px) {
+    @include tablet {
       padding: 5px 0;
       font-size: 14px;
       line-height: calc(24 / 14);
@@ -194,7 +194,7 @@ button {
     transition: 0.4s;
   }
 
-  @media screen and (min-width: 767px) {
+  @include tablet {
     padding: 8px 19px 8px 14px;
   }
 }
@@ -227,7 +227,7 @@ button {
     }
   }
 
-  @media screen and (min-width: 767px) {
+  @include tablet {
     display: flex;
     width: 98px;
     height: 21px;
@@ -236,7 +236,7 @@ button {
     margin-bottom: 36px;
   }
 
-  @media screen and (min-width: 1279px) {
+  @include desktop {
     gap: 12px;
     width: 148px;
     height: 24px;
@@ -250,7 +250,7 @@ button {
   .icon {
     fill: var(--text-color);
   }
-  @media screen and (min-width: 767px) {
+  @include tablet {
     display: none;
   }
 }
@@ -324,7 +324,7 @@ input:checked + .slider:before {
 .theme__light {
   display: none;
 }
-@media screen and (min-width: 1280px) {
+@include desktop {
   .theme {
     gap: 12px;
   }
