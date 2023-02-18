@@ -33,7 +33,7 @@ body.darkMode {
   display: flex;
   align-items: center;
 
-  in {
+  @include tablet {
     align-items: none;
   }
 }

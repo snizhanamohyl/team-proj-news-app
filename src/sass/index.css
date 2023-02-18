@@ -117,8 +117,10 @@ body.darkMode .theme__dark {
   display: flex;
   align-items: center;
 }
-.header-container in {
-  align-items: none;
+@media screen and (min-width: 768px) {
+  .header-container {
+    align-items: none;
+  }
 }
 
 .logo {
