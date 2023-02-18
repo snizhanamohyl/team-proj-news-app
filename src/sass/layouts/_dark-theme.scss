@@ -1,3 +1,37 @@
 body.dark {
   background-color: var(--dark-bcg-color);
+
+  .header {
+    border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+  }
+
+  .theme__dark {
+    opacity: 1;
+  }
+
+  .navbar__link,
+  .logo {
+    color: var(--white);
+  }
+  .theme__light {
+    color: var(--white);
+    opacity: 0.4;
+  }
+  .search-field {
+    border-color: var(--white);
+  }
+  .moon {
+    fill: var(--accent-color);
+  }
+
+  .theme__dark {
+    color: var(--accent-color);
+  }
+  .search__icon,
+  .icon {
+    fill: var(--white);
+  }
+  .sun {
+    fill: var(--disabled-color);
+  }
 }
