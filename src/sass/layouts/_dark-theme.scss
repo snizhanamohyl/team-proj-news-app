@@ -11,14 +11,16 @@ body.dark {
 
   .navbar__link,
   .logo {
-    color: var(--white);
+    color: var(--bcg-color);
   }
+
   .theme__light {
-    color: var(--white);
+    color: var(--bcg-color);
     opacity: 0.4;
   }
   .search-field {
-    border-color: var(--white);
+    color: var(--bcg-color);
+    border-color: var(--bcg-color);
   }
   .moon {
     fill: var(--accent-color);
@@ -31,7 +33,24 @@ body.dark {
   .icon {
     fill: var(--white);
   }
+  #search-field__input {
+    color: var(--bcg-color);
+  }
   .sun {
     fill: var(--disabled-color);
+  }
+  .news-card {
+    &__title, &__text {
+      color: var(--white);
+    }
+  }
+  .categories__btn {
+    background-color: var(--white);
+
+    &:hover, &:focus, &:active {
+      color: var(--white);
+      border-color: var(--accent-color);
+      background-color: var(--accent-color);
+    }
   }
 }

@@ -1,16 +1,4 @@
 .container {
-  // max-width: 480px;
-  // margin: 0 auto;
-  // padding-left: 16px;
-  // padding-right: 16px;
-
-  // @media screen and (min-width: 767px) {
-  //   max-width: 768px;
-  // }
-
-  // @media screen and (min-width: 1280px) {
-  //   max-width: 1280px;
-  // }
   @extend %container;
 }
 
@@ -134,15 +122,8 @@
       color: var(--text-color);
     }
 
-    &:autofill,
-    &:autofill:hover,
-    &:autofill:focus,
-    &:autofill:active {
-      transition: background-color 9999s, color 9999s, var(--transition);
-    }
     @media screen and (max-width: 767px) {
       padding: 0;
-      transition: 0.4s;
       width: 0;
     }
 
@@ -240,7 +221,6 @@ button {
   .icon {
     fill: var(--text-color);
   }
-
   @include tablet {
     display: none;
   }
