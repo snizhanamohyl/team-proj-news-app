@@ -4,11 +4,11 @@
   padding-left: 16px;
   padding-right: 16px;
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and {
     max-width: 768px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and {
     max-width: 1280px;
   }
 }
@@ -32,7 +32,7 @@ body.darkMode {
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     align-items: none;
   }
 }
@@ -44,14 +44,14 @@ body.darkMode {
   display: inline-block;
   padding: 24px 0;
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     padding-top: 32px;
     padding-bottom: 30px;
     font-size: 32px;
     line-height: calc(44 / 32);
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     padding: 28px 0;
     font-size: 42px;
     line-height: calc(57 / 42);
@@ -61,13 +61,13 @@ body.darkMode {
 .navbar {
   display: none;
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     margin-left: 48px;
     gap: 44px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     margin-left: 102px;
     gap: 69px;
   }
@@ -77,7 +77,7 @@ body.darkMode {
   padding-top: 48px;
   padding-bottom: 36px;
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 55px;
     padding-bottom: 33px;
   }
@@ -87,7 +87,7 @@ body.darkMode {
   font-weight: 700;
   line-height: calc(22 / 16);
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     font-size: 18px;
     line-height: calc(25 / 18);
   }
@@ -98,7 +98,7 @@ body.darkMode {
     padding-left: 6px;
     padding-right: 6px;
 
-    @media screen and (min-width: 1279.98px) {
+    @media screen and (min-width: 1280px) {
       padding-bottom: 5px;
     }
   }
@@ -115,7 +115,7 @@ body.darkMode {
   background-color: transparent;
   height: 31px;
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     border: 1px solid var(--text-color);
     border-radius: 20px;
     margin-top: 44px;
@@ -123,7 +123,7 @@ body.darkMode {
     width: 213px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     margin: 0 auto;
     width: 288px;
     margin-top: 51px;
@@ -149,19 +149,19 @@ body.darkMode {
     &:autofill:active {
       transition: background-color 9999s, color 9999s;
     }
-    @media screen and (max-width: 767.98px) {
+    @media screen and (max-width: 768px) {
       padding: 0;
       transition: 0.4s;
       width: 0;
     }
 
-    @media screen and (min-width: 767.98px) {
+    @media screen and (min-width: 768px) {
       padding: 5px 0;
       font-size: 14px;
       line-height: calc(24 / 14);
     }
   }
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 768px) {
     &:hover {
       margin-top: 1px;
       border: 1px solid var(--text-color);
@@ -188,12 +188,12 @@ button {
 }
 
 .search-field__btn {
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 768px) {
     color: var(--text-color);
     transition: 0.4s;
   }
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     padding: 8px 19px 8px 14px;
   }
 }
@@ -209,7 +209,7 @@ button {
 .theme {
   gap: 8px;
 
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 768px) {
     display: none;
     opacity: 0;
     pointer-events: none;
@@ -226,7 +226,7 @@ button {
     }
   }
 
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     width: 98px;
     height: 21px;
@@ -235,7 +235,7 @@ button {
     margin-bottom: 36px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @media screen and (min-width: 1280px) {
     gap: 12px;
     width: 148px;
     height: 24px;
@@ -249,7 +249,7 @@ button {
   .icon {
     fill: var(--text-color);
   }
-  @media screen and (min-width: 767.98px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 }
@@ -357,6 +357,5 @@ input:checked + .slider:before {
   fill: var(--switcher-accent-day);
 }
 .moon {
-  // fill: var(--switcher-gray);
   fill: var(--switcher-gray-moon);
 }
