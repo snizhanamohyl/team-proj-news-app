@@ -1,26 +1,5 @@
 .container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-
-  @media screen and (min-width: 767.98px) {
-    max-width: 768px;
-  }
-
-  @media screen and (min-width: 1279.98px) {
-    max-width: 1280px;
-  }
-}
-
-body.darkMode {
-  .header {
-    border-bottom: 1px solid rgba(244, 244, 244, 0.2);
-  }
-
-  .theme__dark {
-    opacity: 1;
-  }
+  @extend %container;
 }
 
 .header {
@@ -32,7 +11,7 @@ body.darkMode {
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     align-items: none;
   }
 }
@@ -44,14 +23,14 @@ body.darkMode {
   display: inline-block;
   padding: 24px 0;
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     padding-top: 32px;
     padding-bottom: 30px;
     font-size: 32px;
     line-height: calc(44 / 32);
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     padding: 28px 0;
     font-size: 42px;
     line-height: calc(57 / 42);
@@ -61,13 +40,13 @@ body.darkMode {
 .navbar {
   display: none;
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     display: flex;
     margin-left: 48px;
     gap: 44px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     margin-left: 102px;
     gap: 69px;
   }
@@ -77,7 +56,7 @@ body.darkMode {
   padding-top: 48px;
   padding-bottom: 36px;
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     padding-top: 55px;
     padding-bottom: 33px;
   }
@@ -87,7 +66,7 @@ body.darkMode {
   font-weight: 700;
   line-height: calc(22 / 16);
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     font-size: 18px;
     line-height: calc(25 / 18);
   }
@@ -98,7 +77,7 @@ body.darkMode {
     padding-left: 6px;
     padding-right: 6px;
 
-    @media screen and (min-width: 1279.98px) {
+    @include desktop {
       padding-bottom: 5px;
     }
   }
@@ -115,7 +94,7 @@ body.darkMode {
   background-color: transparent;
   height: 31px;
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     border: 1px solid var(--text-color);
     border-radius: 20px;
     margin-top: 44px;
@@ -123,7 +102,7 @@ body.darkMode {
     width: 213px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     margin: 0 auto;
     width: 288px;
     margin-top: 51px;
@@ -143,25 +122,18 @@ body.darkMode {
       color: var(--text-color);
     }
 
-    &:autofill,
-    &:autofill:hover,
-    &:autofill:focus,
-    &:autofill:active {
-      transition: background-color 9999s, color 9999s;
-    }
-    @media screen and (max-width: 767.98px) {
+    @media screen and (max-width: 767px) {
       padding: 0;
-      transition: 0.4s;
       width: 0;
     }
 
-    @media screen and (min-width: 767.98px) {
+    @include tablet {
       padding: 5px 0;
       font-size: 14px;
       line-height: calc(24 / 14);
     }
   }
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 767px) {
     &:hover {
       margin-top: 1px;
       border: 1px solid var(--text-color);
@@ -188,12 +160,12 @@ button {
 }
 
 .search-field__btn {
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 767px) {
     color: var(--text-color);
     transition: 0.4s;
   }
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     padding: 8px 19px 8px 14px;
   }
 }
@@ -209,7 +181,7 @@ button {
 .theme {
   gap: 8px;
 
-  @media screen and (max-width: 767.98px) {
+  @media screen and (max-width: 767px) {
     display: none;
     opacity: 0;
     pointer-events: none;
@@ -226,7 +198,7 @@ button {
     }
   }
 
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     display: flex;
     width: 98px;
     height: 21px;
@@ -235,7 +207,7 @@ button {
     margin-bottom: 36px;
   }
 
-  @media screen and (min-width: 1279.98px) {
+  @include desktop {
     gap: 12px;
     width: 148px;
     height: 24px;
@@ -249,7 +221,7 @@ button {
   .icon {
     fill: var(--text-color);
   }
-  @media screen and (min-width: 767.98px) {
+  @include tablet {
     display: none;
   }
 }
@@ -323,7 +295,7 @@ input:checked + .slider:before {
 .theme__light {
   display: none;
 }
-@media screen and (min-width: 1280px) {
+@include desktop {
   .theme {
     gap: 12px;
   }
@@ -350,13 +322,9 @@ input:checked + .slider:before {
 }
 
 .theme__light {
-  color: var(--switcher-accent-day);
+  color: var(--accent-color);
 }
 
 .sun {
-  fill: var(--switcher-accent-day);
-}
-.moon {
-  // fill: var(--switcher-gray);
-  fill: var(--switcher-gray-moon);
+  fill: var(--accent-color);
 }

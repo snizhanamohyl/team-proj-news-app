@@ -1,1 +1,1 @@
-import '../src/js/searchNews';
+import darkTheme from './js/dark-theme';
