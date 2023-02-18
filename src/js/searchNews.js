@@ -25,15 +25,16 @@ async function findNews() {
     form.reset();
   }
 }
+
 // function createMarkup({ docs }) {
-//     const markup = docs
-//         .map(
-//             ({
-//                 web_url,
-//                 lead_paragraph,
-//                 headline,
-//                 pub_date,
-//             }) => `<div class="news-card">
+//   const markup = docs
+//     .map(
+//       ({
+//         web_url,
+//         lead_paragraph,
+//         headline,
+//         pub_date,
+//       }) => `<div class="news-card">
 //         <div class="box-img">
 //             <img src="#" class="news-card__img" width="395" height="395" alt="img-news">
 //             <p class="box-img__inform">Job searching</p>
@@ -61,7 +62,7 @@ async function findNews() {
 //         </div>
 //     </div>
 // `
-//         )
-//         .join('');
-//     gallery.insertAdjacentHTML('beforeend', markup);
+//     )
+//     .join('');
+//   gallery.insertAdjacentHTML('beforeend', markup);
 // }
