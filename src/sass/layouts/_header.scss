@@ -391,7 +391,7 @@ input:checked + .slider:before {
   left: 0;
   width: 100%;
   height: 100vh;
-  // transform: translateY(-200%);
+  transform: translateY(-200%);
   transition: transform 250ms var(--time-function);
 }
 
