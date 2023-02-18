@@ -1,6 +1,9 @@
-const pg = document.getElementById('pagination');
-const btnNextPg = document.querySelector('.next-page');
-const btnPrevPg = document.querySelector('.prev-page');
+const refs = {
+  pg: document.getElementById('pagination'),
+  btnNextPg: document.querySelector('.next-page'),
+  btnPrevPg: document.querySelector('.prev-page'),
+  pageContainer: document.querySelector('.pagination-container'),
+};
 
 const valuePage = {
   curPage: 1,
@@ -10,15 +13,12 @@ const valuePage = {
 
 pagination();
 
-const pageContainer = document.querySelector('.pagination-container')
 
-
-
-pg.addEventListener('click', e => {
-    const ele = e.target;
+refs.pg.addEventListener('click', e => {
+    const elem = e.target;
   
-    if (ele.dataset.page) {
-      const pageNumber = parseInt(e.target.dataset.page, 10);
+    if (elem.dataset.page) {
+      const pageNumber = parseInt(elem.dataset.page, 10);
   
       valuePage.curPage = pageNumber;
       pagination(valuePage);
@@ -27,6 +27,8 @@ pg.addEventListener('click', e => {
       handleButtonRight();
     }
   });
+
+refs.pageContainer.addEventListener('click', function (e) {handleButton(e.target)});
 
 // DYNAMIC PAGINATION
 
@@ -45,7 +47,7 @@ pg.addEventListener('click', e => {
     const numberTruncateRight = curPage + delta;
   
     let active = '';
-    for (let pos = 1; pos <= totalPages; pos++) {
+    for (let pos = 1; pos <= totalPages; pos+=1) {
       active = pos === curPage ? 'active' : '';
   
       // truncate
@@ -78,50 +80,52 @@ pg.addEventListener('click', e => {
     if (renderTwoSide) {
       renderTwoSide =
         renderPage(1) + dot + renderTwoSide + dot + renderPage(totalPages);
-      pg.innerHTML = renderTwoSide;
+      refs.pg.innerHTML = renderTwoSide;
     } else {
-      pg.innerHTML = render;
+      refs.pg.innerHTML = render;
     }
   }
   
   function renderPage(index, active = '') {
-    return ` <li class="pg-item ${active}" data-page="${index}">
+    return ` 
+      <li class="pg-item ${active}" data-page="${index}">
           <a class="pg-link" href="#">${index}</a>
-      </li>`;
+      </li>
+    `;
   }
-  
-  pageContainer.addEventListener('click', function (e) {handleButton(e.target)});
   
   function handleButton(element) {
     if (element.classList.contains('prev-page')) {
-      valuePage.curPage--;
+      valuePage.curPage-=1;
       handleButtonLeft();
-      btnNextPg.disabled = false;
+      refs.btnNextPg.disabled = false;
       //  btnLastPg.disabled = false;
     } else if (element.classList.contains('next-page')) {
-      valuePage.curPage++;
+      valuePage.curPage+=1;
       handleButtonRight();
-      btnPrevPg.disabled = false;
+      refs.btnPrevPg.disabled = false;
       //  btnFirstPg.disabled = false;
     }
     pagination();
   }
+
   function handleButtonLeft() {
     if (valuePage.curPage === 1) {
-      btnPrevPg.disabled = true;
+      refs.btnPrevPg.disabled = true;
       //  btnFirstPg.disabled = true;
     } else {
-      btnPrevPg.disabled = false;
+      refs.btnPrevPg.disabled = false;
       //  btnFirstPg.disabled = false;
     }
   }
+
   function handleButtonRight() {
     if (valuePage.curPage === valuePage.totalPages) {
     //   console.log(valuePage.curPage);
-      btnNextPg.disabled = true;
+    refs.btnNextPg.disabled = true;
       //  btnLastPg.disabled = true;
     } else {
-      btnNextPg.disabled = false;
+      refs.btnNextPg.disabled = false;
       //  btnLastPg.disabled = false;
     }
   }

@@ -13,19 +13,13 @@
     @media screen and (min-width: 1280px) {
       padding-top: 65px;
     }
-
-   }
+  }
    
    .pagination-container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
-
-    @media screen and (min-width: 1280px) {
-      padding-top: 65px;
-    }
-
   }
 
   .pagination-container button {
@@ -39,7 +33,7 @@
     color: var(--text-color);
     border: 1px solid var(--accent-color);
     border-radius: 2px;
-    cursor: pointer;
+    cursor: url(../images/cursor-hand.svg), pointer;
     background-color: transparent;
 
     @media screen and (min-width: 768px) {
@@ -69,7 +63,7 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    cursor: pointer;
+    cursor: url(../images/cursor-hand.svg), pointer;    
     overflow: hidden;
     border: 1px solid var(--accent-color);
     border-radius: 2px;
@@ -89,7 +83,6 @@
   #pagination .pg-item a {
     font-size: 14px;
     line-height: 1.36;
-    text-decoration: none;
     color: var(--text-color);
     pointer-events: none;
 
@@ -109,8 +102,5 @@
 
 
 .pg-item-dot {
-  list-style: none;
-  font-weight: 400;
-  font-size: 16px;
   line-height: 1.18;
 }
