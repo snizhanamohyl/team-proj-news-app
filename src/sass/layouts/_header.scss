@@ -361,6 +361,8 @@ input:checked + .slider:before {
   fill: var(--switcher-gray-moon);
 }
 
+
+
 // Burger-menu
 
 .close__button{
@@ -428,6 +430,10 @@ input:checked + .slider:before {
   &:hover, &:focus{
       background-color: var(--accent-color);
       color: var(--white);
+
+      .page__next{
+        display: block;
+      }
   }
 }
 
@@ -453,11 +459,21 @@ input:checked + .slider:before {
   margin-right: 14px;
 }
 
-.theme__svg{
+.page__svg{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.page__next{
+  right: 25px;
+  position: absolute;
+  display: none;
+}
+
+.is-hidden {
+  overflow: hidden;
 }
 
 

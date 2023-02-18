@@ -11,6 +11,13 @@
                 d="M9.337 4.001c-3.683 0-6.67 2.955-6.67 6.602 0 2.943 1.168 9.93 12.656 16.992 0.194 0.12 0.43 0.191 0.682 0.191s0.488-0.071 0.688-0.195l-0.006 0.003c11.488-7.063 12.656-14.049 12.656-16.992 0-3.647-2.987-6.602-6.67-6.602-3.681 0-6.668 4.001-6.668 4.001s-2.987-4.001-6.668-4.001z">
             </path>
         </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 18 32">
+           <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M2.286 29.714l13.714-13.714-13.714-13.714"></path>
+        </symbol>
+        <symbol id="icon-opened-book" viewBox="0 0 32 32">
+            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778" d="M2.667 4h8c1.415 0 2.771 0.562 3.771 1.562s1.562 2.357 1.562 3.771v18.667c0-1.061-0.421-2.078-1.172-2.828s-1.768-1.172-2.828-1.172h-9.333v-20z"></path>
+            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778" d="M29.333 4h-8c-1.414 0-2.771 0.562-3.771 1.562s-1.562 2.357-1.562 3.771v18.667c0-1.061 0.421-2.078 1.172-2.828s1.768-1.172 2.828-1.172h9.333v-20z"></path>
+        </symbol>
         <symbol id="book-icon" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778"
                 d="M2.667 4.001h8.001c2.946 0 5.334 2.388 5.334 5.334v0 18.67c0-2.209-1.791-4.001-4.001-4.001v0h-9.335v-20.003zM29.338 4.001h-8.001c-2.946 0-5.334 2.388-5.334 5.334v0 18.67c0-2.209 1.791-4.001 4.001-4.001v0h9.335v-20.003z">

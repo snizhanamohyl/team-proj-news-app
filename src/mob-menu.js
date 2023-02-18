@@ -3,10 +3,12 @@ const openMenuBtn = document.querySelector('.js-open-menu');
 const closeMenuBtn = document.querySelector('.js-close-menu');
   
 function toggleMenu() {
-    const isMenuOpen =
-    openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     mobileMenu.classList.toggle('is-open');
+    if (mobileMenu.classList.contains('is-open')){
+        document.body.classList.add('is-hidden');
+    } else {
+        document.body.classList.remove('is-hidden');
+    }
 };
   
 openMenuBtn.addEventListener('click', toggleMenu);
