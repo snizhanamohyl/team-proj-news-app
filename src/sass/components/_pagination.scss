@@ -1,0 +1,116 @@
+   
+   .pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 48px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding-top: 65px;
+    }
+
+   }
+   
+   .pagination-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    @media screen and (min-width: 1280px) {
+      padding-top: 65px;
+    }
+
+  }
+
+  .pagination-container button {
+    height: 28px;
+    font-family: inherit;    
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.36;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: transparent;
+
+    @media screen and (min-width: 768px) {
+      height: 31px;
+      font-size: 16px;
+      line-height: 1.38;
+    }
+  }
+
+  .pagination-container button:hover,
+  .pagination-container button:focus {
+    background-color: var(--accent-color);
+    color: var(--bcg-color);
+  }
+  
+  #pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 8px;
+  }
+  #pagination .pg-item {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid var(--accent-color);
+    border-radius: 2px;
+    background-color: transparent;
+
+    @media screen and (min-width: 768px) {
+      width: 33px;
+      height: 31px;
+    }
+  }
+  #pagination .pg-item.active {
+    background-color: var(--accent-color);
+  }
+  #pagination .pg-item.active a {
+    color: var(--bcg-color);
+  }
+  #pagination .pg-item a {
+    font-size: 14px;
+    line-height: 1.36;
+    text-decoration: none;
+    color: var(--text-color);
+    pointer-events: none;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 1.38;
+    }
+  }
+  #pagination .pg-item:hover,
+  #pagination .pg-item:focus {
+    background-color: var(--accent-color);
+  }
+  #pagination .pg-item:hover a,
+  #pagination .pg-item:focus a  {
+    color: var(--bcg-color);
+  }
+
+
+.pg-item-dot {
+  list-style: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.18;
+}
