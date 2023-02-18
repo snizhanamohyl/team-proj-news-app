@@ -78,7 +78,17 @@
         <div class="calendar-wrapper is-hidden-wrapper" data-modal>
           <div class="calendar-wrapper__container">
             <div class="calendar-switcher">
-              <p class="current-date"></p>
+              <div class="current-month">
+                <p class="current-date"></p>
+                <svg
+                  class="calendar__button-back"
+                  width="12"
+                  height="12"
+                  transform="rotate(270)"
+                >
+                  <use href="./images/sprite.svg#arrow-down"></use>
+                </svg>
+              </div>
               <div class="calendar-icons">
                 <span id="prev" class="material-symbols-rounded">
                   <svg
