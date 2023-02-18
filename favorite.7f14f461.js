@@ -1,0 +1,2 @@
+const e=document.querySelector("body"),t=document.querySelector(".switch-checkbox"),c=localStorage.getItem("page-dark-theme");function a(e){localStorage.setItem("page-dark-theme",e)}function d(){e.classList.add("dark")}t.addEventListener("change",(function(){this.checked?(d(),a("dark")):(e.classList.remove("dark"),a("light"))})),"dark"===c&&(d(),t.checked=!0);
+//# sourceMappingURL=favorite.7f14f461.js.map
