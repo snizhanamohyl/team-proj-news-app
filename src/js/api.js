@@ -5,7 +5,7 @@ export default class SearchNews {
     // this.queryPage = 1;
     this.searchQuery = '';
     this.category = '';
-    this.dataFilter = '';
+    this.dateFilter = '';
   }
 
   async searchNews() {
@@ -18,11 +18,11 @@ export default class SearchNews {
     return response;
   }
 
-  async searchNewsWithData() {
+  async searchNewsWithDate() {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}}&${this.dataFilter}`
+      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}&date=${this.dateFilter}`
     );
 
     return response;
@@ -47,11 +47,11 @@ export default class SearchNews {
     return response;
   }
 
-  async categoryNewsWithData() {
+  async categoryNewsWithDate() {
     const API_URL = 'https://api.nytimes.com/svc/news/v3/content/all/';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}${this.category}.json?api-key=${API_KEY}&${this.dataFilter}`
+      `${API_URL}${this.category}.json?api-key=${API_KEY}&date=${this.dateFilter}`
     );
 
     return response;
@@ -71,11 +71,11 @@ export default class SearchNews {
   // incrementPage() {
   //   this.queryPage += 1;
   // }
-  get query() {
-    return this.searchQuery;
-  }
+  // get query() {
+  //   return this.searchQuery;
+  // }
 
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
+  // set query(newQuery) {
+  //   this.searchQuery = newQuery;
+  // }
 }
