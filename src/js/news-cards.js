@@ -15,8 +15,8 @@ editingLangthString(textEl, MAX_LENGTH_TEXT);
 
 /////////////////////////////////////////////////////////////////
 
-const ACTIVE_ICON = './sprite.f14d31f7.svg#icon-icons-heart-active';
-const INACTIVE_ICON = './sprite.f14d31f7.svg#icon-icons-heart-no-active';
+const ACTIVE_ICON = './sprite.74cebf96.svg#icon-icons-heart-active';
+const INACTIVE_ICON = './sprite.74cebf96.svg#icon-icons-heart-no-active';
 const cardSetEl = document.querySelector('.card-set');
 
 cardSetEl.addEventListener('click', onChangeIconFavorite);
