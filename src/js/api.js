@@ -50,7 +50,6 @@ export default class SearchNews {
   resetPage() {
     this.queryPage = 1;
   }
-
   incrementPage() {
     this.queryPage += 1;
   }

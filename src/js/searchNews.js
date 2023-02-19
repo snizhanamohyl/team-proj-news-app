@@ -1,68 +1,140 @@
 import SearchNews from './api';
+//import mostPopularNews from './api';
 
 const form = document.getElementById('form-field');
+const imageNoResult = document.getElementById('img-noresults');
 
 const searchNews = new SearchNews();
+
+// searchNews.mostPopularNews().then(res => {
+//   let articles = res.data.results;
+//   console.log(articles);
+//   createMostPopularMarkup(articles);
+// });
 
 form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
+  imageNoResult.style.display = 'none';
 
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
 
   findNews();
-}
 
-async function findNews() {
-  try {
-    const newSearch = await searchNews.searchNews();
-    console.log(newSearch.data.response.docs);
-  } catch (err) {
-    alert('error');
-  } finally {
-    form.reset();
+  async function findNews() {
+    let gallery = document.querySelector('.card-set');
+    try {
+      const newSearch = await searchNews.searchNews();
+      console.log(newSearch.data.response.docs);
+      if (newSearch.data.response.docs.length === 0) {
+        throw new Error('no results');
+      }
+      let markup = createMarkup(newSearch.data.response.docs);
+
+      gallery.innerHTML = markup;
+    } catch (err) {
+      console.log('ERROR');
+      gallery.innerHTML = '';
+      imageNoResult.style.display = 'block';
+    } finally {
+      form.reset();
+    }
   }
 }
 
-// function createMarkup({ docs }) {
-//   const markup = docs
+function createMarkup(articles) {
+  const markup = articles
+    .map(
+      ({
+        web_url,
+        lead_paragraph,
+        headline,
+        pub_date,
+        multimedia,
+        section_name,
+      }) => {
+        let image = multimedia.find(image => {
+          return image.type === 'image';
+        });
+
+        let link = 'http://www.nytimes.com/' + image.url;
+        return `<li class="news-card">
+        <article>
+        <div class="box-img">
+            <img src=${link} class="news-card__img" width="395" height="395" alt="img-news">
+            <p class="box-img__inform">${section_name}</p>
+            <button type="button" class="favorite-btn">
+                Add to favorite
+                <svg class="favorite-btn__icon" width="16" height="16">
+                     <use class="icon-js" href="./img/symbol-defs.svg#icon-icons-heart-no-active"></use>
+                </svg>
+            </button>
+        </div>
+
+        <h2 class="news-card__title">${headline.main}</h2>
+        <p class="news-card__text">${lead_paragraph}</p>
+        <div class="news-card__inform">
+            <p class="news-card__date">
+						${pub_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
+            <a class="news-card__link" target="_blank" href="${web_url}">
+                Read more
+            </a>
+        </div>
+      </article>
+    </li>   
+`;
+      }
+    )
+    .join('');
+  return markup;
+}
+
+// function createMostPopularMarkup(articles) {
+//   const markup = articles
 //     .map(
 //       ({
 //         web_url,
 //         lead_paragraph,
-//         headline,
-//         pub_date,
-//       }) => `<div class="news-card">
-//         <div class="box-img">
-//             <img src="#" class="news-card__img" width="395" height="395" alt="img-news">
-//             <p class="box-img__inform">Job searching</p>
-//             <p class="box-img__text">Already read
-//                 <svg width="16" height="16">
-//                     <!-- <use href="./img/symbol-defs.svg#icon-check-mark-icon"></use> -->
-//                 </svg>
-//             </p>
+//         title,
+//         published_date,
+//         media,
+//         section_name,
+//       }) => {
+//         let image = media.find(image => {
+//           return image.type === 'image';
+//         });
 
+//         let link = 'http://www.nytimes.com/' + image['media-metadata'][0].url;
+//         return `<li class="news-card">
+//         <article>
+//         <div class="box-img">
+//             <img src=${link} class="news-card__img" width="395" height="395" alt="img-news">
+//             <p class="box-img__inform">${section_name}</p>
 //             <button type="button" class="favorite-btn">
 //                 Add to favorite
 //                 <svg class="favorite-btn__icon" width="16" height="16">
-//                     <!-- <use class="icon-js" href="./img/symbol-defs.svg#icon-icons-heart-no-active"></use> -->
+//                      <use class="icon-js" href="./img/symbol-defs.svg#icon-icons-heart-no-active"></use>
 //                 </svg>
 //             </button>
 //         </div>
 
-//         <h2 class="news-card__titel">${headline}</h2>
+//         <h2 class="news-card__title">${title}</h2>
 //         <p class="news-card__text">${lead_paragraph}</p>
 //         <div class="news-card__inform">
-//             <p class="news-card__date">${pub_date}</p>
+//             <p class="news-card__date">
+// 						${published_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
 //             <a class="news-card__link" target="_blank" href="${web_url}">
 //                 Read more
 //             </a>
 //         </div>
-//     </div>
-// `
+//       </article>
+//     </li>
+
+// `;
+//       }
 //     )
 //     .join('');
-//   gallery.insertAdjacentHTML('beforeend', markup);
+//   return markup;
 // }
