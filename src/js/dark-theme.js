@@ -1,9 +1,10 @@
 const bodyRef = document.querySelector('body');
-const themeSwitcher = document.querySelector('.switch-checkbox');
-const DARK_THEME = 'page-dark-theme';
-const currentTheme = localStorage.getItem(DARK_THEME);
+const themeSwitcher = document.querySelectorAll('.switch-checkbox');
+const currentTheme = localStorage.getItem('CurrentPageTheme');
 
-themeSwitcher.addEventListener('change', onThemeSwitch);
+themeSwitcher.forEach(switcher => {
+  switcher.addEventListener('change', onThemeSwitch);
+});
 onPageLoad();
 
 function onThemeSwitch() {
@@ -17,7 +18,7 @@ function onThemeSwitch() {
 }
 
 function saveCurrentToLS(current) {
-  localStorage.setItem(DARK_THEME, current);
+  localStorage.setItem('CurrentPageTheme', current);
 }
 
 function addClass() {
@@ -31,6 +32,8 @@ function removeClass() {
 function onPageLoad() {
   if (currentTheme === 'dark') {
     addClass();
-    themeSwitcher.checked = true;
+    themeSwitcher.forEach(switcher => {
+      switcher.checked = true;
+    });
   }
 }

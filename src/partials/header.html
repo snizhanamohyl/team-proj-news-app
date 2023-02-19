@@ -53,5 +53,70 @@
         <use href="./images/sprite.svg#mobile-menu"></use>
       </svg>
     </button>
+    <div class="menu__container js-menu-container" id="menu__container">
+      <a href="./index.html" class="menu__logo">News</a>
+      <button
+        type="button"
+        class="close__button js-close-menu"
+        aria-expanded="false"
+        aria-controls="menu__container"
+      >
+        <svg
+          class="close__button-icon"
+          height="24"
+          width="24"
+          aria-label="Перемикач мобільного меню"
+        >
+          <use class="menu__close" href="./images/sprite.svg#close-icon"></use>
+        </svg>
+      </button>
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="./index.html" class="navigation-link">
+            <span class="menu__svg"
+              ><svg class="page__svg" width="18" height="18">
+                <use href="./images/sprite.svg#home-icon"></use></svg></span
+            >Home<svg class="page__next" width="12" height="16">
+              <use href="./images/sprite.svg#icon-arrow-right"></use></svg
+          ></a>
+        </li>
+        <li class="menu__item">
+          <a href="./favorite.html" class="navigation-link">
+            <span class="menu__svg"
+              ><svg class="page__svg" width="18" height="18">
+                <use
+                  href="./images/sprite.svg#favourite-icon"
+                ></use></svg></span
+            >Favorite<svg class="page__next" width="12" height="16">
+              <use href="./images/sprite.svg#icon-arrow-right"></use></svg
+          ></a>
+        </li>
+        <li class="menu__item">
+          <a href="./read.html" class="navigation-link">
+            <span class="menu__svg"
+              ><svg class="page__svg" width="18" height="18">
+                <use
+                  href="./images/sprite.svg#icon-opened-book"
+                ></use></svg></span
+            >Read<svg class="page__next" width="12" height="16">
+              <use href="./images/sprite.svg#icon-arrow-right"></use></svg
+          ></a>
+        </li>
+      </ul>
+      <div class="menu__theme">
+        <svg class="theme__svg sun" width="21" height="21">
+          <use href="./images/sprite.svg#sun"></use>
+        </svg>
+        <p class="theme__light">Light</p>
+        <label class="switch">
+          <input type="checkbox" class="switch-checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <p class="theme__dark opacity">Dark</p>
+        <svg class="theme__svg moon" width="21" height="21">
+          <use href="./images/sprite.svg#moon"></use>
+        </svg>
+      </div>
+    </div>
   </div>
 </header>
