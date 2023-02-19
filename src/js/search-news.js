@@ -1,5 +1,5 @@
 import SearchNews from './api';
-import { createMarkup, createMostPopularMarkup } from './news-markup';
+import { createMarkup, createMostPopularMarkup } from './markup-function';
 
 const form = document.getElementById('form-field');
 const imageNoResults = document.getElementById('img-noresults');
