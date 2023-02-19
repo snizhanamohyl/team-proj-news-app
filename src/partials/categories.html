@@ -1,34 +1,119 @@
-<section class="categories">
-  <ul class="categories__list" id="categories__list">
-    <li class="categories__item">
-      <button class="categories__btn display-tab" type="button"></button>
-    </li>
-    <li class="categories__item display-tab">
-      <button class="categories__btn" type="button"></button>
-    </li>
-    <li class="categories__item display-tab">
-      <button class="categories__btn" type="button"></button>
-    </li>
-    <li class="categories__item display-tab">
-      <button class="categories__btn" type="button"></button>
-    </li>
-    <li class="categories__item display-desk">
-      <button class="categories__btn" type="button"></button>
-    </li>
-    <li class="categories__item display-desk">
-      <button class="categories__btn" type="button"></button>
-    </li>
-    <li class="categories__item">
-      <button class="categories__btn" type="button" id="others">
-        <span id="categories-span">Others</span>
-        <svg class="categories__arrow" width="14" height="14">
-          <use href="./images/sprite.svg#arrow-down"></use>
-        </svg>
-      </button>
-    </li>
-  </ul>
+    <section>
+      <div class="categories-container">
+        <div class="categories">
+          <ul class="categories__list" id="categories__list">
+            <li class="categories__item">
+              <button class="categories__btn display-tab" type="button"></button>
+            </li>
+            <li class="categories__item display-tab">
+              <button class="categories__btn" type="button"></button>
+            </li>
+            <li class="categories__item display-tab">
+              <button class="categories__btn" type="button"></button>
+            </li>
+            <li class="categories__item display-tab">
+              <button class="categories__btn" type="button"></button>
+            </li>
+            <li class="categories__item display-desk">
+              <button class="categories__btn" type="button"></button>
+            </li>
+            <li class="categories__item display-desk">
+              <button class="categories__btn" type="button"></button>
+            </li>
+            <li class="categories__item">
+              <button class="categories__btn" type="button" id="others">
+                <span id="categories-span">Others</span>
+                <svg class="categories__arrow" width="14" height="14">
+                  <use href="./images/sprite.svg#arrow-down"></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
 
-  <div class="dropdown js-is-hidden" id="dropdown">
-    <ul id="others-list"></ul>
-  </div>
+          <div class="dropdown js-is-hidden" id="dropdown">
+            <ul id="others-list"></ul>
+          </div>
+
+          <!-- Calendar markup -->
+          <p class="calendar-form__text">Search date news</p>
+          <div class="calendar-form">
+            <div class="input-form" data-modal-open>
+              <svg class="calendar__button-calendar" width="16" height="16">
+                <use href="./images/sprite.svg#calendar"></use>
+              </svg>
+              <input
+                readonly
+                id="input-picker"
+                class="calendar-input datepicker-here"
+                placeholder="Choose a date..."
+              />
+              <svg class="calendar__button-arrow" width="14" height="14">
+                <use href="./images/sprite.svg#arrow-down"></use>
+              </svg>
+            </div>
+            <div class="calendar-wrapper is-hidden-wrapper" data-modal>
+              <div class="calendar-wrapper__container">
+                <div class="calendar-switcher">
+                  <div class="current-month">
+                    <svg
+                      class="calendar__button-prev"
+                      width="12"
+                      height="12"
+                      transform="rotate(90)"
+                    >
+                      <use href="./images/sprite.svg#arrow-down"></use>
+                    </svg>
+                    <p class="current-date"></p>
+                    <svg
+                      class="calendar__button-next"
+                      width="12"
+                      height="12"
+                      transform="rotate(270)"
+                    >
+                      <use href="./images/sprite.svg#arrow-down"></use>
+                    </svg>
+                  </div>
+                  <div class="calendar-icons">
+                    <span id="prev" class="material-symbols-rounded">
+                      <svg
+                        class="calendar__button-arrow-icon"
+                        width="14"
+                        height="14"
+                        transform="rotate(90)"
+                      >
+                        <use href="./images/sprite.svg#arrow-down"></use>
+                      </svg>
+                    </span>
+                    <span id="next" class="material-symbols-rounded">
+                      <svg
+                        class="calendar__button-arrow-icon"
+                        width="14"
+                        height="14"
+                        transform="rotate(270)"
+                      >
+                        <use href="./images/sprite.svg#arrow-down"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="calendar">
+                  <ul class="calendar-weeks__list">
+                    <li class="calendar-weeks__item">Sun</li>
+                    <li class="calendar-weeks__item">Mon</li>
+                    <li class="calendar-weeks__item">Tue</li>
+                    <li class="calendar-weeks__item">Wed</li>
+                    <li class="calendar-weeks__item">Thu</li>
+                    <li class="calendar-weeks__item">Fri</li>
+                    <li class="calendar-weeks__item">Sat</li>
+                  </ul>
+                  <ul class="days">
+                    <li class="calendar-days"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
