@@ -22,7 +22,7 @@ export default class SearchNews {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}`
+      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}}&${this.dataFilter}`
     );
 
     return response;
