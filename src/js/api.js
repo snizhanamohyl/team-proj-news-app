@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class SearchNews {
   constructor() {
-    this.queryPage = 1;
+    // this.queryPage = 1;
     this.searchQuery = '';
     this.category = '';
     this.dataFilter = '';
@@ -12,7 +12,7 @@ export default class SearchNews {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}&page=${this.queryPage}`
+      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}`
     );
 
     this.incrementPage();
@@ -23,7 +23,7 @@ export default class SearchNews {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}&page=${this.queryPage}`
+      `${API_URL}?q=${this.searchQuery}&api-key=${API_KEY}`
     );
 
     this.incrementPage();
@@ -43,7 +43,7 @@ export default class SearchNews {
     const API_URL = 'https://api.nytimes.com/svc/news/v3/content/all/';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}${this.category}.json?api-key=${API_KEY}&page=${this.queryPage}`
+      `${API_URL}${this.category}.json?api-key=${API_KEY}`
     );
 
     this.incrementPage();
@@ -54,7 +54,7 @@ export default class SearchNews {
     const API_URL = 'https://api.nytimes.com/svc/news/v3/content/all/';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
-      `${API_URL}${this.category}.json?api-key=${API_KEY}&${this.dataFilter}&page=${this.queryPage}`
+      `${API_URL}${this.category}.json?api-key=${API_KEY}&${this.dataFilter}`
     );
 
     this.incrementPage();
@@ -64,20 +64,18 @@ export default class SearchNews {
   async mostPopularNews() {
     const API_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json`;
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
-    const response = await axios.get(
-      `${API_URL}?api-key=${API_KEY}&page=${this.queryPage}`
-    );
+    const response = await axios.get(`${API_URL}?api-key=${API_KEY}`);
 
     this.incrementPage();
     return response;
   }
-  resetPage() {
-    this.queryPage = 1;
-  }
+  // resetPage() {
+  //   this.queryPage = 1;
+  // }
 
-  incrementPage() {
-    this.queryPage += 1;
-  }
+  // incrementPage() {
+  //   this.queryPage += 1;
+  // }
   get query() {
     return this.searchQuery;
   }
