@@ -163,7 +163,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 11px 0px;
+    padding: 11px 5px;
     margin-bottom: 2px;
 
     // & svg:hover {
@@ -182,7 +182,8 @@
     //     }
 }
 
-.calendar__button-next {
+.calendar__button-next,
+.calendar__button-prev {
     cursor: url(../images/cursor-hand.svg), pointer;
     display: flex;
 
@@ -196,17 +197,20 @@
     letter-spacing: -0.408px;
     font-feature-settings: 'case' on;
     color: var(--calendar-color-date);
-    margin-right: 8px;
-    margin-left: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .calendar-icons {
     display: flex;
+    align-items: center;
 
     color: var(--accent-color);
 
+    padding-top: 2px;
+
     & span {
-        width: 33px;
+        width: 27px;
 
         // border-radius: 50%;
         fill: var(--accent-color);

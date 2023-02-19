@@ -30,11 +30,15 @@ function hideModals(evt) {
   }
 
   if (refs.input.classList.contains('is-active')) {
-    refs.modal.classList.add('is-hidden-wrapper');
-    refs.input.classList.remove('is-active');
-    refs.arrow.classList.remove('switched');
-    refs.calendarBtn.classList.remove('switched-color');
+    changeStyleOfHiddingCalendar();
   }
+}
+
+function changeStyleOfHiddingCalendar() {
+  refs.modal.classList.add('is-hidden-wrapper');
+  refs.input.classList.remove('is-active');
+  refs.arrow.classList.remove('switched');
+  refs.calendarBtn.classList.remove('switched-color');
 }
 
 // Rendered Calendar
@@ -43,6 +47,7 @@ const daysTag = document.querySelector('.days'),
   currentDate = document.querySelector('.current-date'),
   prevNextIcon = document.querySelectorAll('.calendar-icons span'),
   nextYearIcon = document.querySelector('.calendar__button-next');
+prevYearIcon = document.querySelector('.calendar__button-prev');
 
 // getting new date, current year and month
 let date = new Date(),
@@ -126,14 +131,26 @@ prevNextIcon.forEach(icon => {
 });
 
 // pagination for years
-nextYearIcon.addEventListener('click', () => {
+nextYearIcon.addEventListener('click', incrementYear);
+prevYearIcon.addEventListener('click', decrementYear);
+
+function incrementYear() {
   if (currYear) {
     currYear += 1;
   }
   renderCalendar(); // calling renderCalendar function
 
   paginationForMonth();
-});
+}
+
+function decrementYear() {
+  if (currYear) {
+    currYear -= 1;
+  }
+  renderCalendar(); // calling renderCalendar function
+
+  paginationForMonth();
+}
 
 // pagination for months
 function paginationForMonth() {
@@ -181,10 +198,7 @@ daysTag.addEventListener('click', evt => {
   localStorage.setItem('day', JSON.stringify(selectedValueDay));
   localStorage.setItem('date', JSON.stringify(selectedInputDate));
 
-  refs.modal.classList.add('is-hidden-wrapper');
-  refs.input.classList.remove('is-active');
-  refs.arrow.classList.remove('switched');
-  refs.calendarBtn.classList.remove('switched-color');
+  changeStyleOfHiddingCalendar();
 });
 
 localStorage.removeItem('day');
