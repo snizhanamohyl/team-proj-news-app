@@ -1,51 +1,3 @@
-import SearchNews from './api';
-
-const form = document.getElementById('form-field');
-const imageNoResults = document.getElementById('img-noresults');
-
-const searchNews = new SearchNews();
-
-searchNews
-  .mostPopularNews()
-  .then(res => {
-    let articles = res.data.results;
-    let gallery = document.querySelector('.card-set');
-    let markup = createMostPopularMarkup(articles);
-    gallery.innerHTML = markup;
-  })
-  .catch(console.log);
-
-form.addEventListener('submit', onSubmit);
-
-function onSubmit(e) {
-  e.preventDefault();
-  imageNoResults.style.display = 'none';
-
-  const form = e.currentTarget;
-  searchNews.searchQuery = form.elements.searchQuery.value.trim();
-
-  findNews();
-
-  async function findNews() {
-    let gallery = document.querySelector('.card-set');
-    try {
-      const newSearch = await searchNews.searchNews();
-      if (newSearch.data.response.docs.length === 0) {
-        throw new Error('no results');
-      }
-      let markup = createMarkup(newSearch.data.response.docs);
-
-      gallery.innerHTML = markup;
-    } catch (err) {
-      console.log('ERROR', err);
-      gallery.innerHTML = '';
-      imageNoResults.style.display = 'block';
-    } finally {
-      form.reset();
-    }
-  }
-}
-
 function createMarkup(articles) {
   const markup = articles
     .map(
@@ -64,8 +16,9 @@ function createMarkup(articles) {
         let link = 'http://www.nytimes.com/' + image.url;
         return `<li class="news-card">
         <article>
-        <div class="box-img">
-            <img src=${link} class="news-card__img" width="395" height="395" alt="img-news">
+         <div class="box-img">
+        <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
+        </div>
             <p class="box-img__inform">${section_name}</p>
             <button type="button" class="favorite-btn">
                 Add to favorite
@@ -101,7 +54,8 @@ function createMostPopularMarkup(articles) {
       return `<li class="news-card">
         <article>
         <div class="box-img">
-            <img src=${link} class="news-card__img" width="395" height="395" alt="img-news">
+        <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
+        </div>
             <p class="box-img__inform">${section}</p>
             <button type="button" class="favorite-btn">
                 Add to favorite
@@ -127,3 +81,5 @@ function createMostPopularMarkup(articles) {
     .join('');
   return markup;
 }
+
+export { createMarkup, createMostPopularMarkup };
