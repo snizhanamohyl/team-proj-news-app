@@ -168,11 +168,11 @@ daysTag.addEventListener('click', evt => {
   let month = (currMonth + 1).toString();
 
   refs.input.value =
-    selectedValueDay.padStart(2, '0') +
+    currYear +
     '/' +
     month.padStart(2, '0') +
     '/' +
-    currYear;
+    selectedValueDay.padStart(2, '0');
 
   // !!!!!!!!!!!!!!!!!!!!!
   let selectedInputDate = refs.input.value;
