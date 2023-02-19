@@ -1,61 +1,35 @@
-<section>
-  <div class="categories-container">
-    <div class="categories">
-      <ul class="categories__list">
+    <section class="categories">
+      <ul class="categories__list" id="categories__list">
         <li class="categories__item">
-          <button class="categories__btn display-tab" type="button">
-            Admin
-          </button>
+          <button class="categories__btn display-tab" type="button"></button>
         </li>
         <li class="categories__item display-tab">
-          <button class="categories__btn" type="button">Arts</button>
+          <button class="categories__btn" type="button"></button>
         </li>
         <li class="categories__item display-tab">
-          <button class="categories__btn" type="button">Automobiles</button>
+          <button class="categories__btn" type="button"></button>
         </li>
         <li class="categories__item display-tab">
-          <button class="categories__btn" type="button">Books</button>
+          <button class="categories__btn" type="button"></button>
         </li>
         <li class="categories__item display-desk">
-          <button class="categories__btn" type="button">Briefing</button>
+          <button class="categories__btn" type="button"></button>
         </li>
         <li class="categories__item display-desk">
-          <button class="categories__btn" type="button">Business</button>
+          <button class="categories__btn" type="button"></button>
         </li>
         <li class="categories__item">
           <button class="categories__btn" type="button" id="others">
-            Others
+            <span id="categories-span">Others</span>
+            <svg class="categories__arrow" width="14" height="14">
+              <use href="./images/sprite.svg#arrow-down"></use>
+            </svg>
           </button>
         </li>
       </ul>
 
       <div class="dropdown js-is-hidden" id="dropdown">
-        <ul>
-          <li><button class="dropdown-item" type="button">Climate</button></li>
-          <li>
-            <button class="dropdown-item" type="button">Corrections</button>
-          </li>
-          <li>
-            <button class="dropdown-item" type="button">Education</button>
-          </li>
-          <li>
-            <button class="dropdown-item" type="button">En Español</button>
-          </li>
-          <li><button class="dropdown-item" type="button">Fashion</button></li>
-          <li><button class="dropdown-item" type="button">Food</button></li>
-          <li><button class="dropdown-item" type="button">Guides</button></li>
-          <li><button class="dropdown-item" type="button">Health</button></li>
-          <li>
-            <button class="dropdown-item" type="button">Home & Garden</button>
-          </li>
-          <li>
-            <button class="dropdown-item" type="button">Home Page</button>
-          </li>
-          <li>
-            <button class="dropdown-item" type="button">Job Market</button>
-          </li>
-          <li><button class="dropdown-item" type="button">Lens</button></li>
-        </ul>
+        <ul id="others-list"></ul>
       </div>
 
       <!-- Calendar markup -->
@@ -138,5 +112,4 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
