@@ -68,7 +68,7 @@ function createMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite
                 <svg class="favorite-btn__icon" width="16" height="16">
-                     <use class="icon-js" href="./img/symbol-defs.svg#icon-icons-heart-no-active"></use>
+                    <use class="icon-js" href="./images/sprite.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>
@@ -106,7 +106,8 @@ function createMarkup(articles) {
 //           return image.type === 'image';
 //         });
 
-//         let link = 'http://www.nytimes.com/' + image['media-metadata'][0].url;
+//         let link =
+//           'http://www.nytimes.com/' + image['media.media-metadata'][0].url;
 //         return `<li class="news-card">
 //         <article>
 //         <div class="box-img">
