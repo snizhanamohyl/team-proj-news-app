@@ -1,0 +1,8 @@
+footer {
+  height: 120px;
+  background-color: var(--footer-bcg-color);
+
+  @include tablet {
+    height: 146px;
+  }
+}
