@@ -39,7 +39,7 @@
   border: 1px solid var(--accent-color);
   border-radius: 20px;
   background-color: transparent;
-  cursor: pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 
   transition: background-color var(--transition);
   transition: color var(--transition);
@@ -57,8 +57,11 @@
 
 .dropdown {
   width: 148px;
-  padding: 14px 24px;
+  height: 380px;
+  padding: 14px 14px;
   z-index: 1000;
+
+  overflow: scroll;
 
   background: var(--dropdown-list);
   border-radius: 20px;
@@ -67,10 +70,10 @@
   left: 18px;
   top: 140px;
 
-  opacity: 1;
-  transition: opacity var(--transition);
+  display: block;
 
   @media screen and (min-width: 768px) {
+    padding: 14px 24px;
     width: 168px;
     top: 169px;
     left: 435px;
@@ -99,7 +102,7 @@
   border: none;
   background-color: transparent;
 
-  cursor: pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 
   &::after {
     transition: opacity var(--transition);
@@ -120,8 +123,7 @@
 }
 
 .js-is-hidden {
-  opacity: 0;
-  transition: opacity var(--transition);
+  display: none;
 }
 
 .display-desk {
