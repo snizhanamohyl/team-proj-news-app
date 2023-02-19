@@ -10,8 +10,8 @@ searchNews
   .mostPopularNews()
   .then(res => {
     const articles = res.data.results;
-    let gallery = document.querySelector('.card-set');
-    let markup = createMostPopularMarkup(articles);
+    const gallery = document.querySelector('.card-set');
+    const markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
   })
   .catch(console.log);
