@@ -43,11 +43,11 @@ function changeStyleOfHiddingCalendar() {
 
 // Rendered Calendar
 
-const daysTag = document.querySelector('.days'),
-  currentDate = document.querySelector('.current-date'),
-  prevNextIcon = document.querySelectorAll('.calendar-icons span'),
-  nextYearIcon = document.querySelector('.calendar__button-next');
-prevYearIcon = document.querySelector('.calendar__button-prev');
+const daysTag = document.querySelector('.days');
+const currentDate = document.querySelector('.current-date');
+const prevNextIcon = document.querySelectorAll('.calendar-icons span');
+const nextYearIcon = document.querySelector('.calendar__button-next');
+const constprevYearIcon = document.querySelector('.calendar__button-prev');
 
 // getting new date, current year and month
 let date = new Date(),
