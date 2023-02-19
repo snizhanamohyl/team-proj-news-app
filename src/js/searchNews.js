@@ -1,7 +1,7 @@
 import SearchNews from './api';
 
 const form = document.getElementById('form-field');
-const imageNoResult = document.getElementById('img-noresults');
+const imageNoResults = document.getElementById('img-noresults');
 
 const searchNews = new SearchNews();
 
@@ -9,7 +9,6 @@ searchNews
   .mostPopularNews()
   .then(res => {
     let articles = res.data.results;
-    console.log(articles);
     let gallery = document.querySelector('.card-set');
     let markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
@@ -20,7 +19,7 @@ form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
-  imageNoResult.style.display = 'none';
+  imageNoResults.style.display = 'none';
 
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
@@ -31,7 +30,6 @@ function onSubmit(e) {
     let gallery = document.querySelector('.card-set');
     try {
       const newSearch = await searchNews.searchNews();
-      console.log(newSearch.data.response.docs);
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
       }
@@ -41,7 +39,7 @@ function onSubmit(e) {
     } catch (err) {
       console.log('ERROR', err);
       gallery.innerHTML = '';
-      imageNoResult.style.display = 'block';
+      imageNoResults.style.display = 'block';
     } finally {
       form.reset();
     }
@@ -98,7 +96,6 @@ function createMostPopularMarkup(articles) {
   const markup = articles
     .map(({ web_url, abstract, title, published_date, media, section }) => {
       let image = media[0];
-      console.log(image);
       if (!image) return '';
       let link = image['media-metadata'][2].url;
       return `<li class="news-card">
@@ -109,7 +106,7 @@ function createMostPopularMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite
                 <svg class="favorite-btn__icon" width="16" height="16">
-                     <use class="icon-js" href="./img/symbol-defs.svg#icon-icons-heart-no-active"></use>
+                     <use class="icon-js" href="./images/sprite.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>

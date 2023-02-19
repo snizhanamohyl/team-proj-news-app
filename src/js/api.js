@@ -18,27 +18,6 @@ export default class SearchNews {
     return response;
   }
 
-  async categoryList() {
-    const API_URL =
-      'https://api.nytimes.com/svc//news/v3/content/section-list.json';
-    const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
-    const response = await axios.get(`${API_URL}?api-key=${API_KEY}`);
-    // then(data => {
-    this.incrementPage();
-    return response;
-  }
-
-  async categoryNews() {
-    const API_URL = 'https://api.nytimes.com/svc/news/v3/content/all/';
-    const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
-    const response = await axios.get(
-      `${API_URL}${this.category}.json?api-key=${API_KEY}`
-    );
-    // then(data => {
-    this.incrementPage();
-    return response;
-  }
-
   async mostPopularNews() {
     const API_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json`;
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
