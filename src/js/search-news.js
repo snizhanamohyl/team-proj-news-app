@@ -9,7 +9,7 @@ const searchNews = new SearchNews();
 searchNews
   .mostPopularNews()
   .then(res => {
-    let articles = res.data.results;
+    const articles = res.data.results;
     let gallery = document.querySelector('.card-set');
     let markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
@@ -34,7 +34,7 @@ function onSubmit(e) {
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
       }
-      let markup = createMarkup(newSearch.data.response.docs);
+      const markup = createMarkup(newSearch.data.response.docs);
 
       gallery.innerHTML = markup;
     } catch (err) {
