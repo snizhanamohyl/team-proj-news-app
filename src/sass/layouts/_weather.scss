@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     background-color: var(--accent-color);
     color: var(--white);
     padding: 32px 36px;
@@ -32,7 +34,7 @@
           } 
     }
 
-    &--d {
+    &--degree {
         font-size: 55px;
         line-height: 1.18;
 
@@ -43,7 +45,7 @@
           }
     }
 
-    &--g {
+    &--geo--position {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -92,12 +94,10 @@
           }
     }
 
-    &--sun{
+    &--skyCons{
         width: 128px;
         height: 121px;
         margin: 0 auto;
-        background: linear-gradient(180deg, #FA6C21 0%, rgba(255, 211, 88, 0.2) 100%);
-        border-radius: 50%;
         margin-bottom: 40px;   
         
         @media screen and(min-width: $pre_tablet) {
