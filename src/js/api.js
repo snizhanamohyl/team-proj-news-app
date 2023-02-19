@@ -5,7 +5,7 @@ export default class SearchNews {
     // this.queryPage = 1;
     this.searchQuery = '';
     this.category = '';
-    this.dataFilter = '';
+    this.dateFilter = '';
   }
 
   async searchNews() {
