@@ -72,7 +72,6 @@ function createMarkup(articles) {
                 </svg>
             </button>
         </div>
-
         <h2 class="news-card__title">${headline.main}</h2>
         <p class="news-card__text">${lead_paragraph}</p>
         <div class="news-card__inform">
@@ -107,7 +106,7 @@ function createMarkup(articles) {
 //         });
 
 //         let link =
-//           'http://www.nytimes.com/' + image['media.media-metadata'][0].url;
+//           'http://www.nytimes.com/' + image['media-metadata'][0].url;
 //         return `<li class="news-card">
 //         <article>
 //         <div class="box-img">
