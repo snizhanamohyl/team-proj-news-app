@@ -4,12 +4,14 @@ const textEl = document.querySelectorAll(".news-card__text");
 
 const filteredArr = Array.from(textEl).filter((elem) => {
     return elem.textContent.length >= MAX_LENGTH_TEXT
-});
+})
+
 
 const filteredText = filteredArr.forEach((elem) => {
     const textValue = elem.textContent.slice(0, MAX_LENGTH_TEXT);
     return elem.textContent = textValue + "...";
 });
+ 
 
 /////////////////////////////////////////////////////////////////
 
