@@ -12,6 +12,7 @@ searchNews
   .mostPopularNews()
   .then(res => {
     const articles = res.data.results;
+    const gallery = document.getElementById('news-list');
     console.log("articles: ", articles);
     const gallery = document.querySelector('.card-set');
     // const getFiltredArticles = showPage(articles)
@@ -32,7 +33,7 @@ function onSubmit(e) {
   findNews();
 
   async function findNews() {
-    let gallery = document.querySelector('.card-set');
+    let gallery = document.getElementById('news-list');
     try {
       const newSearch = await searchNews.searchNews();
       if (newSearch.data.response.docs.length === 0) {
