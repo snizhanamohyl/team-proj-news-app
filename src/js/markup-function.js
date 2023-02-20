@@ -91,6 +91,10 @@ function createMostPopularMarkup(articles) {
 function createCategoriesMarkup(articles) {
   const markup = articles
     .map(({ url, abstract, title, updated_date, multimedia, section }) => {
+      console.log(multimedia);
+      if (multimedia === null) {
+        return;
+      }
       let image = multimedia[2].url;
 
       return `<li class="news-card">
