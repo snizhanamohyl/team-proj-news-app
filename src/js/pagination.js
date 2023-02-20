@@ -1,4 +1,5 @@
-import {} from './search-news'
+import {  } from './search-news'
+
 
 
 const refs = {
@@ -7,6 +8,7 @@ const refs = {
   btnPrevPg: document.querySelector('.prev-page'),
   pageContainer: document.querySelector('.pagination-container'),
 };
+
 
 const res = [{
   title: "Cat1",
@@ -55,31 +57,45 @@ const res = [{
 },
 ];
 
+let itemsPerPage = 0;
+let totalItem = res.length;
 
-const valuePage = {
-  itemsPerPage: 8,
+
+// if(window.innerWidth < 768) {
+//     itemsPerPage = 4;
+// }
+// if(window.innerWidth > 768 && window.innerWidth < 1280) {
+//     itemsPerPage = 7;
+// }
+// if(window.innerWidth >= 1280) {
+//     itemsPerPage = 8;
+// }
+
+const valuePage =  {
   curPage: 1,
   numLinksTwoSide: 1,
-  totalItem: res.length,
 };
 
-let totalPages = Math.ceil(valuePage.totalItem / valuePage.itemsPerPage);
-console.log("totalPage: ", totalPages);
+let totalPages = Math.ceil(totalItem / itemsPerPage);
+// console.log("totalPage: ", totalPages);
 
 
-
+showPage(res);
+console.log("showPage(res): ", showPage(res));
 pagination();
-getItems(res);
 
 
-
-function getItems(value) {
-  const startIndex = (valuePage.curPage - 1) * valuePage.itemsPerPage;
-  const endIndex = startIndex + valuePage.itemsPerPage;
-  console.log("Обрізаний масив: ", value.slice(startIndex, endIndex))
-  return value.slice(startIndex, endIndex);
+function showPage(data) {
+  const startIndex = (valuePage.curPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  // console.log("Обрізаний масив: ", value.slice(startIndex, endIndex))
+  return data.slice(startIndex, endIndex);
 };
 
+
+
+console.log("window.innerWidth: ", window.innerWidth);
+console.log("itemsPerPage: ", itemsPerPage);
 
 
 refs.pg.addEventListener('click', e => {
@@ -97,7 +113,8 @@ refs.pg.addEventListener('click', e => {
   });
 
 refs.pageContainer.addEventListener('click', function (e) {
-  handleButton(e.target);
+
+  handleButton(e.target, res);
 });
 
 // DYNAMIC PAGINATION
@@ -164,7 +181,7 @@ refs.pageContainer.addEventListener('click', function (e) {
     `;
   }
   
-  function handleButton(element) {
+  function handleButton(element, data) {
     if (element.classList.contains('prev-page')) {
       valuePage.curPage-=1;
       handleButtonLeft();
@@ -176,7 +193,8 @@ refs.pageContainer.addEventListener('click', function (e) {
       refs.btnPrevPg.disabled = false;
       //  btnFirstPg.disabled = false;
     }
-    getItems(res);
+    showPage(data);
+    console.log("showPage(data): ", showPage(data));
     pagination();
   }
 
@@ -202,4 +220,4 @@ refs.pageContainer.addEventListener('click', function (e) {
   };
 
 
-export { getItems };
+export {  };
