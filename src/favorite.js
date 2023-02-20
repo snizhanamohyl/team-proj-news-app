@@ -1,6 +1,7 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const bodyRef = document.querySelector('body');
 const cardsContainerRef = document.querySelector('#favorites-card-set');
-const savedFavorites = localStorage.getItem('Favorites');
+const savedFavorites = localStorage.getItem('favorites');
 const favoriteCardsArray = [];
 
 getCardsRef();
@@ -31,16 +32,15 @@ function renderMarkup(card) {
 }
 
 function saveFavoritesToLS(current) {
-  localStorage.setItem('Favorites', JSON.stringify(current));
+  localStorage.setItem('favorites', JSON.stringify(current));
 }
 
 function getFavoritesFromLS() {
   try {
     const parsedFavorites = JSON.parse(savedFavorites);
     parsedFavorites.forEach(obj => favoriteCardsArray.push(obj));
-    console.log('Saved news cards in favorite: ', favoriteCardsArray.length);
   } catch (error) {
-    console.log('Favorites list is empty');
+    Notify.info('Favorites list is empty');
   }
 }
 
@@ -53,7 +53,7 @@ function showFavoritesNews() {
       cardsContainerRef.innerHTML = markupArr;
     }
   } catch (error) {
-    console.log('Failed to markup your favorites news');
+    Notify.error('Failed to markup your favorites news');
   }
 }
 

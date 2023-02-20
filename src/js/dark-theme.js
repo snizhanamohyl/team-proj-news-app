@@ -1,6 +1,6 @@
 const bodyRef = document.querySelector('body');
 const themeSwitcher = document.querySelectorAll('.switch-checkbox');
-const currentTheme = localStorage.getItem('CurrentPageTheme');
+const currentTheme = localStorage.getItem('current-page-theme');
 
 themeSwitcher.forEach(switcher => {
   switcher.addEventListener('change', onThemeSwitch);
@@ -18,7 +18,7 @@ function onThemeSwitch() {
 }
 
 function saveCurrentToLS(current) {
-  localStorage.setItem('CurrentPageTheme', current);
+  localStorage.setItem('current-page-theme', current);
 }
 
 function addClass() {
