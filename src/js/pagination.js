@@ -59,7 +59,13 @@ const res = [{
 
 let itemsPerPage = 0;
 let totalItem = res.length;
+let totalPages = Math.ceil(totalItem / itemsPerPage);
+// console.log("totalPage: ", totalPages);
 
+const valuePage =  {
+  curPage: 1,
+  numLinksTwoSide: 1,
+};
 
 // if(window.innerWidth < 768) {
 //     itemsPerPage = 4;
@@ -70,15 +76,6 @@ let totalItem = res.length;
 // if(window.innerWidth >= 1280) {
 //     itemsPerPage = 8;
 // }
-
-const valuePage =  {
-  curPage: 1,
-  numLinksTwoSide: 1,
-};
-
-let totalPages = Math.ceil(totalItem / itemsPerPage);
-// console.log("totalPage: ", totalPages);
-
 
 showPage(res);
 console.log("showPage(res): ", showPage(res));
