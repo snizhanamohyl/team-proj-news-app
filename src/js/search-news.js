@@ -12,6 +12,7 @@ searchNews
   .mostPopularNews()
   .then(res => {
     const articles = res.data.results;
+    console.log("articles: ", articles);
     const gallery = document.getElementById('news-list');
     const markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;

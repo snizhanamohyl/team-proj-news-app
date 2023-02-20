@@ -60,26 +60,27 @@ const res = [{
 let itemsPerPage = 2;
 let totalItem = res.length;
 
+
+if(window.innerWidth < 768) {
+    itemsPerPage = 4;
+}
+if(window.innerWidth >= 768 && window.innerWidth < 1280) {
+    itemsPerPage = 7;
+}
+if(window.innerWidth >= 1280) {
+    itemsPerPage = 8;
+}
+
 const valuePage =  {
   curPage: 1,
   numLinksTwoSide: 1,
   totalPages: Math.ceil(totalItem / itemsPerPage),
 };
+
 console.log("totalPages: ", valuePage.totalPages);
-
-// if(window.innerWidth < 768) {
-//     itemsPerPage = 4;
-// }
-// if(window.innerWidth >= 768 && window.innerWidth < 1280) {
-//     itemsPerPage = 7;
-// }
-// if(window.innerWidth >= 1280) {
-//     itemsPerPage = 8;
-// }
-
 showPage(res);
-console.log("showPage(res): ", showPage(res));
 pagination();
+
 
 
 function showPage(data) {
@@ -103,11 +104,14 @@ refs.pg.addEventListener('click', e => {
   
       valuePage.curPage = pageNumber;
       pagination(valuePage);
+      showPage(res);
       // console.log(valuePage);
       handleButtonLeft();
       handleButtonRight();
     }
   });
+
+
 
 refs.pageContainer.addEventListener('click', function (e) {
   handleButton(e.target, res);
@@ -190,7 +194,7 @@ refs.pageContainer.addEventListener('click', function (e) {
       //  btnFirstPg.disabled = false;
     }
     showPage(data);
-    console.log("showPage(data): ", showPage(data));
+    console.log("showPage(res): ", showPage(data), "ПОточна сторінка: ", valuePage.curPage);
     pagination();
   }
 
