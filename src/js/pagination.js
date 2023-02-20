@@ -70,7 +70,7 @@ const valuePage =  {
 // if(window.innerWidth < 768) {
 //     itemsPerPage = 4;
 // }
-// if(window.innerWidth > 768 && window.innerWidth < 1280) {
+// if(window.innerWidth >= 768 && window.innerWidth < 1280) {
 //     itemsPerPage = 7;
 // }
 // if(window.innerWidth >= 1280) {
