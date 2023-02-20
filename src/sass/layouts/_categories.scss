@@ -5,6 +5,7 @@
 .categories {
   // padding-left: 16px;
   padding-top: 24px;
+  position: relative;
 
   display: flex;
   justify-content: space-between;
@@ -73,20 +74,20 @@
   border-radius: 20px;
 
   position: absolute;
-  left: 18px;
-  top: 140px;
+  top: 60px;
+  left: 0;
 
   display: block;
 
   @media screen and (min-width: 768px) {
     padding: 14px 24px;
     width: 168px;
-    top: 169px;
-    left: 435px;
+    top: 64px;
+    left: 417px;
   }
   @media screen and (min-width: 1280px) {
-    top: 176px;
-    left: 667px;
+    top: 64px;
+    left: 649px;
   }
 }
 
