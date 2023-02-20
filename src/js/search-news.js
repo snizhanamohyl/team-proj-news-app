@@ -13,9 +13,6 @@ searchNews
   .then(res => {
     const articles = res.data.results;
     const gallery = document.getElementById('news-list');
-    console.log("articles: ", articles);
-    const gallery = document.querySelector('.card-set');
-    // const getFiltredArticles = showPage(articles)
     const markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
   })
