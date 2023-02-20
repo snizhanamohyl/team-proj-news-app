@@ -31,7 +31,7 @@ function onSubmit(e) {
     let gallery = document.querySelector('.card-set');
     let newSearch;
     const date = JSON.parse(localStorage.getItem('date'));
-    if (date === '') {
+    if (date === null) {
       newSearch = await searchNews.searchNews();
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
