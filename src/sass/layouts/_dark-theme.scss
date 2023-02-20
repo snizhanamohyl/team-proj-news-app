@@ -1,0 +1,56 @@
+body.dark {
+  background-color: var(--dark-bcg-color);
+
+  .header {
+    border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+  }
+
+  .theme__dark {
+    opacity: 1;
+  }
+
+  .navbar__link,
+  .logo {
+    color: var(--bcg-color);
+  }
+
+  .theme__light {
+    color: var(--bcg-color);
+    opacity: 0.4;
+  }
+  .search-field {
+    color: var(--bcg-color);
+    border-color: var(--bcg-color);
+  }
+  .moon {
+    fill: var(--accent-color);
+  }
+
+  .theme__dark {
+    color: var(--accent-color);
+  }
+  .search__icon,
+  .icon {
+    fill: var(--white);
+  }
+  #search-field__input {
+    color: var(--bcg-color);
+  }
+  .sun {
+    fill: var(--disabled-color);
+  }
+  .news-card {
+    &__title, &__text {
+      color: var(--white);
+    }
+  }
+  .categories__btn {
+    background-color: var(--white);
+
+    &:hover, &:focus, &:active {
+      color: var(--white);
+      border-color: var(--accent-color);
+      background-color: var(--accent-color);
+    }
+  }
+}
