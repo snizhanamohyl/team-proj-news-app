@@ -28,21 +28,40 @@ function onSubmit(e) {
   findNews();
 
   async function findNews() {
-    let gallery = document.getElementById('news-list');
-    try {
-      const newSearch = await searchNews.searchNews();
+    let gallery = document.querySelector('.card-set');
+    let newSearch;
+    const date = JSON.parse(localStorage.getItem('date'));
+    if (date === null) {
+      newSearch = await searchNews.searchNews();
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
       }
-      const markup = createMarkup(newSearch.data.response.docs);
+      let markup = createMarkup(newSearch.data.response.docs);
 
       gallery.innerHTML = markup;
-    } catch (err) {
-      console.log('ERROR', err);
-      gallery.innerHTML = '';
-      imageNoResults.style.display = 'block';
-    } finally {
-      form.reset();
+    } else {
+      searchNews.dateFilter = date.replace('/', '').replace('/', '');
+      newSearch = await searchNews.searchNewsWithDate();
+      if (newSearch.data.response.docs.length === 0) {
+        throw new Error('no results');
+      }
+      let markup = createMarkup(newSearch.data.response.docs);
+
+      gallery.innerHTML = markup;
     }
   }
 }
+
+// const date = JSON.parse(localStorage.getItem('date'));
+// //   .replace('/', '')
+// //   .replace('/', '');
+// searchNews.dateFilter = date;
+// const card = document.querySelector('.news-card');
+// console.log(card.dataset.date);
+// function filter() {
+//   let list = [];
+
+//   const cards = document.querySelectorAll('.news-card');
+//   list = cards.filter(card => card.dataset.date === date);
+//   return console.log(list);
+// }

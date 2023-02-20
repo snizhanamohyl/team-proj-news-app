@@ -50,11 +50,15 @@ function createMarkup(articles) {
 
 function createMostPopularMarkup(articles) {
   const markup = articles
-    .map(({ url, abstract, title, published_date, media, section }) => {
+    .map(({ uri, url, abstract, title, published_date, media, section }) => {
       let image = media[0];
       if (!image) return '';
       let link = image['media-metadata'][2].url;
-      return `<li class="news-card">
+      return `<li class="news-card" data-date="${published_date
+        .split('')
+        .splice(0, 10)
+        .join('')
+        .replaceAll('-', '/')}">
         <article>
         <div class="box-img">
         <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
@@ -75,7 +79,7 @@ function createMostPopularMarkup(articles) {
         <div class="news-card__inform">
             <p class="news-card__date">
 						${published_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
-            <a class="news-card__link" target="_blank" href="${url}">
+            <a class="news-card__link" target="_blank" data-article-uri="${uri}" href="${url}" >
                 Read more
             </a>
         </div>
@@ -93,7 +97,11 @@ function createCategoriesMarkup(articles) {
     .map(({ url, abstract, title, updated_date, multimedia, section }) => {
       let image = multimedia[2].url;
 
-      return `<li class="news-card">
+      return `<li class="news-card" data-date="${published_date
+        .split('')
+        .splice(0, 10)
+        .join('')
+        .replaceAll('-', '/')}">
         <article>
          <div class="box-img">
         <div class="news-card__img"><img src=${image} alt="img-news" height = "395">
