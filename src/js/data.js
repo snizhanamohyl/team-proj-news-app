@@ -2,6 +2,7 @@ import SearchNews from './api';
 const searchNews = new SearchNews();
 
 async function findNews() {
+  let gallery = document.querySelector('.card-set');
   let newSearch;
   const date = JSON.parse(localStorage.getItem('date'));
   dateFilter = date;
@@ -14,7 +15,7 @@ async function findNews() {
 
     gallery.innerHTML = markup;
   } else {
-    newSearch = await searchNews.searchNewsWithData();
+    newSearch = await searchNews.searchNewsWithDate();
     if (newSearch.data.response.docs.length === 0) {
       throw new Error('no results');
     }
