@@ -1,5 +1,5 @@
 import SearchNews from './api';
-import { createCategoriesMarkup } from './markup-categories-function';
+import { createCategoriesMarkup } from './markup-function';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
@@ -9,7 +9,7 @@ const btns = document.getElementsByClassName('categories__btn');
 const categoriesList = document.getElementById('categories__list');
 const svg = document.getElementById('categories__arrow');
 const imageNoResults = document.getElementById('img-noresults');
-const gallery = document.querySelector('.card-set');
+const gallery = document.getElementById('news-list');
 
 const api = new SearchNews();
 
