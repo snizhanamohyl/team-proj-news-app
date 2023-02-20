@@ -1,5 +1,5 @@
    
-   .pagination {
+.pagination {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,16 +13,16 @@
     @media screen and (min-width: 1280px) {
       padding-top: 65px;
     }
-  }
+}
    
-   .pagination-container {
+.pagination-container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
-  }
+}
 
-  .pagination-container button {
+.pagination-container button {
     height: 28px;
     font-family: inherit;    
     font-weight: 500;
@@ -41,22 +41,23 @@
       font-size: 16px;
       line-height: 1.38;
     }
-  }
+}
 
-  .pagination-container button:hover,
-  .pagination-container button:focus {
+.pagination-container button:hover,
+.pagination-container button:focus {
     background-color: var(--accent-color);
     color: var(--bcg-color);
-  }
+}
   
-  #pagination {
+#pagination {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
     margin: 0 8px;
-  }
-  #pagination .pg-item {
+}
+
+#pagination .pg-item {
     width: 28px;
     height: 28px;
     display: flex;
