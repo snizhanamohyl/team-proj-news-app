@@ -3,7 +3,7 @@ const searchNews = new SearchNews();
 
 async function findNews() {
   let newSearch;
-  let date = JSON.parse(localStorage.getItem('date'));
+  const date = JSON.parse(localStorage.getItem('date'));
   dateFilter = date;
   if (dateFilter === '') {
     newSearch = await searchNews.searchNews();
