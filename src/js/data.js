@@ -1,6 +1,8 @@
 // import SearchNews from './api';
 // const searchNews = new SearchNews();
 
+import SearchNews from './api';
+
 // async function findNews() {
 //   let gallery = document.querySelector('.card-set');
 //   let newSearch;
@@ -60,10 +62,28 @@
 //     imageNoResults.style.display = 'block';
 //   }
 // }
-
-const dateFilter = JSON.parse(localStorage.getItem('date'));
-const publishedDate = document.querySelector('.news-card__date');
-
-if (dateFilter === publishedDate.textContent) {
-  // малюємо розмітку, як ні то innerHTML
+let list = [];
+const date = JSON.parse(localStorage.getItem('date'))
+  .replace('/', '')
+  .replace('/', '');
+searchNews.dateFilter = date;
+const card = document.querySelector('.news-card');
+console.log(card.dataset.date);
+function filter() {
+  let list = [];
+  list.filter;
+  cards = document.querySelectorAll('.news-card');
+  //   if (dateFilter === '') {
+  //     return;
+  //   } else if (dateFilter !== card.dataset.date) {
+  //     card.classList.add('.visually-hidden');display block
+  //   }
 }
+// if (dateFilter === '') {
+//   return;
+// } else if (dateFilter !== card.dataset.date) {
+//   card.classList.add('.visually-hidden');
+// }
+
+// ul filter dateFilter === publishedDate.textContent) {
+// малюємо розмітку, як ні то innerHTML
