@@ -57,15 +57,15 @@ const res = [{
 },
 ];
 
-let itemsPerPage = 0;
+let itemsPerPage = 2;
 let totalItem = res.length;
-let totalPages = Math.ceil(totalItem / itemsPerPage);
-// console.log("totalPage: ", totalPages);
 
 const valuePage =  {
   curPage: 1,
   numLinksTwoSide: 1,
+  totalPages: Math.ceil(totalItem / itemsPerPage),
 };
+console.log("totalPages: ", valuePage.totalPages);
 
 // if(window.innerWidth < 768) {
 //     itemsPerPage = 4;
@@ -92,7 +92,7 @@ function showPage(data) {
 
 
 console.log("window.innerWidth: ", window.innerWidth);
-console.log("itemsPerPage: ", itemsPerPage);
+// console.log("itemsPerPage: ", itemsPerPage);
 
 
 refs.pg.addEventListener('click', e => {
@@ -110,16 +110,15 @@ refs.pg.addEventListener('click', e => {
   });
 
 refs.pageContainer.addEventListener('click', function (e) {
-
   handleButton(e.target, res);
 });
 
 // DYNAMIC PAGINATION
 
   function pagination() {
-    const { curPage, numLinksTwoSide: delta } = valuePage;
+    const { totalPages, curPage, numLinksTwoSide: delta } = valuePage;
   
-    const range = delta + 4; // use for handle visible number of links left side
+    const range = delta + 3; // use for handle visible number of links left side
   
     let render = '';
     let renderTwoSide = '';
@@ -136,7 +135,7 @@ refs.pageContainer.addEventListener('click', function (e) {
   
       // truncate
       if (totalPages >= 2 * range - 1) {
-        if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {
+        if (numberTruncateLeft > 2 && numberTruncateRight < totalPages - 2 + 1) {
           // truncate 2 side
           if (pos >= numberTruncateLeft && pos <= numberTruncateRight) {
             renderTwoSide += renderPage(pos, active);
@@ -206,7 +205,7 @@ refs.pageContainer.addEventListener('click', function (e) {
   }
 
   function handleButtonRight() {
-    if (valuePage.curPage === totalPages) {
+    if (valuePage.curPage === valuePage.totalPages) {
     //   console.log(valuePage.curPage);
     refs.btnNextPg.disabled = true;
       //  btnLastPg.disabled = true;
