@@ -1,5 +1,7 @@
 import SearchNews from './api';
 import { createMarkup, createMostPopularMarkup } from './markup-function';
+import { getItems } from './pagination';
+
 
 const form = document.getElementById('form-field');
 const imageNoResults = document.getElementById('img-noresults');
@@ -11,6 +13,7 @@ searchNews
   .then(res => {
     const articles = res.data.results;
     const gallery = document.querySelector('.card-set');
+    // const getFiltredArticles = getItems(articles)
     const markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
   })
@@ -46,3 +49,5 @@ function onSubmit(e) {
     }
   }
 }
+
+export {  }

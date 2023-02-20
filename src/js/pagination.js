@@ -1,3 +1,6 @@
+import {} from './search-news'
+
+
 const refs = {
   pg: document.getElementById('pagination'),
   btnNextPg: document.querySelector('.next-page'),
@@ -5,13 +8,78 @@ const refs = {
   pageContainer: document.querySelector('.pagination-container'),
 };
 
+const res = [{
+  title: "Cat1",
+},
+{
+  title: "Dog1",
+},
+{
+  title: "Mouse1",
+},
+{
+  title: "Cat2",
+},
+{
+  title: "Dog2",
+},
+{
+  title: "Mouse2",
+},
+{
+  title: "Cat3",
+},
+{
+  title: "Dog3",
+},
+{
+  title: "Mouse3",
+},
+{
+  title: "Cat4",
+},
+{
+  title: "Dog4",
+},
+{
+  title: "Mouse4",
+},
+{
+  title: "Cat5",
+},
+{
+  title: "Dog5",
+},
+{
+  title: "Mouse5",
+},
+];
+
+
 const valuePage = {
+  itemsPerPage: 8,
   curPage: 1,
   numLinksTwoSide: 1,
-  totalPages: 10,
+  totalItem: res.length,
 };
 
+let totalPages = Math.ceil(valuePage.totalItem / valuePage.itemsPerPage);
+console.log("totalPage: ", totalPages);
+
+
+
 pagination();
+getItems(res);
+
+
+
+function getItems(value) {
+  const startIndex = (valuePage.curPage - 1) * valuePage.itemsPerPage;
+  const endIndex = startIndex + valuePage.itemsPerPage;
+  console.log("Обрізаний масив: ", value.slice(startIndex, endIndex))
+  return value.slice(startIndex, endIndex);
+};
+
 
 
 refs.pg.addEventListener('click', e => {
@@ -28,12 +96,14 @@ refs.pg.addEventListener('click', e => {
     }
   });
 
-refs.pageContainer.addEventListener('click', function (e) {handleButton(e.target)});
+refs.pageContainer.addEventListener('click', function (e) {
+  handleButton(e.target);
+});
 
 // DYNAMIC PAGINATION
 
   function pagination() {
-    const { totalPages, curPage, numLinksTwoSide: delta } = valuePage;
+    const { curPage, numLinksTwoSide: delta } = valuePage;
   
     const range = delta + 4; // use for handle visible number of links left side
   
@@ -106,6 +176,7 @@ refs.pageContainer.addEventListener('click', function (e) {handleButton(e.target
       refs.btnPrevPg.disabled = false;
       //  btnFirstPg.disabled = false;
     }
+    getItems(res);
     pagination();
   }
 
@@ -120,7 +191,7 @@ refs.pageContainer.addEventListener('click', function (e) {handleButton(e.target
   }
 
   function handleButtonRight() {
-    if (valuePage.curPage === valuePage.totalPages) {
+    if (valuePage.curPage === totalPages) {
     //   console.log(valuePage.curPage);
     refs.btnNextPg.disabled = true;
       //  btnLastPg.disabled = true;
@@ -128,4 +199,7 @@ refs.pageContainer.addEventListener('click', function (e) {handleButton(e.target
       refs.btnNextPg.disabled = false;
       //  btnLastPg.disabled = false;
     }
-  }
+  };
+
+
+export { getItems };
