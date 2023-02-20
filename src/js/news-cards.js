@@ -82,6 +82,8 @@ function removeActiveStatus() {
             <use class="icon-js" href="${INACTIVE_ICON}"></use></svg>`;
 }
 
+export { cardSetEl };
+
 // ///////////////////////////////////////////////////////////////////////
 
 // const linkEl = document.querySelectorAll('.news-card__link');
