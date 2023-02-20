@@ -20,8 +20,11 @@ function createMarkup(articles) {
         <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
         </div>
             <p class="box-img__inform">${section_name}</p>
+
+            <p class="box-img__text">Already read   &#10003</p>
+
             <button type="button" class="favorite-btn">
-                Add to favorite
+                Add to favorite 
                 <svg class="favorite-btn__icon" width="16" height="16">
                     <use class="icon-js" href="./images/sprite.svg#icon-icons-heart-no-active"></use>
                 </svg>
@@ -57,8 +60,11 @@ function createMostPopularMarkup(articles) {
         <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
         </div>
             <p class="box-img__inform">${section}</p>
+
+            <p class="box-img__text">Already read   &#10003</p>
+
             <button type="button" class="favorite-btn">
-                Add to favorite
+                Add to favorite 
                 <svg class="favorite-btn__icon" width="16" height="16">
                      <use class="icon-js" href="./images/sprite.svg#icon-icons-heart-no-active"></use>
                 </svg>
