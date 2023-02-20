@@ -12,7 +12,7 @@ const refs ={
     year: document.querySelector('.weather__app--year'),
 }
 async function weatherApp() {
-    const url = `${BASE_URL}q=London&units=metric&appid=${API_KEY}`;
+    const url = `${BASE_URL}q=Lviv&units=metric&appid=${API_KEY}`;
     const response = await axios.get(url);
 
     return response.data;
