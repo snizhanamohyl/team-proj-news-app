@@ -50,7 +50,7 @@ function createMarkup(articles) {
 
 function createMostPopularMarkup(articles) {
   const markup = articles
-    .map(({ web_url, abstract, title, published_date, media, section }) => {
+    .map(({ url, abstract, title, published_date, media, section }) => {
       let image = media[0];
       if (!image) return '';
       let link = image['media-metadata'][2].url;
@@ -75,7 +75,7 @@ function createMostPopularMarkup(articles) {
         <div class="news-card__inform">
             <p class="news-card__date">
 						${published_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
-            <a class="news-card__link" target="_blank" href="${web_url}">
+            <a class="news-card__link" target="_blank" href="${url}">
                 Read more
             </a>
         </div>
