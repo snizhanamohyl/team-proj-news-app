@@ -5,7 +5,7 @@ const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const refs ={
     degree: document.querySelector('.weather__app--degree'),
-    daysValue: document.querySelector('.weather__app--days--value'),
+    daysValue: document.querySelector('.weather__app--days-value'),
     city: document.querySelector('.weather__app--city'),
     img: document.querySelector('.weather__app--skyCons'),
     day: document.querySelector('.weather__app--day'),
@@ -39,7 +39,7 @@ async function renderWeatherApp(){
     refs.degree.textContent = `${Math.round(temp)}°`;
     refs.daysValue.textContent = weather;
     refs.city.textContent = data.name;
-    refs.day.textContent = curretDay();
+    refs.day.textContent = currentDay();
     refs.year.textContent = allInfoDays();
     refs.img.setAttribute( 'src', `https://openweathermap.org/img/wn/${icon}@4x.png`)
 }
@@ -65,7 +65,7 @@ async function renderYourGeoPos(){
 }
 
 
-function curretDay() {
+function currentDay() {
     let today = new Date();
     let day = today.getDay();
 
