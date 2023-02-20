@@ -30,11 +30,8 @@ function onSubmit(e) {
   async function findNews() {
     let gallery = document.querySelector('.card-set');
     let newSearch;
-    const date = JSON.parse(
-      localStorage.getItem('date').replace('/', '').replace('/', '')
-    );
-    searchNews.dateFilter = date;
-    if (searchNews.dateFilter === '') {
+    const date = JSON.parse(localStorage.getItem('date'));
+    if (date === '') {
       newSearch = await searchNews.searchNews();
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
@@ -43,6 +40,7 @@ function onSubmit(e) {
 
       gallery.innerHTML = markup;
     } else {
+      searchNews.dateFilter = date.replace('/', '').replace('/', '');
       newSearch = await searchNews.searchNewsWithDate();
       if (newSearch.data.response.docs.length === 0) {
         throw new Error('no results');
