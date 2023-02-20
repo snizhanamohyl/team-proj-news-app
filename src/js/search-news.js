@@ -30,9 +30,9 @@ function onSubmit(e) {
   async function findNews() {
     let gallery = document.querySelector('.card-set');
     let newSearch;
-    const date = JSON.parse(localStorage.getItem('date'))
-      .replace('/', '')
-      .replace('/', '');
+    const date = JSON.parse(
+      localStorage.getItem('date').replace('/', '').replace('/', '')
+    );
     searchNews.dateFilter = date;
     if (searchNews.dateFilter === '') {
       newSearch = await searchNews.searchNews();
@@ -53,3 +53,17 @@ function onSubmit(e) {
     }
   }
 }
+
+// const date = JSON.parse(localStorage.getItem('date'));
+// //   .replace('/', '')
+// //   .replace('/', '');
+// searchNews.dateFilter = date;
+// const card = document.querySelector('.news-card');
+// console.log(card.dataset.date);
+// function filter() {
+//   let list = [];
+
+//   const cards = document.querySelectorAll('.news-card');
+//   list = cards.filter(card => card.dataset.date === date);
+//   return console.log(list);
+// }

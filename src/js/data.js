@@ -62,17 +62,18 @@ import SearchNews from './api';
 //     imageNoResults.style.display = 'block';
 //   }
 // }
-let list = [];
-const date = JSON.parse(localStorage.getItem('date'))
-  .replace('/', '')
-  .replace('/', '');
+
+const date = JSON.parse(localStorage.getItem('date'));
+//   .replace('/', '')
+//   .replace('/', '');
 searchNews.dateFilter = date;
 const card = document.querySelector('.news-card');
 console.log(card.dataset.date);
 function filter() {
   let list = [];
-  list.filter;
-  cards = document.querySelectorAll('.news-card');
+
+  const cards = document.querySelectorAll('.news-card');
+  list = cards.filter(card => card.dataset.date === date);
   //   if (dateFilter === '') {
   //     return;
   //   } else if (dateFilter !== card.dataset.date) {
