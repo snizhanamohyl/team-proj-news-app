@@ -2,6 +2,8 @@ import {  } from './search-news'
 
 import SearchNews from './api';
 import { createMarkup, createMostPopularMarkup } from './markup-function';
+import { renderWeatherAppGeo, renderWeatherApp } from './weather';
+
 
 const refs = {
   pg: document.getElementById('pagination'),
@@ -102,6 +104,10 @@ searchNews
 
     let markup = createMostPopularMarkup(arrToPopularMarkup);
     gallery.innerHTML = markup;
+    navigator.geolocation.getCurrentPosition(
+      renderWeatherAppGeo,
+      renderWeatherApp
+    );
     pagination();
     refs.pg.addEventListener('click', e => {
       const elem = e.target;
@@ -113,7 +119,10 @@ searchNews
         arrToPopularMarkup = showPage(articles);
         markup = createMostPopularMarkup(arrToPopularMarkup);
         gallery.innerHTML = markup;
-
+        navigator.geolocation.getCurrentPosition(
+          renderWeatherAppGeo,
+          renderWeatherApp
+        );
 
         pagination(valuePage);
         // console.log(valuePage);
@@ -122,10 +131,17 @@ searchNews
       }
     });
     refs.pageContainer.addEventListener('click', function (e) {
+      if (e.target.nodeName === 'LI') {
+        return
+      };
       handleButton(e.target);
       arrToPopularMarkup = showPage(articles);
       markup = createMostPopularMarkup(arrToPopularMarkup);
       gallery.innerHTML = markup;
+      navigator.geolocation.getCurrentPosition(
+        renderWeatherAppGeo,
+        renderWeatherApp
+      );
     });
   })
   .catch(console.log);
@@ -154,6 +170,7 @@ function onSubmit(e) {
         throw new Error('no results');
       }
       const articles = newSearch.data.response.docs;
+      console.log("articles: ", articles);
       // console.log("articles: ", articles);
 
       totalItem = articles.length;
