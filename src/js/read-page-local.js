@@ -72,7 +72,7 @@ function createReadMarkup(datesWithArticlesUri, articles) {
                     </svg>
                 </span>
             </button>
-            <ul>
+            <ul class="card-set">
               ${articlesMarkup}
             </ul>
         </li>
