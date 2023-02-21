@@ -59,7 +59,7 @@ const refs = {
 // ];
 
 let itemsPerPage = 0;
-// let totalItem = res.length;
+let totalPages = 0;
 
 
 if(window.innerWidth < 768) {
@@ -79,7 +79,6 @@ const valuePage =  {
   // totalPages: Math.ceil(totalItem / itemsPerPage),
 };
 
-let totalPages = 0;
 
 
 
@@ -158,7 +157,7 @@ function onSubmit(e) {
       // console.log("articles: ", articles);
 
       totalItem = articles.length;
-      totalPages = 20;
+      totalPages = Math.ceil(totalItem / itemsPerPage);
       
 
       let arrToMarkup = showPage(articles);
@@ -208,22 +207,31 @@ function onSubmit(e) {
 
 
 
+// function onClick(e) {
+//   handleButton(e.target);
+//   arrToPopularMarkup = showPage(articles);
+//   markup = createMostPopularMarkup(arrToPopularMarkup);
+//   gallery.innerHTML = markup;
+// };
+
+// function onBtnClick(e) {
+//   const elem = e.target;
+
+//   if (elem.dataset.page) {
+//     const pageNumber = parseInt(elem.dataset.page, 10);
+
+//     valuePage.curPage = pageNumber;
+//     arrToPopularMarkup = showPage(articles);
+//     markup = createMostPopularMarkup(arrToPopularMarkup);
+//     gallery.innerHTML = markup;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//     pagination(valuePage);
+//     // console.log(valuePage);
+//     handleButtonLeft();
+//     handleButtonRight();
+//   }
+// };
 
 
 
@@ -349,14 +357,12 @@ function showPage(data) {
     if (element.classList.contains('prev-page')) {
       valuePage.curPage-=1;
       handleButtonLeft();
-      handleButtonRight();
-      // refs.btnNextPg.disabled = false;
+      refs.btnNextPg.disabled = false;
       //  btnLastPg.disabled = false;
     } else if (element.classList.contains('next-page')) {
       valuePage.curPage+=1;
       handleButtonRight();
-      handleButtonLeft();
-      // refs.btnPrevPg.disabled = false;
+      refs.btnPrevPg.disabled = false;
       //  btnFirstPg.disabled = false;
     }
     pagination();
@@ -386,4 +392,4 @@ function showPage(data) {
   };
 
 
-export {  };
+// export {  };
