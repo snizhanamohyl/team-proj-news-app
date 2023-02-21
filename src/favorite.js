@@ -1,8 +1,10 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { addActiveStatus } from './js/news-cards';
+import { removeActiveStatus } from './js/news-cards';
 
 const bodyRef = document.querySelector('body');
 const cardsContainerRef = document.querySelector('#favorites-card-set');
+const noResultsRef = document.querySelector('#img-noresults');
 const savedFavorites = localStorage.getItem('favorites');
 const favoriteCardsArray = [];
 
@@ -16,14 +18,19 @@ function updateRefs() {
     cardRef.forEach(card => {
       card.addEventListener('click', onClick);
     });
-  }, 1000);
+  }, 500);
 }
 
 function onClick(evt) {
   if (evt.target.nodeName === 'BUTTON') {
-    const cardMarkUp = evt.currentTarget.outerHTML;
-    if (bodyRef.id === 'news') renderMarkup(cardMarkUp);
-    searchCardInFavorites(cardMarkUp);
+    if (bodyRef.id === 'news') {
+      const cardMarkUp = evt.currentTarget.outerHTML;
+      renderMarkup(cardMarkUp);
+    }
+    if (bodyRef.id === 'favorites') {
+      const cardMarkUp = evt.currentTarget.outerHTML;
+      searchCardInFavorites(cardMarkUp);
+    }
   }
 }
 
@@ -48,27 +55,46 @@ function getFavoritesFromLS() {
 function showFavoritesNews() {
   try {
     if (cardsContainerRef) {
-      const markupArr = favoriteCardsArray.reduce((arr, card) => {
-        return arr + card;
-      }, '');
-      cardsContainerRef.innerHTML = markupArr;
-      // const btnRef = document.querySelector(
-      //   '#favorites-card-set .favorite-btn'
-      // );
-      // btnRef.innerHTML = addActiveStatus();
+      if (favoriteCardsArray.length === 0) {
+        noResultsRef.style = 'display: block';
+      }
+      markUpFavoriteNews();
+      changeBtnState();
     }
   } catch (error) {
     Notify.error('Failed to markup your favorites news');
   }
 }
 
+function markUpFavoriteNews() {
+  const markupArr = favoriteCardsArray.reduce((arr, card) => {
+    return arr + card;
+  }, '');
+  cardsContainerRef.innerHTML = markupArr;
+}
+
+function changeBtnState() {
+  const btnRef = document.querySelectorAll('#favorites-card-set .favorite-btn');
+  btnRef.forEach(btn => {
+    btn.innerHTML = addActiveStatus();
+    btn.classList.add('is-selected');
+  });
+}
+
+// function disableBtnState() {
+//   const btnRef = document.querySelectorAll('#favorites-card-set .favorite-btn');
+//   btnRef.forEach(btn => {
+//     btn.innerHTML = removeActiveStatus();
+//     btn.classList.remove('is-selected');
+//   });
+// }
+
 function searchCardInFavorites(card) {
-  if (bodyRef.id === 'favorites') {
-    if (favoriteCardsArray.includes(card)) {
-      favoriteCardsArray.splice(card, 1);
-      saveFavoritesToLS(favoriteCardsArray);
-      showFavoritesNews();
-      updateRefs();
-    }
-  }
+  // favoriteCardsArray.forEach(fav => {
+  //   if (fav.length === card.length) console.log('found');
+  // });
+  favoriteCardsArray.splice(card, 1);
+  saveFavoritesToLS(favoriteCardsArray);
+  showFavoritesNews();
+  updateRefs();
 }
