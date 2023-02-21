@@ -122,4 +122,4 @@ function removeActiveStatus() {
             <use class="icon-js" href="${INACTIVE_ICON}"></use></svg>`;
 }
 
-export { addActiveStatus };
+export { addActiveStatus, removeActiveStatus };
