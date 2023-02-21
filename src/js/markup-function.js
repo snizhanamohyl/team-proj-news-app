@@ -3,6 +3,7 @@ function createMarkup(articles) {
     .map(
       ({
         web_url,
+        uri,
         lead_paragraph,
         headline,
         pub_date,
@@ -35,7 +36,7 @@ function createMarkup(articles) {
         <div class="news-card__inform">
             <p class="news-card__date">
 						${pub_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
-            <a class="news-card__link" target="_blank" href="${web_url}">
+            <a class="news-card__link" target="_blank" href="${web_url}" data-article-uri="${uri}">
                 Read more
             </a>
         </div>
@@ -98,6 +99,7 @@ function createCategoriesMarkup(articles) {
     .map(
       ({
         url,
+        uri,
         abstract,
         title,
         updated_date,
@@ -136,7 +138,7 @@ function createCategoriesMarkup(articles) {
         <div class="news-card__inform">
             <p class="news-card__date">
 						${updated_date.split('').splice(0, 10).join('').replaceAll('-', '/')}</p>
-            <a class="news-card__link" target="_blank" href="${url}">
+            <a class="news-card__link" target="_blank" data-article-uri="${uri}" href="${url}">
                 Read more
             </a>
         </div>
