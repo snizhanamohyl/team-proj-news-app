@@ -1,20 +1,9 @@
 import SearchNews from './api';
-import { createMostPopularMarkup } from './markup-function';
+import { createAlreadyReadMarkup } from './markup-function';
 
 const cardsGallery = document.querySelector('.card-set');
 
-const dateListUl = document.querySelector('.date-list');
-
-dateListUl.addEventListener('click', dateListUlClick);
-
-function dateListUlClick(e) {
-  if (e.target.classList.contains('date-list__btn')) {
-    const cardSet = e.target.nextElementSibling;
-    if (cardSet.classList.contains('card-set')) {
-      cardSet.classList.toggle('visually-hidden');
-    }
-  }
-}
+// ............. локал сторедж + маркап
 
 if (cardsGallery) {
   cardsGallery.addEventListener('click', linkReadMore);
@@ -73,14 +62,14 @@ function createReadMarkup(datesWithArticlesUri, articles) {
       const filteredArticles = articles.filter(({ uri }) =>
         articleUri.includes(uri)
       );
-      const articlesMarkup = createMostPopularMarkup(filteredArticles);
+      const articlesMarkup = createAlreadyReadMarkup(filteredArticles);
       return `
         <li class="date-list__item">
             <button class="date-list__btn">
                 <span class="date-list__btn-text">${date}</span>
                 <span class="date-list__btn-elem">
                     <svg class="date-list__btn-svg">
-                        <use class="date-list__btn-use" href="./images/sprite.svg#arrow-down2"></use>
+                        <use class="date-list__btn-use" href="./images/sprite.84e7d85a.svg#arrow-down2"></use>
                     </svg>
                 </span>
             </button>
