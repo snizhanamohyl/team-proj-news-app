@@ -152,7 +152,7 @@ function createWeatherAppMarkup(
   currentDay,
   allInfoDays
 ) {
-  return (markup = `
+  return `
   <li class="card-set__item weather__app" >
     <div class="weather__app--info"> 
         <span class="weather__app--degree" >${Math.round(temp)}°</span>        
@@ -181,7 +181,7 @@ function createWeatherAppMarkup(
     >
     Weather for Week
     </a>
-</li>`);
+</li>`;
 }
 
 export {
