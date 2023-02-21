@@ -1,11 +1,15 @@
-const cardsGallery = document.querySelector('.card-set');
-const readMoreArr = isLocalEmpty();
+import SearchNews from './api';
+import { createMostPopularMarkup } from './markup-function';
 
-cardsGallery.addEventListener('click', linkReadMore);
+const cardsGallery = document.querySelector('.card-set');
+
+if (cardsGallery) {
+  cardsGallery.addEventListener('click', linkReadMore);
+}
 
 function isLocalEmpty() {
   const storedValue = JSON.parse(localStorage.getItem('readMoreLocal'));
-  return storedValue ? storedValue : [];
+  return storedValue ? storedValue : {};
 }
 
 function linkReadMore(event) {
@@ -15,26 +19,66 @@ function linkReadMore(event) {
 }
 
 function addReadMore(readMore) {
-  console.log(readMore);
+  const stored = isLocalEmpty();
   const eventDateNow = new Date();
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
   const readDateNow = eventDateNow
     .toLocaleDateString([], options)
     .replaceAll('.', '/');
-  const read = {
-    url: readMore.nextElementSibling.textContent,
-    date: readMore.parentNode.firstElementChild.innerText,
-    img: readMore.parentNode.parentNode.childNodes[0].children[0].currentSrc,
-    title: readMore.parentNode.parentNode.childNodes[1].innerText,
-    description: readMore.parentNode.elem.previousSibling.innerText,
-    link: readMore.parentNode.parentNode.children[0].currentSrc,
-    category:
-      readMore.parentNode.parentNode.childNodes[0].children[1].innerText,
-    dateRead: readDateNow,
+  const uri = readMore.getAttribute('data-article-uri');
+  console.log('uri: ', uri);
+
+  const updatedStore = {
+    ...stored,
+    [readDateNow]: [...new Set([...(stored[readDateNow] || []), uri])],
   };
-  if (readMoreArr.some(item => item.url === read.url)) {
-    return;
-  }
-  readMoreArr.push(read);
-  localStorage.setItem('readMoreLocal', JSON.stringify(readMoreArr));
+  localStorage.setItem('readMoreLocal', JSON.stringify(updatedStore));
+}
+
+const searchNews = new SearchNews();
+
+searchNews
+  .mostPopularNews()
+  .then(res => {
+    const articles = res.data.results;
+    console.log(res);
+    const stored = isLocalEmpty();
+    const datesWithArticlesUri = Object.entries(stored);
+    const gallery = document.querySelector('.date-list');
+    const markup = createReadMarkup(datesWithArticlesUri, articles);
+    gallery.innerHTML = markup;
+  })
+  .catch(console.log);
+
+function createReadMarkup(datesWithArticlesUri, articles) {
+  const markup = datesWithArticlesUri
+    .sort(([date1], [date2]) => {
+      const aDate = new Date(date1);
+      const bDate = new Date(date2);
+      return aDate.getTime() - bDate.getTime();
+    })
+    .map(([date, articleUri]) => {
+      const filteredArticles = articles.filter(({ uri }) =>
+        articleUri.includes(uri)
+      );
+      const articlesMarkup = createMostPopularMarkup(filteredArticles);
+      return `
+        <li class="date-list__item">
+            <button class="date-list__btn">
+                <span class="date-list__btn-text">${date}</span>
+                <span class="date-list__btn-elem">
+                    <svg class="date-list__btn-svg">
+                        <use class="date-list__btn-use" href="./images/sprite.svg#arrow-down2"></use>
+                    </svg>
+                </span>
+            </button>
+            <ul>
+              ${articlesMarkup}
+            </ul>
+        </li>
+
+`;
+    })
+    .join('');
+  return markup;
 }
