@@ -53,27 +53,29 @@
     flex-wrap: wrap;
     margin: -15px;
   }
+
+  &__item {
+      text-align: start;
+      max-width: 395px;
+
+      @media screen and (max-width: 767px) {
+        &:not(:last-child) {
+          margin-bottom: 28px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 4 * 15px) / 2);
+        margin: 15px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: calc((100% - 4 * 23px) / 3);
+      }
+  }
 }
 
 .news-card {
-  text-align: start;
-  max-width: 395px;
-
-  @media screen and (max-width: 767px) {
-    &:not(:last-child) {
-      margin-bottom: 28px;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    width: calc((100% - 4 * 15px) / 2);
-    margin: 15px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: calc((100% - 4 * 23px) / 3);
-  }
-
   &__img {
     margin-bottom: 20px;
     overflow: hidden;

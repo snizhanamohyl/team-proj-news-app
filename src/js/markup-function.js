@@ -14,7 +14,7 @@ function createMarkup(articles) {
         });
         if (!image) return '';
         let link = 'http://www.nytimes.com/' + image.url;
-        return `<li class="news-card">
+        return `<li class="card-set__item news-card">
         <article>
          <div class="box-img">
         <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
@@ -54,7 +54,7 @@ function createMostPopularMarkup(articles) {
       let image = media[0];
       if (!image) return '';
       let link = image['media-metadata'][2].url;
-      return `<li class="news-card" data-date="${published_date
+      return `<li class="card-set__item news-card" data-date="${published_date
         .split('')
         .splice(0, 10)
         .join('')
@@ -109,7 +109,7 @@ function createCategoriesMarkup(articles) {
         }
         let image = multimedia[2].url;
 
-        return `<li class="news-card" data-date="${created_date
+        return `<li class="card-set__item news-card" data-date="${created_date
           .split('')
           .splice(0, 10)
           .join('')
@@ -147,4 +147,46 @@ function createCategoriesMarkup(articles) {
   return markup;
 }
 
-export { createMarkup, createMostPopularMarkup, createCategoriesMarkup };
+function createWeatherAppMarkup(
+  { temp, weather, city, icon },
+  currentDay,
+  allInfoDays
+) {
+  return (markup = `
+  <li class="card-set__item weather__app" >
+    <div class="weather__app--info"> 
+        <span class="weather__app--degree" >${Math.round(temp)}°</span>        
+        <div class="weather__app--geo-position">
+            <span class="weather__app--days-value" >${weather}</span>
+            <p class="weather__app--location">
+                <svg>   
+                    <use href="./images/sprite.svg#location"></use>
+                </svg>
+                <span class="weather__app--city">${city}</span>
+            </p>
+        </div>
+    </div>
+
+    <img class="weather__app--skyCons" src="https://openweathermap.org/img/wn/${icon}@4x.png"/>
+
+    <div class="weather__app--date">
+        <span class="weather__app--day">${currentDay()}</span>
+        <span class="weather__app--year">${allInfoDays()}</span>
+    </div>      
+    <a 
+    href="https://www.meteoprog.com/ua/"
+    class="weather__app--link"
+    target="_blank"
+    rel="noopener nofolow norefferer"
+    >
+    Weather for Week
+    </a>
+</li>`);
+}
+
+export {
+  createMarkup,
+  createMostPopularMarkup,
+  createCategoriesMarkup,
+  createWeatherAppMarkup,
+};
