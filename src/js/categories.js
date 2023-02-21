@@ -101,12 +101,14 @@ function onCategoryListClick(event) {
 async function renderNews() {
   imageNoResults.style.display = 'none';
   try {
-    const categorySearch = await api.categoryNews();
+    let categorySearch;
+    categorySearch = await api.categoryNews();
 
     if (categorySearch.data.results === null) {
       throw new Error('no results');
     }
 
+    console.log(categorySearch.data.results);
     const markup = createCategoriesMarkup(categorySearch.data.results);
 
     gallery.innerHTML = '';

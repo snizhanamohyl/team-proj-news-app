@@ -28,15 +28,29 @@ function onSubmit(e) {
   findNews();
 
   async function findNews() {
-    let gallery = document.getElementById('news-list');
-    try {
-      const newSearch = await searchNews.searchNews();
-      if (newSearch.data.response.docs.length === 0) {
-        throw new Error('no results');
-      }
-      const markup = createMarkup(newSearch.data.response.docs);
+    let gallery = document.querySelector('.card-set');
+    let newSearch;
 
-      gallery.innerHTML = markup;
+    try {
+      const date = JSON.parse(localStorage.getItem('date'));
+      if (date === null) {
+        newSearch = await searchNews.searchNews();
+        if (newSearch.data.response.docs.length === 0) {
+          throw new Error('no results');
+        }
+        let markup = createMarkup(newSearch.data.response.docs);
+
+        gallery.innerHTML = markup;
+      } else {
+        searchNews.dateFilter = date.replace('/', '').replace('/', '');
+        newSearch = await searchNews.searchNewsWithDate();
+        if (newSearch.data.response.docs.length === 0) {
+          throw new Error('no results');
+        }
+        let markup = createMarkup(newSearch.data.response.docs);
+
+        gallery.innerHTML = markup;
+      }
     } catch (err) {
       console.log('ERROR', err);
       gallery.innerHTML = '';
