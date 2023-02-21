@@ -3,6 +3,19 @@ import { createMostPopularMarkup } from './markup-function';
 
 const cardsGallery = document.querySelector('.card-set');
 
+const dateListUl = document.querySelector('.date-list');
+
+dateListUl.addEventListener('click', dateListUlClick);
+
+function dateListUlClick(e) {
+  if (e.target.classList.contains('date-list__btn')) {
+    const cardSet = e.target.nextElementSibling;
+    if (cardSet.classList.contains('card-set')) {
+      cardSet.classList.toggle('visually-hidden');
+    }
+  }
+}
+
 if (cardsGallery) {
   cardsGallery.addEventListener('click', linkReadMore);
 }
@@ -26,7 +39,6 @@ function addReadMore(readMore) {
     .toLocaleDateString([], options)
     .replaceAll('.', '/');
   const uri = readMore.getAttribute('data-article-uri');
-  console.log('uri: ', uri);
 
   const updatedStore = {
     ...stored,
