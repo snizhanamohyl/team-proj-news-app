@@ -1,8 +1,15 @@
+.categories-container {
+  @extend %container;
+}
+
 .categories {
-  padding-left: 16px;
+  // padding-left: 16px;
   padding-top: 24px;
+  position: relative;
 
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     padding-top: 28px;
@@ -39,40 +46,48 @@
   border: 1px solid var(--accent-color);
   border-radius: 20px;
   background-color: transparent;
-  cursor: pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 
   transition: background-color var(--transition);
   transition: color var(--transition);
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: var(--white);
     background-color: var(--accent-color);
   }
 }
 
+.is-active {
+  color: var(--white);
+  background-color: var(--accent-color);
+}
+
 .dropdown {
   width: 148px;
-  padding: 14px 24px;
+  height: 380px;
+  padding: 14px 14px;
+  z-index: 1000;
+
+  overflow: scroll;
 
   background: var(--dropdown-list);
   border-radius: 20px;
 
   position: absolute;
-  left: 18px;
-  top: 140px;
+  top: 60px;
+  left: 0;
 
-  opacity: 1;
-  transition: opacity var(--transition);
+  display: block;
 
   @media screen and (min-width: 768px) {
+    padding: 14px 24px;
     width: 168px;
-    top: 169px;
-    left: 435px;
+    top: 64px;
+    left: 417px;
   }
   @media screen and (min-width: 1280px) {
-    top: 176px;
-    left: 667px;
+    top: 64px;
+    left: 649px;
   }
 }
 
@@ -94,7 +109,7 @@
   border: none;
   background-color: transparent;
 
-  cursor: pointer;
+  cursor: url(../images/cursor-hand.svg), pointer;
 
   &::after {
     transition: opacity var(--transition);
@@ -115,8 +130,7 @@
 }
 
 .js-is-hidden {
-  opacity: 0;
-  transition: opacity var(--transition);
+  display: none;
 }
 
 .display-desk {
@@ -129,4 +143,19 @@
   @media screen and (max-width: 767px) {
     display: none;
   }
+}
+
+#others {
+  display: flex;
+  align-items: center;
+}
+
+.categories__arrow {
+  margin-left: 10px;
+}
+
+.categories__btn.is-active .categories__arrow {
+  fill: var(--white);
+  transition: transform var(--transition);
+  transform: rotateX(180deg);
 }

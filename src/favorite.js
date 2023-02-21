@@ -1,20 +1,22 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { addActiveStatus } from './js/news-cards';
+
 const bodyRef = document.querySelector('body');
 const cardsContainerRef = document.querySelector('#favorites-card-set');
 const savedFavorites = localStorage.getItem('favorites');
 const favoriteCardsArray = [];
 
-getCardsRef();
 getFavoritesFromLS();
 showFavoritesNews();
+updateRefs();
 
-function getCardsRef() {
+function updateRefs() {
   setTimeout(() => {
     const cardRef = document.querySelectorAll('.news-card');
     cardRef.forEach(card => {
       card.addEventListener('click', onClick);
     });
-  }, 200);
+  }, 1000);
 }
 
 function onClick(evt) {
@@ -22,7 +24,6 @@ function onClick(evt) {
     const cardMarkUp = evt.currentTarget.outerHTML;
     if (bodyRef.id === 'news') renderMarkup(cardMarkUp);
     searchCardInFavorites(cardMarkUp);
-    getCardsRef();
   }
 }
 
@@ -40,7 +41,7 @@ function getFavoritesFromLS() {
     const parsedFavorites = JSON.parse(savedFavorites);
     parsedFavorites.forEach(obj => favoriteCardsArray.push(obj));
   } catch (error) {
-    Notify.info('Favorites list is empty');
+    // Notify.info('Favorites list is empty');
   }
 }
 
@@ -51,6 +52,10 @@ function showFavoritesNews() {
         return arr + card;
       }, '');
       cardsContainerRef.innerHTML = markupArr;
+      // const btnRef = document.querySelector(
+      //   '#favorites-card-set .favorite-btn'
+      // );
+      // btnRef.innerHTML = addActiveStatus();
     }
   } catch (error) {
     Notify.error('Failed to markup your favorites news');
@@ -63,6 +68,7 @@ function searchCardInFavorites(card) {
       favoriteCardsArray.splice(card, 1);
       saveFavoritesToLS(favoriteCardsArray);
       showFavoritesNews();
+      updateRefs();
     }
   }
 }
