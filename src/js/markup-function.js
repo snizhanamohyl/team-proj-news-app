@@ -162,7 +162,7 @@ function createWeatherAppMarkup(
             <span class="weather__app--days-value" >${weather}</span>
             <p class="weather__app--location">
                 <svg>   
-                    <use href="./images/sprite.74cebf96.svg#location"></use>
+                    <use href="./sprite.74cebf96.svg#location"></use>
                 </svg>
                 <span class="weather__app--city">${city}</span>
             </p>
