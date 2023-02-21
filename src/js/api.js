@@ -38,7 +38,7 @@ export default class SearchNews {
   }
 
   async categoryNews() {
-    const API_URL = 'https://api.nytimes.com/svc/news/v3/content/inyt/';
+    const API_URL = 'https://api.nytimes.com/svc/news/v3/content/all/';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
     const response = await axios.get(
       `${API_URL}${this.category}.json?api-key=${API_KEY}`
@@ -54,6 +54,7 @@ export default class SearchNews {
 
     return response;
   }
+
   // resetPage() {
   //   this.queryPage = 1;
   // }

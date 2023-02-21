@@ -94,18 +94,26 @@ function createMostPopularMarkup(articles) {
 
 function createCategoriesMarkup(articles) {
   const markup = articles
-    .map(({ url, abstract, title, updated_date, multimedia, section }) => {
-      console.log(multimedia);
-      if (multimedia === null) {
-        return;
-      }
-      let image = multimedia[2].url;
+    .map(
+      ({
+        url,
+        abstract,
+        title,
+        updated_date,
+        multimedia,
+        section,
+        created_date,
+      }) => {
+        if (multimedia === null) {
+          return;
+        }
+        let image = multimedia[2].url;
 
-      return `<li class="news-card" data-date="${published_date
-        .split('')
-        .splice(0, 10)
-        .join('')
-        .replaceAll('-', '/')}">
+        return `<li class="news-card" data-date="${created_date
+          .split('')
+          .splice(0, 10)
+          .join('')
+          .replaceAll('-', '/')}">
         <article>
          <div class="box-img">
         <div class="news-card__img"><img src=${image} alt="img-news" height = "395">
@@ -133,7 +141,8 @@ function createCategoriesMarkup(articles) {
       </article>
     </li>   
 `;
-    })
+      }
+    )
     .join('');
   return markup;
 }
