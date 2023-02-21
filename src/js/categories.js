@@ -1,13 +1,19 @@
 import SearchNews from './api';
-
-// Categories drop-down list
+import { createCategoriesMarkup } from './markup-function';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
-const categoriesList = document.getElementById('categories__list');
 const othersList = document.getElementById('others-list');
 const btnSpan = document.getElementById('categories-span');
 const btns = document.getElementsByClassName('categories__btn');
+const categoriesList = document.getElementById('categories__list');
+const svg = document.getElementById('categories__arrow');
+const imageNoResults = document.getElementById('img-noresults');
+const gallery = document.getElementById('news-list');
+
+const api = new SearchNews();
+
+// Categories drop-down list
 
 othersBtn.addEventListener('click', openDropdown);
 
@@ -16,13 +22,11 @@ function openDropdown() {
   othersBtn.classList.toggle('is-active');
 }
 
-// Categories load from server
+// Categories list load from server
 
 window.addEventListener('DOMContentLoaded', onPageLoad);
 
 function onPageLoad() {
-  const api = new SearchNews();
-
   api
     .categoryList()
     .then(response => {
@@ -65,4 +69,53 @@ function createOthersMarkup(category) {
 
 function addOthersMarkup(markup) {
   othersList.insertAdjacentHTML('beforeend', markup);
+}
+
+// Fetch news by category
+
+categoriesList.addEventListener('click', onCategoryListClick);
+othersList.addEventListener('click', onDropDownListClick);
+
+function onDropDownListClick(event) {
+  openDropdown();
+
+  const button = event.target;
+  const encodedBtn = encodeURIComponent(button.textContent.toLowerCase());
+
+  api.category = encodedBtn;
+
+  renderNews();
+}
+
+function onCategoryListClick(event) {
+  const button = event.target;
+
+  api.category = button.textContent.toLowerCase();
+
+  if (api.category === 'others' || button === othersBtn || button === svg) {
+    return;
+  }
+  renderNews();
+}
+
+async function renderNews() {
+  imageNoResults.style.display = 'none';
+  try {
+    let categorySearch;
+    categorySearch = await api.categoryNews();
+
+    if (categorySearch.data.results === null) {
+      throw new Error('no results');
+    }
+
+    console.log(categorySearch.data.results);
+    const markup = createCategoriesMarkup(categorySearch.data.results);
+
+    gallery.innerHTML = '';
+    gallery.innerHTML = markup;
+  } catch (error) {
+    console.log('ERROR', error);
+    gallery.innerHTML = '';
+    imageNoResults.style.display = 'block';
+  }
 }
