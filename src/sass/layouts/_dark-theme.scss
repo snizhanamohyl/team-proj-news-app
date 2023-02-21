@@ -61,7 +61,12 @@ body.dark {
   }
   .close__button-icon,
   .menu__logo,
-  .navigation-link {
+  .navigation-link,
+  .p-noresults,
+  .calendar-form__text {
     color: var(--bcg-color);
+  }
+  .calendar-input {
+    border-color: var(--bcg-color);
   }
 }
