@@ -1,29 +1,18 @@
 import { weatherApp, weatherAppGeo } from '../js/api-weather';
 import { createWeatherAppMarkup } from '../js/markup-function';
 
-const refs = {
-  degree: document.querySelector('.weather__app--degree'),
-  daysValue: document.querySelector('.weather__app--days-value'),
-  city: document.querySelector('.weather__app--city'),
-  img: document.querySelector('.weather__app--skyCons'),
-  day: document.querySelector('.weather__app--day'),
-  year: document.querySelector('.weather__app--year'),
-};
-
 const newsList = document.getElementById('news-list');
 
-navigator.geolocation.getCurrentPosition(onSuccess, renderWeatherApp);
-
-async function onSuccess(pos) {
+async function renderWeatherAppGeo(pos) {
   const { latitude, longitude } = pos.coords;
 
   const data = await weatherAppGeo(latitude, longitude);
-  setTimeout(() => addWeatherMarkup(data), 500);
+  addWeatherMarkup(data);
 }
 
 async function renderWeatherApp() {
   const data = await weatherApp();
-  setTimeout(() => addWeatherMarkup(data), 500);
+  addWeatherMarkup(data);
 }
 
 function addWeatherMarkup(data) {
@@ -80,3 +69,5 @@ function allInfoDays() {
   const fullDate = `${day} ${monthList[month]} ${year}`;
   return fullDate;
 }
+
+export { renderWeatherAppGeo, renderWeatherApp };

@@ -1,5 +1,6 @@
 import SearchNews from './api';
 import { createCategoriesMarkup } from './markup-function';
+import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
@@ -113,6 +114,10 @@ async function renderNews() {
 
     gallery.innerHTML = '';
     gallery.innerHTML = markup;
+    navigator.geolocation.getCurrentPosition(
+      renderWeatherAppGeo,
+      renderWeatherApp
+    );
   } catch (error) {
     console.log('ERROR', error);
     gallery.innerHTML = '';
