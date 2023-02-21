@@ -45,6 +45,7 @@ searchNews
     console.log(res);
     const stored = isLocalEmpty();
     const datesWithArticlesUri = Object.entries(stored);
+    console.log('datesWithArticlesUri: ', datesWithArticlesUri);
     const gallery = document.querySelector('.date-list');
     const markup = createReadMarkup(datesWithArticlesUri, articles);
     gallery.innerHTML = markup;
