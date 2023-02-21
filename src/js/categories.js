@@ -92,7 +92,13 @@ function onCategoryListClick(event) {
 
   api.category = button.textContent.toLowerCase();
 
-  if (api.category === 'others' || button === othersBtn || button === svg) {
+  if (
+    api.category === 'others' ||
+    button === othersBtn ||
+    button === svg ||
+    api.category === 'categories' ||
+    api.category === ''
+  ) {
     return;
   }
   renderNews();
@@ -108,7 +114,6 @@ async function renderNews() {
       throw new Error('no results');
     }
 
-    console.log(categorySearch.data.results);
     const markup = createCategoriesMarkup(categorySearch.data.results);
 
     gallery.innerHTML = '';
