@@ -1,6 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { addActiveStatus } from './js/news-cards';
-import { removeActiveStatus } from './js/news-cards';
 
 const bodyRef = document.querySelector('body');
 const cardsContainerRef = document.querySelector('#favorites-card-set');
@@ -13,7 +12,7 @@ showFavoritesNews();
 updateRefs();
 
 function updateRefs() {
-  setTimeout(() => {
+  setInterval(() => {
     const cardRef = document.querySelectorAll('.news-card');
     cardRef.forEach(card => {
       card.addEventListener('click', onClick);
@@ -25,17 +24,27 @@ function onClick(evt) {
   if (evt.target.nodeName === 'BUTTON') {
     if (bodyRef.id === 'news') {
       const cardMarkUp = evt.currentTarget.outerHTML;
-      renderMarkup(cardMarkUp);
+      const cardTitle = evt.currentTarget.querySelector('.news-card__title');
+      const cardObj = {
+        title: cardTitle.innerText,
+        markup: cardMarkUp,
+      };
+      renderMarkup(cardObj);
     }
     if (bodyRef.id === 'favorites') {
       const cardMarkUp = evt.currentTarget.outerHTML;
-      searchCardInFavorites(cardMarkUp);
+      const cardTitle = evt.currentTarget.querySelector('.news-card__title');
+      const cardObj = {
+        title: cardTitle.innerText,
+        markup: cardMarkUp,
+      };
+      removeCardFromFavorites(searchCardInLS(cardObj));
     }
   }
 }
 
-function renderMarkup(card) {
-  favoriteCardsArray.push(card);
+function renderMarkup(cardMarkup) {
+  favoriteCardsArray.push(cardMarkup);
   saveFavoritesToLS(favoriteCardsArray);
 }
 
@@ -59,7 +68,7 @@ function showFavoritesNews() {
         noResultsRef.style = 'display: block';
       }
       markUpFavoriteNews();
-      changeBtnState();
+      enableBtn();
     }
   } catch (error) {
     Notify.error('Failed to markup your favorites news');
@@ -67,13 +76,13 @@ function showFavoritesNews() {
 }
 
 function markUpFavoriteNews() {
-  const markupArr = favoriteCardsArray.reduce((arr, card) => {
-    return arr + card;
+  const markupArr = favoriteCardsArray.reduce((arr, { markup }) => {
+    return arr + markup;
   }, '');
   cardsContainerRef.innerHTML = markupArr;
 }
 
-function changeBtnState() {
+function enableBtn() {
   const btnRef = document.querySelectorAll('#favorites-card-set .favorite-btn');
   btnRef.forEach(btn => {
     btn.innerHTML = addActiveStatus();
@@ -81,19 +90,23 @@ function changeBtnState() {
   });
 }
 
-// function disableBtnState() {
-//   const btnRef = document.querySelectorAll('#favorites-card-set .favorite-btn');
-//   btnRef.forEach(btn => {
-//     btn.innerHTML = removeActiveStatus();
-//     btn.classList.remove('is-selected');
-//   });
-// }
+function searchCardInLS(cardObj) {
+  const searchValue = cardObj.title;
+  const searchKey = 'title';
+  let index = -1;
+  for (let i = 0; i < favoriteCardsArray.length; i++) {
+    if (favoriteCardsArray[i][searchKey] === searchValue) {
+      index = i;
+      break;
+    }
+  }
+  return index;
+}
 
-function searchCardInFavorites(card) {
-  // favoriteCardsArray.forEach(fav => {
-  //   if (fav.length === card.length) console.log('found');
-  // });
-  favoriteCardsArray.splice(card, 1);
+function removeCardFromFavorites(index) {
+  if (index > -1) {
+    favoriteCardsArray.splice(index, 1);
+  }
   saveFavoritesToLS(favoriteCardsArray);
   showFavoritesNews();
   updateRefs();

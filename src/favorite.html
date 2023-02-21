@@ -13,40 +13,7 @@
 
   <body id="favorites">
     <include src="./partials/header.html"></include>
-    <section class="news">
-      <div class="news-container">
-        <div class="noresults" id="img-noresults" style="display: none">
-          <p class="p-noresults" id="p-noresults">
-            We haven’t found news from this category
-          </p>
-          <picture>
-            <source
-              srcset="./images/desktop.png 1x, ./images/desktop@2x.png 2x"
-              media="(min-width: 1200px)"
-              alt="img-noresults"
-            />
-            <source
-              srcset="./images/tablet.png 1x, ./images/tablet@2x.png 2x"
-              media="(min-width: 768px)"
-              alt="img-noresults"
-            />
-            <source
-              srcset="./images/mobile.png 1x, ./images/mobile@2x.png 2x"
-              media="(max-width: 767px)"
-              alt="img-noresults"
-            />
-            <img
-              src="./images/desktop.png"
-              class="img-noresults"
-              width="601px"
-              height="478px"
-              alt="img-noresults"
-            />
-          </picture>
-        </div>
-        <ul class="card-set" id="favorites-card-set"></ul>
-      </div>
-    </section>
+    <include src="./partials/favorite-news.html"></include>
     <script type="module" src="./index.js"></script>
     <script type="module" src="./mob-menu.js"></script>
     <script type="module" src="./js/current-page.js"></script>
