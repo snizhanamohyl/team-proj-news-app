@@ -1,8 +1,5 @@
-import axios from 'axios';
+import { weatherApp, weatherAppGeo } from '../js/api-weather';
 import { createWeatherAppMarkup } from '../js/markup-function';
-
-const API_KEY = '330800086c869b55fadd072cf641d172';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const refs = {
   degree: document.querySelector('.weather__app--degree'),
@@ -15,35 +12,18 @@ const refs = {
 
 const newsList = document.getElementById('news-list');
 
-// console.log();
 navigator.geolocation.getCurrentPosition(onSuccess, renderWeatherApp);
 
 async function onSuccess(pos) {
   const { latitude, longitude } = pos.coords;
 
   const data = await weatherAppGeo(latitude, longitude);
-  setTimeout(() => addWeatherMarkup(data), 450);
-  //   addWeatherMarkup(data);
+  setTimeout(() => addWeatherMarkup(data), 500);
 }
 
 async function renderWeatherApp() {
   const data = await weatherApp();
-  setTimeout(() => addWeatherMarkup(data), 450);
-  //   addWeatherMarkup(data);
-}
-
-async function weatherApp() {
-  const url = `${BASE_URL}q=Lviv&units=metric&appid=${API_KEY}`;
-  const response = await axios.get(url);
-
-  return response.data;
-}
-
-async function weatherAppGeo(lon, lat) {
-  const url = `${BASE_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-  const response = await axios.get(url);
-
-  return response.data;
+  setTimeout(() => addWeatherMarkup(data), 500);
 }
 
 function addWeatherMarkup(data) {

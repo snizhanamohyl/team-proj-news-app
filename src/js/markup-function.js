@@ -143,7 +143,6 @@ function createWeatherAppMarkup(
   currentDay,
   allInfoDays
 ) {
-  console.log(city);
   return (markup = `
   <li class="news-card weather__app" >
     <div class="weather__app--info"> 
