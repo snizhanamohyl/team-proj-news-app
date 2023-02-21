@@ -126,4 +126,47 @@ function createCategoriesMarkup(articles) {
   return markup;
 }
 
-export { createMarkup, createMostPopularMarkup, createCategoriesMarkup };
+function createWeatherAppMarkup(
+  { temp, weather, city, icon },
+  currentDay,
+  allInfoDays
+) {
+  console.log(city);
+  return (markup = `
+  <li class="news-card weather__app" >
+    <div class="weather__app--info"> 
+        <span class="weather__app--degree" >${Math.round(temp)}°</span>        
+        <div class="weather__app--geo-position">
+            <span class="weather__app--days-value" >${weather}</span>
+            <p class="weather__app--location">
+                <svg>   
+                    <use href="./images/sprite.svg#location"></use>
+                </svg>
+                <span class="weather__app--city">${city}</span>
+            </p>
+        </div>
+    </div>
+
+    <img class="weather__app--skyCons" src="https://openweathermap.org/img/wn/${icon}@4x.png"/>
+
+    <div class="weather__app--date">
+        <span class="weather__app--day">${currentDay()}</span>
+        <span class="weather__app--year">${allInfoDays()}</span>
+    </div>      
+    <a 
+    href="https://www.meteoprog.com/ua/"
+    class="weather__app--link"
+    target="_blank"
+    rel="noopener nofolow norefferer"
+    >
+    Weather for Week
+    </a>
+</li>`);
+}
+
+export {
+  createMarkup,
+  createMostPopularMarkup,
+  createCategoriesMarkup,
+  createWeatherAppMarkup,
+};
