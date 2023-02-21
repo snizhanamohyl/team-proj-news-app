@@ -42,6 +42,7 @@ searchNews
   .mostPopularNews()
   .then(res => {
     const articles = res.data.results;
+    console.log('articles: ', articles);
     console.log(res);
     const stored = isLocalEmpty();
     const datesWithArticlesUri = Object.entries(stored);
