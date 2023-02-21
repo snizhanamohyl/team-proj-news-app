@@ -19,17 +19,17 @@ setInterval(() => {
 
 //  74cebf96
 
-let timeridSvgIcon = null;
+// let timeridSvgIcon = null;
 
-timeridSvgIcon = setInterval(() => {
-  const svgEl = document.querySelectorAll('.icon-js');
-  const arrSvg = Array.from(svgEl);
+// timeridSvgIcon = setInterval(() => {
+//   const svgEl = document.querySelectorAll('.icon-js');
+//   const arrSvg = Array.from(svgEl);
 
-  arrSvg.forEach(svg => {
-    return (svg.href.baseVal =
-      '/sprite.74cebf96.svg#icon-icons-heart-no-active');
-  });
-}, 500);
+//   arrSvg.forEach(svg => {
+//     return (svg.href.baseVal =
+//       '/sprite.74cebf96.svg#icon-icons-heart-no-active');
+//   });
+// }, 500);
 
 // 74cebf96
 const ACTIVE_ICON = './sprite.74cebf96.svg#icon-icons-heart-active';
@@ -39,7 +39,7 @@ const cardSetEl = document.querySelector('.card-set');
 cardSetEl.addEventListener('click', onChangeIconFavorite);
 
 function onChangeIconFavorite(e) {
-  clearInterval(timeridSvgIcon);
+  // clearInterval(timeridSvgIcon);
 
   if (
     e.target.nodeName !== 'BUTTON' &&
@@ -122,4 +122,4 @@ function removeActiveStatus() {
             <use class="icon-js" href="${INACTIVE_ICON}"></use></svg>`;
 }
 
-export { addActiveStatus };
+export { addActiveStatus, removeActiveStatus };

@@ -1,5 +1,6 @@
 import SearchNews from './api';
 import { createCategoriesMarkup } from './markup-function';
+import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
@@ -92,7 +93,13 @@ function onCategoryListClick(event) {
 
   api.category = button.textContent.toLowerCase();
 
-  if (api.category === 'others' || button === othersBtn || button === svg) {
+  if (
+    api.category === 'others' ||
+    button === othersBtn ||
+    button === svg ||
+    api.category === 'categories' ||
+    api.category === ''
+  ) {
     return;
   }
   renderNews();
@@ -101,7 +108,8 @@ function onCategoryListClick(event) {
 async function renderNews() {
   imageNoResults.style.display = 'none';
   try {
-    const categorySearch = await api.categoryNews();
+    let categorySearch;
+    categorySearch = await api.categoryNews();
 
     if (categorySearch.data.results === null) {
       throw new Error('no results');
@@ -111,6 +119,10 @@ async function renderNews() {
 
     gallery.innerHTML = '';
     gallery.innerHTML = markup;
+    navigator.geolocation.getCurrentPosition(
+      renderWeatherAppGeo,
+      renderWeatherApp
+    );
   } catch (error) {
     console.log('ERROR', error);
     gallery.innerHTML = '';
