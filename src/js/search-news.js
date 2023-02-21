@@ -1,5 +1,6 @@
 import SearchNews from './api';
 import { createMarkup, createMostPopularMarkup } from './markup-function';
+import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 
 const form = document.getElementById('form-field');
 const imageNoResults = document.getElementById('img-noresults');
@@ -13,6 +14,10 @@ searchNews
     const gallery = document.getElementById('news-list');
     const markup = createMostPopularMarkup(articles);
     gallery.innerHTML = markup;
+    navigator.geolocation.getCurrentPosition(
+      renderWeatherAppGeo,
+      renderWeatherApp
+    );
   })
   .catch(console.log);
 
@@ -41,6 +46,10 @@ function onSubmit(e) {
         let markup = createMarkup(newSearch.data.response.docs);
 
         gallery.innerHTML = markup;
+        navigator.geolocation.getCurrentPosition(
+          renderWeatherAppGeo,
+          renderWeatherApp
+        );
       } else {
         searchNews.dateFilter = date.replace('/', '').replace('/', '');
         newSearch = await searchNews.searchNewsWithDate();
@@ -50,6 +59,10 @@ function onSubmit(e) {
         let markup = createMarkup(newSearch.data.response.docs);
 
         gallery.innerHTML = markup;
+        navigator.geolocation.getCurrentPosition(
+          renderWeatherAppGeo,
+          renderWeatherApp
+        );
       }
     } catch (err) {
       console.log('ERROR', err);
