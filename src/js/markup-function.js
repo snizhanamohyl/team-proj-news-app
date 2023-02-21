@@ -9,15 +9,15 @@ function createMarkup(articles) {
         multimedia,
         section_name,
       }) => {
-        let image = multimedia.find(image => {
+        const image = multimedia.find(image => {
           return image.type === 'image';
         });
-        if (!image) return '';
-        let link = 'http://www.nytimes.com/' + image.url;
+        // if (!image) return '';
+        const link = image ? 'http://www.nytimes.com/' + image.url : '#';
         return `<li class="card-set__item news-card">
         <article>
          <div class="box-img">
-        <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
+        <div class="news-card__img"><img src=${link} alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section_name}</p>
 
@@ -52,8 +52,9 @@ function createMostPopularMarkup(articles) {
   const markup = articles
     .map(({ uri, url, abstract, title, published_date, media, section }) => {
       let image = media[0];
-      if (!image) return '';
-      let link = image['media-metadata'][2].url;
+      // if (!image) return '';
+      const link = image ? image['media-metadata'][2].url : '#';
+      // let link = image['media-metadata'][2].url;
       return `<li class="card-set__item news-card" data-date="${published_date
         .split('')
         .splice(0, 10)
@@ -61,7 +62,7 @@ function createMostPopularMarkup(articles) {
         .replaceAll('-', '/')}">
         <article>
         <div class="box-img">
-        <div class="news-card__img"><img src=${link} alt="img-news" height = "395">
+        <div class="news-card__img"><img src=${link} alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section}</p>
 
@@ -104,10 +105,11 @@ function createCategoriesMarkup(articles) {
         section,
         created_date,
       }) => {
-        if (multimedia === null) {
-          return;
-        }
-        let image = multimedia[2].url;
+        // if (multimedia === null) {
+        //   return;
+        // }
+        // let image = multimedia[2].url;
+        const image = multimedia ? multimedia[2].url : '#';
 
         return `<li class="card-set__item news-card" data-date="${created_date
           .split('')
@@ -116,7 +118,7 @@ function createCategoriesMarkup(articles) {
           .replaceAll('-', '/')}">
         <article>
          <div class="box-img">
-        <div class="news-card__img"><img src=${image} alt="img-news" height = "395">
+        <div class="news-card__img"><img src=${image} alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section}</p>
             
@@ -160,7 +162,7 @@ function createWeatherAppMarkup(
             <span class="weather__app--days-value" >${weather}</span>
             <p class="weather__app--location">
                 <svg>   
-                    <use href="./images/sprite.svg#location"></use>
+                    <use href="./sprite.74cebf96.svg#location"></use>
                 </svg>
                 <span class="weather__app--city">${city}</span>
             </p>
