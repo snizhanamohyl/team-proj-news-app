@@ -15,19 +15,17 @@ const refs = {
 let itemsPerPage = 0;
 let totalPages = 0;
 
-
-if(window.innerWidth < 768) {
-    itemsPerPage = 4;
+if (window.innerWidth < 768) {
+  itemsPerPage = 4;
 }
-if(window.innerWidth >= 768 && window.innerWidth < 1280) {
-    itemsPerPage = 7;
+if (window.innerWidth >= 768 && window.innerWidth < 1280) {
+  itemsPerPage = 7;
 }
-if(window.innerWidth >= 1280) {
-    itemsPerPage = 8;
+if (window.innerWidth >= 1280) {
+  itemsPerPage = 8;
 }
 
-
-const valuePage =  {
+const valuePage = {
   curPage: 1,
   numLinksTwoSide: 1,
   // totalPages: Math.ceil(totalItem / itemsPerPage),
@@ -39,7 +37,7 @@ searchNews
   .mostPopularNews()
   .then(res => {
     const articles = res.data.results;
-    totalItem = articles.length;
+    const totalItem = articles.length;
     totalPages = Math.ceil(totalItem / itemsPerPage);
     let arrToPopularMarkup = showPage(articles);
     const gallery = document.getElementById('news-list');
@@ -53,10 +51,10 @@ searchNews
     pagination();
     refs.pg.addEventListener('click', e => {
       const elem = e.target;
-    
+
       if (elem.dataset.page) {
         const pageNumber = parseInt(elem.dataset.page, 10);
-    
+
         valuePage.curPage = pageNumber;
         let arrToPopularMarkup = showPage(articles);
         markup = createMostPopularMarkup(arrToPopularMarkup);
@@ -74,8 +72,8 @@ searchNews
     });
     refs.pageContainer.addEventListener('click', function (e) {
       if (e.target.nodeName === 'LI') {
-        return
-      };
+        return;
+      }
       handleButton(e.target);
       arrToPopularMarkup = showPage(articles);
       markup = createMostPopularMarkup(arrToPopularMarkup);
@@ -107,15 +105,15 @@ function onSubmit(e) {
       const date = JSON.parse(localStorage.getItem('date'));
       if (date === null) {
         newSearch = await searchNews.searchNews();
-        
-        totalItem = newSearch.data.response.docs.length;
+
+        const totalItem = newSearch.data.response.docs.length;
         totalPages = Math.ceil(totalItem / itemsPerPage);
         let arrToMarkup = showPage(newSearch.data.response.docs);
 
         if (newSearch.data.response.docs.length === 0) {
           throw new Error('no results');
         }
-      
+
         let markup = createMarkup(arrToMarkup);
 
         gallery.innerHTML = markup;
@@ -124,7 +122,6 @@ function onSubmit(e) {
           renderWeatherApp
         );
         pagination();
-
       } else {
         searchNews.dateFilter = date.replace('/', '').replace('/', '');
         newSearch = await searchNews.searchNewsWithDate();
@@ -141,10 +138,10 @@ function onSubmit(e) {
         );
         pagination();
       }
-      
+
       refs.pg.addEventListener('click', e => {
         const elem = e.target;
-      
+
         if (elem.dataset.page) {
           const pageNumber = parseInt(elem.dataset.page, 10);
 
@@ -156,7 +153,7 @@ function onSubmit(e) {
             renderWeatherAppGeo,
             renderWeatherApp
           );
-  
+
           pagination(valuePage);
           // console.log(valuePage);
           handleButtonLeft();
@@ -166,8 +163,8 @@ function onSubmit(e) {
 
       refs.pageContainer.addEventListener('click', function (e) {
         if (e.target.nodeName === 'LI') {
-          return
-        };
+          return;
+        }
         handleButton(e.target);
         arrToMarkup = showPage(articles);
         markup = createMarkup(arrToMarkup);
@@ -177,7 +174,6 @@ function onSubmit(e) {
           renderWeatherApp
         );
       });
-
     } catch (err) {
       console.log('ERROR', err);
       gallery.innerHTML = '';
@@ -188,18 +184,12 @@ function onSubmit(e) {
   }
 }
 
-
-
-
-
-
-
 function showPage(data) {
   const startIndex = (valuePage.curPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   // console.log("Обрізаний масив: ", value.slice(startIndex, endIndex))
   return data.slice(startIndex, endIndex);
-};
+}
 
 function pagination() {
   const { curPage, numLinksTwoSide: delta } = valuePage;
@@ -208,15 +198,15 @@ function pagination() {
   let numberTruncateLeft;
   let numberTruncateRight;
 
-  if(window.innerWidth < 768) {
+  if (window.innerWidth < 768) {
     numberTruncateLeft = curPage;
     numberTruncateRight = curPage;
-  };
-  if(window.innerWidth >= 768) {
+  }
+  if (window.innerWidth >= 768) {
     range = delta + 4;
     numberTruncateRight = curPage + delta;
     numberTruncateLeft = curPage - delta;
-  };
+  }
 
   // const range = delta; // use for handle visible number of links left side
 
@@ -230,7 +220,7 @@ function pagination() {
   // const numberTruncateRight = curPage;
 
   let active = '';
-  for (let pos = 1; pos <= totalPages; pos+=1) {
+  for (let pos = 1; pos <= totalPages; pos += 1) {
     active = pos === curPage ? 'active' : '';
 
     // truncate
@@ -279,12 +269,12 @@ function renderPage(index, active = '') {
 
 function handleButton(element) {
   if (element.classList.contains('prev-page')) {
-    valuePage.curPage-=1;
+    valuePage.curPage -= 1;
     handleButtonLeft();
     refs.btnNextPg.disabled = false;
     //  btnLastPg.disabled = false;
   } else if (element.classList.contains('next-page')) {
-    valuePage.curPage+=1;
+    valuePage.curPage += 1;
     handleButtonRight();
     refs.btnPrevPg.disabled = false;
     //  btnFirstPg.disabled = false;
@@ -294,7 +284,7 @@ function handleButton(element) {
 
 function handleButtonLeft() {
   if (valuePage.curPage === 1) {
-    console.log("valuePage.curPage: ", valuePage.curPage);
+    console.log('valuePage.curPage: ', valuePage.curPage);
     refs.btnPrevPg.disabled = true;
     //  btnFirstPg.disabled = true;
   } else {
@@ -305,12 +295,12 @@ function handleButtonLeft() {
 
 function handleButtonRight() {
   if (valuePage.curPage === totalPages) {
-    console.log("valuePage.curPage: ", valuePage.curPage);
-  //   console.log(valuePage.curPage);
-  refs.btnNextPg.disabled = true;
+    console.log('valuePage.curPage: ', valuePage.curPage);
+    //   console.log(valuePage.curPage);
+    refs.btnNextPg.disabled = true;
     //  btnLastPg.disabled = true;
   } else {
     refs.btnNextPg.disabled = false;
     //  btnLastPg.disabled = false;
   }
-};
+}
