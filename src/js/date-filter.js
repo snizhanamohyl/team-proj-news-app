@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix';
 export default function filterByDate(date) {
+  const paginationEl = document.querySelector('.pagination');
   const cards = document.querySelectorAll('.news-card');
   const listCards = document.getElementById('news-list');
   const listCardArr = [...cards];
@@ -24,4 +25,5 @@ export default function filterByDate(date) {
   }, '');
   listCards.innerHTML = '';
   listCards.insertAdjacentHTML('beforeend', html);
+  paginationEl.style.display = 'none';
 }

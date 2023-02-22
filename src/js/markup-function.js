@@ -15,7 +15,11 @@ function createMarkup(articles) {
         });
         // if (!image) return '';
         const link = image ? 'http://www.nytimes.com/' + image.url : '#';
-        return `<li class="card-set__item news-card">
+        return `<li class="card-set__item news-card" data-date="${pub_date
+          .split('')
+          .splice(0, 10)
+          .join('')
+          .replaceAll('-', '/')}">
         <article>
          <div class="box-img">
         <div class="news-card__img"><img class="img" src=${link} alt="News image" height = "395">
