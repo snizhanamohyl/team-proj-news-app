@@ -1,5 +1,5 @@
 // Calendar open/hide
-
+import filterByDate from './date-filter';
 // Get refs
 
 const refs = {
@@ -194,6 +194,7 @@ daysTag.addEventListener('click', evt => {
   // !!!!!!!!!!!!!!!!!!!!!
   let selectedInputDate = refs.input.value;
   // console.log(selectedInputDate);
+  filterByDate(selectedInputDate);
 
   localStorage.setItem('day', JSON.stringify(selectedValueDay));
   localStorage.setItem('date', JSON.stringify(selectedInputDate));
