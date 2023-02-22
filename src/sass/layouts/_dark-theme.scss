@@ -63,10 +63,12 @@ body.dark {
   .menu__logo,
   .navigation-link,
   .p-noresults,
-  .calendar-form__text {
+  .calendar-form__text,
+  .date-list__btn-text {
     color: var(--bcg-color);
   }
   .calendar-input {
+    color: var(--bcg-color);
     border-color: var(--bcg-color);
   }
 }
