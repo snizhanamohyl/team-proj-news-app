@@ -1,15 +1,19 @@
 <div class="container">
     <ul class="date-list">
-        <li class="date-list__item">
-            <button class="date-list__btn">
-                <span class="date-list__btn-text">27/06/1995</span>
-                <span class="date-list__btn-elem">
-                    <svg class="date-list__btn-svg">
-                        <use class="date-list__btn-use" href="./images/sprite.svg#arrow-down2"></use>
-                    </svg>
-                </span>
-            </button>
-            <ul class="card-set"></ul>
-        </li>
     </ul>
+    <div class="read-noresults" style="display: none">
+        <p class="p-noresults" id="p-noresults">
+            We haven’t found news from this category
+        </p>
+        <picture>
+            <source srcset="./images/desktop.png 1x, ./images/desktop@2x.png 2x" media="(min-width: 1200px)"
+                alt="img-noresults" />
+            <source srcset="./images/tablet.png 1x, ./images/tablet@2x.png 2x" media="(min-width: 768px)"
+                alt="img-noresults" />
+            <source srcset="./images/mobile.png 1x, ./images/mobile@2x.png 2x" media="(max-width: 767px)"
+                alt="img-noresults" />
+            <img src="./images/desktop.png" class="img-noresults" width="601px" height="478px" alt="img-noresults" />
+        </picture>
+    </div>
+    </div>
 </div>

@@ -1,6 +1,7 @@
 import { createReadListMarkup, createCardReadMarkup } from './markup-function';
 
 const gallery = document.querySelector('.date-list');
+const readNoresults = document.querySelector('.read-noresults');
 const readDataLS = isLocalEmpty();
 
 createReadMarkup(readDataLS);
@@ -20,5 +21,11 @@ function createReadMarkup(readDataLS) {
 
 function isLocalEmpty() {
   const storedValue = JSON.parse(localStorage.getItem('read-articles'));
-  return storedValue ? storedValue : {};
+
+  if (storedValue) {
+    return storedValue;
+  } else {
+    readNoresults.style.display = 'block';
+    return {};
+  }
 }
