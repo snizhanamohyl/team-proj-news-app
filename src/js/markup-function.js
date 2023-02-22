@@ -27,7 +27,7 @@ function createMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite 
                 <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./images/sprite.svg#icon-icons-heart-no-active"></use>
+                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>
@@ -72,7 +72,7 @@ function createMostPopularMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite 
                 <svg class="favorite-btn__icon" width="16" height="16">
-                     <use class="icon-js" href="./sprite.74cebf96.svg#icon-icons-heart-no-active"></use>
+                     <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>
@@ -129,7 +129,7 @@ function createCategoriesMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite
                 <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./sprite.74cebf96.svg#icon-icons-heart-no-active"></use>
+                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>
@@ -221,7 +221,7 @@ function createCardReadMarkup(articles) {
             <button type="button" class="favorite-btn">
                 Add to favorite
                 <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./sprite.74cebf96.svg#icon-icons-heart-no-active"></use>
+                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
                 </svg>
             </button>
         </div>
