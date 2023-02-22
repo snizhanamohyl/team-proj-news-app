@@ -73,7 +73,7 @@ function filter() {
   let list = [];
 
   const cards = document.querySelectorAll('.news-card');
-  list = cards.filter(card => card.dataset.date === date);
+  list = cards.filter(cards => date);
   //   if (dateFilter === '') {
   //     return;
   //   } else if (dateFilter !== card.dataset.date) {
