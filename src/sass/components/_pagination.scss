@@ -4,16 +4,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 40px;
     padding-bottom: 60px;
 
     @media screen and (min-width: 768px) {
-      padding-top: 48px;
       padding-bottom: 100px;
     }
 
     @media screen and (min-width: 1280px) {
-      padding-top: 65px;
       padding-bottom: 150px;
     }
 }
