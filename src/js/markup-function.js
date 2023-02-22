@@ -186,7 +186,7 @@ function createReadListMarkup(date, articlesMarkup) {
             <button class="date-list__btn">
                 <span class="date-list__btn-text">${date}</span>
                 <span class="date-list__btn-elem">
-                  <i class="fa-solid fa-angle-down date-list__btn-svg"></i>
+                  <i class="fa-solid fa-angle-down date-list__btn-svg" id="icon"></i>
                 </span>
             </button>
             <ul class="card-set">
