@@ -6,7 +6,7 @@ const newsList = document.getElementById('news-list');
 async function renderWeatherAppGeo(pos) {
   const { latitude, longitude } = pos.coords;
 
-  const data = await weatherAppGeo(latitude, longitude);
+  const data = await weatherAppGeo(longitude, latitude);
   addWeatherMarkup(data);
 }
 
