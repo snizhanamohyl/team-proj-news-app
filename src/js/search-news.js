@@ -108,7 +108,7 @@ function onSubmit(e) {
 
         const totalItem = newSearch.data.response.docs.length;
         totalPages = Math.ceil(totalItem / itemsPerPage);
-        let arrToMarkup = showPage(newSearch.data.response.docs);
+        const arrToMarkup = showPage(newSearch.data.response.docs);
 
         if (newSearch.data.response.docs.length === 0) {
           throw new Error('no results');
@@ -146,7 +146,7 @@ function onSubmit(e) {
           const pageNumber = parseInt(elem.dataset.page, 10);
 
           valuePage.curPage = pageNumber;
-          let arrToMarkup = showPage(newSearch.data.response.docs);
+          const arrToMarkup = showPage(newSearch.data.response.docs);
           markup = createMarkup(arrToMarkup);
           gallery.innerHTML = markup;
           navigator.geolocation.getCurrentPosition(
@@ -166,7 +166,7 @@ function onSubmit(e) {
           return;
         }
         handleButton(e.target);
-        arrToMarkup = showPage(articles);
+        const arrToMarkup = showPage(newSearch.data.response.docs);
         markup = createMarkup(arrToMarkup);
         gallery.innerHTML = markup;
         navigator.geolocation.getCurrentPosition(
