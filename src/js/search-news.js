@@ -125,6 +125,11 @@ function onSubmit(e) {
       } else {
         searchNews.dateFilter = date.replace('/', '').replace('/', '');
         newSearch = await searchNews.searchNewsWithDate();
+
+        const totalItem = newSearch.data.response.docs.length;
+        totalPages = Math.ceil(totalItem / itemsPerPage);
+        const arrToMarkup = showPage(newSearch.data.response.docs);
+
         if (newSearch.data.response.docs.length === 0) {
           throw new Error('no results');
         }
