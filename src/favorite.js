@@ -1,7 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { addActiveStatus } from './js/news-cards';
 
-const bodyRef = document.querySelector('body');
 const cardsContainerRef = document.querySelector('#favorites-card-set');
 const noResultsRef = document.querySelector('#img-noresults');
 const savedFavorites = localStorage.getItem('favorites');
@@ -10,6 +9,7 @@ const favoriteCardsArray = [];
 getFavoritesFromLS();
 showFavoritesNews();
 updateRefs();
+changeBtnState();
 
 function updateRefs() {
   setInterval(() => {
@@ -17,29 +17,29 @@ function updateRefs() {
     cardRef.forEach(card => {
       card.addEventListener('click', onClick);
     });
-  }, 500);
+  }, 200);
 }
 
 function onClick(evt) {
-  if (evt.target.nodeName === 'BUTTON') {
-    if (bodyRef.id === 'news') {
-      const cardMarkUp = evt.currentTarget.outerHTML;
-      const cardTitle = evt.currentTarget.querySelector('.news-card__title');
-      const cardObj = {
-        title: cardTitle.innerText,
-        markup: cardMarkUp,
-      };
-      renderMarkup(cardObj);
-    }
-    if (bodyRef.id === 'favorites') {
-      const cardMarkUp = evt.currentTarget.outerHTML;
-      const cardTitle = evt.currentTarget.querySelector('.news-card__title');
-      const cardObj = {
-        title: cardTitle.innerText,
-        markup: cardMarkUp,
-      };
-      removeCardFromFavorites(searchCardInLS(cardObj));
-    }
+  if (
+    evt.target.nodeName === 'BUTTON' &&
+    evt.target.classList.contains('is-selected')
+  ) {
+    const cardMarkUp = evt.currentTarget.outerHTML;
+    const cardTitle = evt.currentTarget.querySelector('.news-card__title');
+    const cardObj = {
+      title: cardTitle.innerText,
+      markup: cardMarkUp,
+    };
+    removeCardFromFavorites(searchCardInLS(cardObj.title));
+  } else if (evt.target.nodeName === 'BUTTON') {
+    const cardMarkUp = evt.currentTarget.outerHTML;
+    const cardTitle = evt.currentTarget.querySelector('.news-card__title');
+    const cardObj = {
+      title: cardTitle.innerText,
+      markup: cardMarkUp,
+    };
+    renderMarkup(cardObj);
   }
 }
 
@@ -90,8 +90,7 @@ function enableBtn() {
   });
 }
 
-function searchCardInLS(cardObj) {
-  const searchValue = cardObj.title;
+function searchCardInLS(searchValue) {
   const searchKey = 'title';
   let index = -1;
   for (let i = 0; i < favoriteCardsArray.length; i++) {
@@ -110,4 +109,22 @@ function removeCardFromFavorites(index) {
   saveFavoritesToLS(favoriteCardsArray);
   showFavoritesNews();
   updateRefs();
+}
+
+function changeBtnState() {
+  setInterval(() => {
+    const titlesRefs = document.querySelectorAll('.news-card__title');
+    favoriteCardsArray.forEach(obj => {
+      const searchValue = obj.title;
+
+      for (let i = 0; i < titlesRefs.length; i++) {
+        if (titlesRefs[i].textContent === searchValue) {
+          const pinnedCards =
+            titlesRefs[i].parentElement.children[0].children[3];
+          pinnedCards.innerHTML = addActiveStatus();
+          pinnedCards.classList.add('is-selected');
+        }
+      }
+    });
+  }, 500);
 }
