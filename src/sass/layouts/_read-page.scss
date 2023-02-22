@@ -48,12 +48,6 @@
         }
 
 
-        &-svg {
-            height: 9px;
-            width: 15px;
-            fill: #111321;
-        }
-
         &-text {
             margin-right: 8px;
         }
@@ -66,4 +60,9 @@
 
     }
 
+}
+
+.rotate {
+    transition: transform var(--transition);
+    transform: rotateX(180deg);
 }
