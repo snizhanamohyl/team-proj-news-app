@@ -32,9 +32,9 @@ function addWeatherMarkup(data) {
   if (window.innerWidth < 768) {
     newsList.children[0].insertAdjacentHTML('beforebegin', weatherAppMarkup);
   } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-    newsList.children[1].insertAdjacentHTML('beforebegin', weatherAppMarkup);
+    newsList.children[0].insertAdjacentHTML('afterend', weatherAppMarkup);
   } else if (window.innerWidth >= 1280) {
-    newsList.children[2].insertAdjacentHTML('beforebegin', weatherAppMarkup);
+    newsList.children[1].insertAdjacentHTML('afterend', weatherAppMarkup);
   }
 }
 
