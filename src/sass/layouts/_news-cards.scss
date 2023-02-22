@@ -197,6 +197,7 @@
   right: 8px;
 
   display: flex;
+  align-items: center;
   min-width: 126px;
   padding: 6px 12px;
   border: none;
@@ -217,3 +218,10 @@
     margin-left: 4px;
   }
 }
+
+
+.fa-heart {
+  margin-left: 4px;
+  color: #4440F6;
+}
+

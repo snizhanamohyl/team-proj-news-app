@@ -26,9 +26,7 @@ function createMarkup(articles) {
 
             <button type="button" class="favorite-btn">
                 Add to favorite 
-                <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
-                </svg>
+              <i class="fa-regular fa-heart"></i>
             </button>
         </div>
         <h2 class="news-card__title">${headline.main}</h2>
@@ -71,9 +69,7 @@ function createMostPopularMarkup(articles) {
 
             <button type="button" class="favorite-btn">
                 Add to favorite 
-                <svg class="favorite-btn__icon" width="16" height="16">
-                     <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
-                </svg>
+              <i class="fa-regular fa-heart"></i>
             </button>
         </div>
         <h2 class="news-card__title">${title}</h2>
@@ -128,9 +124,7 @@ function createCategoriesMarkup(articles) {
 
             <button type="button" class="favorite-btn">
                 Add to favorite
-                <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
-                </svg>
+               <i class="fa-regular fa-heart"></i>
             </button>
         </div>
         <h2 class="news-card__title">${title}</h2>
@@ -163,9 +157,7 @@ function createWeatherAppMarkup(
         <div class="weather__app--geo-position">
             <span class="weather__app--days-value" >${weather}</span>
             <p class="weather__app--location">
-                <svg>   
-                    <use href="./sprite.74cebf96.svg#location"></use>
-                </svg>
+               <i class="fa-solid fa-location-dot"></i>
                 <span class="weather__app--city">${city}</span>
             </p>
         </div>
@@ -220,9 +212,7 @@ function createCardReadMarkup(articles) {
 
             <button type="button" class="favorite-btn">
                 Add to favorite
-                <svg class="favorite-btn__icon" width="16" height="16">
-                    <use class="icon-js" href="./sprite.ba41ce1f.svg#icon-icons-heart-no-active"></use>
-                </svg>
+             <i class="fa-regular fa-heart"></i>
             </button>
         </div>
         <h2 class="news-card__title">${title}</h2>
