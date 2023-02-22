@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix';
 export default function filterByDate(date) {
   const cards = document.querySelectorAll('.news-card');
   const listCards = document.getElementById('news-list');
@@ -6,7 +7,11 @@ export default function filterByDate(date) {
   const filteredCards = listCardArr.filter(
     card => card.getAttribute('data-date') === date
   );
-
+  if (filteredCards.length === 0) {
+    Notify.info(`We haven't found news by this date. You can search the news on this date through the search box.
+`);
+    return;
+  }
   html = filteredCards.reduce(function (html, { outerHTML }) {
     html += outerHTML;
 
