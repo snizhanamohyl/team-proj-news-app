@@ -12,21 +12,39 @@
             </path>
         </symbol>
         <symbol id="icon-arrow-right" viewBox="0 0 18 32">
-           <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714" d="M2.286 29.714l13.714-13.714-13.714-13.714"></path>
+            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round"
+                stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.5714"
+                d="M2.286 29.714l13.714-13.714-13.714-13.714"></path>
         </symbol>
+        <svg id="arrow-down2" width="15" height="9" viewBox="0 0 15 9" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.7625 9L-3.18545e-07 7.28745L7.5 3.27835e-07L15 7.28745L13.2375 9L7.5 3.43725L1.7625 9Z" />
+        </svg>
         <symbol id="icon-opened-book" viewBox="0 0 32 32">
-            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778" d="M2.667 4h8c1.415 0 2.771 0.562 3.771 1.562s1.562 2.357 1.562 3.771v18.667c0-1.061-0.421-2.078-1.172-2.828s-1.768-1.172-2.828-1.172h-9.333v-20z"></path>
-            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778" d="M29.333 4h-8c-1.414 0-2.771 0.562-3.771 1.562s-1.562 2.357-1.562 3.771v18.667c0-1.061 0.421-2.078 1.172-2.828s1.768-1.172 2.828-1.172h9.333v-20z"></path>
+            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round"
+                stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778"
+                d="M2.667 4h8c1.415 0 2.771 0.562 3.771 1.562s1.562 2.357 1.562 3.771v18.667c0-1.061-0.421-2.078-1.172-2.828s-1.768-1.172-2.828-1.172h-9.333v-20z">
+            </path>
+            <path fill="none" stroke="#f4f4f4" style="stroke: var(--color1, #f4f4f4)" stroke-linejoin="round"
+                stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778"
+                d="M29.333 4h-8c-1.414 0-2.771 0.562-3.771 1.562s-1.562 2.357-1.562 3.771v18.667c0-1.061 0.421-2.078 1.172-2.828s1.768-1.172 2.828-1.172h9.333v-20z">
+            </path>
         </symbol>
-    <symbol id="icon-check-mark-icon" viewBox="0 0 32 32">
-    <path fill="#00dd73" style="fill: var(--color3, #00dd73)" d="M28.78 6.389c-0.289 0.009-0.547 0.131-0.734 0.323l-16.313 16.313-6.713-6.713c-0.195-0.209-0.473-0.339-0.78-0.339-0.589 0-1.067 0.478-1.067 1.067 0 0.308 0.13 0.585 0.339 0.78l0.001 0.001 7.467 7.467c0.193 0.193 0.459 0.312 0.754 0.312s0.561-0.119 0.754-0.312v0l17.067-17.067c0.199-0.194 0.323-0.465 0.323-0.765 0-0.589-0.478-1.067-1.067-1.067-0.011 0-0.021 0-0.031 0l0.002-0z"></path>
-    </symbol>
-       <symbol id="icon-icons-heart-no-active" viewBox="0 0 32 32">
-       <path fill="none" stroke="#4440f7" style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M9.332 4c-3.68 0-6.666 2.954-6.666 6.6 0 2.942 1.166 9.926 12.65 16.986 0.195 0.12 0.43 0.191 0.683 0.191s0.488-0.071 0.689-0.195l-0.006 0.003c11.484-7.060 12.65-14.044 12.65-16.986 0-3.646-2.984-6.6-6.666-6.6-3.68 0-6.666 4-6.666 4s-2.986-4-6.668-4z"></path>
-      </symbol>
-      <symbol id="icon-icons-heart-active" viewBox="0 0 32 32">
-      <path fill="#4b48da" style="fill: var(--color2, #4b48da)" d="M9.332 4c-3.68 0-6.666 2.954-6.666 6.6 0 2.942 1.166 9.926 12.65 16.986 0.195 0.12 0.43 0.191 0.683 0.191s0.488-0.071 0.689-0.195l-0.006 0.003c11.484-7.060 12.65-14.044 12.65-16.986 0-3.646-2.984-6.6-6.666-6.6-3.68 0-6.666 4-6.666 4s-2.986-4-6.668-4z"></path>
-       </symbol>
+        <symbol id="icon-check-mark-icon" viewBox="0 0 32 32">
+            <path fill="#00dd73" style="fill: var(--color3, #00dd73)"
+                d="M28.78 6.389c-0.289 0.009-0.547 0.131-0.734 0.323l-16.313 16.313-6.713-6.713c-0.195-0.209-0.473-0.339-0.78-0.339-0.589 0-1.067 0.478-1.067 1.067 0 0.308 0.13 0.585 0.339 0.78l0.001 0.001 7.467 7.467c0.193 0.193 0.459 0.312 0.754 0.312s0.561-0.119 0.754-0.312v0l17.067-17.067c0.199-0.194 0.323-0.465 0.323-0.765 0-0.589-0.478-1.067-1.067-1.067-0.011 0-0.021 0-0.031 0l0.002-0z">
+            </path>
+        </symbol>
+        <symbol id="icon-icons-heart-no-active" viewBox="0 0 32 32">
+            <path fill="none" stroke="#4440f7" style="stroke: var(--color1, #4440f7)" stroke-linejoin="round"
+                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2"
+                d="M9.332 4c-3.68 0-6.666 2.954-6.666 6.6 0 2.942 1.166 9.926 12.65 16.986 0.195 0.12 0.43 0.191 0.683 0.191s0.488-0.071 0.689-0.195l-0.006 0.003c11.484-7.060 12.65-14.044 12.65-16.986 0-3.646-2.984-6.6-6.666-6.6-3.68 0-6.666 4-6.666 4s-2.986-4-6.668-4z">
+            </path>
+        </symbol>
+        <symbol id="icon-icons-heart-active" viewBox="0 0 32 32">
+            <path fill="#4b48da" style="fill: var(--color2, #4b48da)"
+                d="M9.332 4c-3.68 0-6.666 2.954-6.666 6.6 0 2.942 1.166 9.926 12.65 16.986 0.195 0.12 0.43 0.191 0.683 0.191s0.488-0.071 0.689-0.195l-0.006 0.003c11.484-7.060 12.65-14.044 12.65-16.986 0-3.646-2.984-6.6-6.666-6.6-3.68 0-6.666 4-6.666 4s-2.986-4-6.668-4z">
+            </path>
+        </symbol>
         <symbol id="book-icon" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7778"
                 d="M2.667 4.001h8.001c2.946 0 5.334 2.388 5.334 5.334v0 18.67c0-2.209-1.791-4.001-4.001-4.001v0h-9.335v-20.003zM29.338 4.001h-8.001c-2.946 0-5.334 2.388-5.334 5.334v0 18.67c0-2.209 1.791-4.001 4.001-4.001v0h9.335v-20.003z">
@@ -254,7 +272,7 @@
             </path>
         </symbol>
         <symbol id="icon-arrownext" viewBox="0 0 16 32">
-            <path 
+            <path
                 d="M16 16c-0.016-0.596-0.219-1.107-0.643-1.567l-12.192-12.965c-0.36-0.375-0.784-0.579-1.301-0.579-1.050 0-1.865 0.886-1.865 2.027 0 0.545 0.204 1.056 0.564 1.448l10.97 11.636-10.97 11.636c-0.36 0.392-0.564 0.886-0.564 1.448 0 1.142 0.815 2.027 1.865 2.027 0.501 0 0.94-0.204 1.301-0.579l12.192-12.982c0.439-0.443 0.642-0.954 0.642-1.55z">
             </path>
         </symbol>

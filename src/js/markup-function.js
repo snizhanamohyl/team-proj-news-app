@@ -18,7 +18,7 @@ function createMarkup(articles) {
         return `<li class="card-set__item news-card">
         <article>
          <div class="box-img">
-        <div class="news-card__img"><img src=${link} alt="News image" height = "395">
+        <div class="news-card__img"><img class="img" src=${link} alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section_name}</p>
 
@@ -63,7 +63,7 @@ function createMostPopularMarkup(articles) {
         .replaceAll('-', '/')}">
         <article>
         <div class="box-img">
-        <div class="news-card__img"><img src=${link} alt="News image" height = "395">
+        <div class="news-card__img"><img src=${link} class="img" alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section}</p>
 
@@ -120,7 +120,7 @@ function createCategoriesMarkup(articles) {
           .replaceAll('-', '/')}">
         <article>
          <div class="box-img">
-        <div class="news-card__img"><img src=${image} alt="News image" height = "395">
+        <div class="news-card__img"><img src=${image} class="img" alt="News image" height = "395">
         </div>
             <p class="box-img__inform">${section}</p>
             
@@ -188,9 +188,65 @@ function createWeatherAppMarkup(
 </li>`;
 }
 
+function createReadListMarkup(date, articlesMarkup) {
+  return `
+        <li class="date-list__item">
+            <button class="date-list__btn">
+                <span class="date-list__btn-text">${date}</span>
+                <span class="date-list__btn-elem">
+                    <svg class="date-list__btn-svg">
+                        <use class="date-list__btn-use" href="./images/sprite.84e7d85a.svg#arrow-down2"></use>
+                    </svg>
+                </span>
+            </button>
+            <ul class="card-set">
+              ${articlesMarkup}
+            </ul>
+        </li>
+`;
+}
+
+function createCardReadMarkup(articles) {
+  const markup = articles
+    .map(({ img, uri, title, descr, date, link, category }) => {
+      return `<li class="card-set__item news-card" data-date="${date}">
+        <article>
+         <div class="box-img">
+        <div class="news-card__img"><img src=${img} class="img" alt="News image" height = "395">
+        </div>
+            <p class="box-img__inform">${category}</p>
+            
+            <p class="box-img__text" style="opacity:1;">Have read</p>
+
+            <button type="button" class="favorite-btn">
+                Add to favorite
+                <svg class="favorite-btn__icon" width="16" height="16">
+                    <use class="icon-js" href="./sprite.74cebf96.svg#icon-icons-heart-no-active"></use>
+                </svg>
+            </button>
+        </div>
+        <h2 class="news-card__title">${title}</h2>
+        <p class="news-card__text">${descr}</p>
+        <div class="news-card__inform">
+            <p class="news-card__date">
+						${date}</p>
+            <a class="news-card__link" target="_blank" data-article-uri="${uri}" href="${link}">
+                Read more
+            </a>
+        </div>
+      </article>
+    </li>   
+`;
+    })
+    .join('');
+
+  return markup;
+}
 export {
   createMarkup,
   createMostPopularMarkup,
   createCategoriesMarkup,
   createWeatherAppMarkup,
+  createReadListMarkup,
+  createCardReadMarkup,
 };
