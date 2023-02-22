@@ -13,7 +13,6 @@ function createMarkup(articles) {
         const image = multimedia.find(image => {
           return image.type === 'image';
         });
-        // if (!image) return '';
         const link = image ? 'http://www.nytimes.com/' + image.url : '#';
         return `<li class="card-set__item news-card" data-date="${pub_date
           .split('')
@@ -55,9 +54,7 @@ function createMostPopularMarkup(articles) {
   const markup = articles
     .map(({ uri, url, abstract, title, published_date, media, section }) => {
       let image = media[0];
-      // if (!image) return '';
       const link = image ? image['media-metadata'][2].url : '#';
-      // let link = image['media-metadata'][2].url;
       return `<li class="card-set__item news-card" data-date="${published_date
         .split('')
         .splice(0, 10)
@@ -107,10 +104,6 @@ function createCategoriesMarkup(articles) {
         section,
         created_date,
       }) => {
-        // if (multimedia === null) {
-        //   return;
-        // }
-        // let image = multimedia[2].url;
         const image = multimedia ? multimedia[2].url : '#';
 
         return `<li class="card-set__item news-card" data-date="${created_date

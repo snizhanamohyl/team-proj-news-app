@@ -157,10 +157,8 @@ function paginationForMonth() {
   // take day from localStorage
   let selectedDay = JSON.parse(localStorage.getItem('day'));
   let daysArray = daysTag.childNodes;
-  //console.log(daysArray);
   daysArray.forEach(elem => {
     if (elem.textContent === selectedDay) {
-      // console.log(elem.textContent);
       elem.classList.add('active');
     }
   });
@@ -176,9 +174,7 @@ daysTag.addEventListener('click', evt => {
     item.classList.remove('active');
   });
 
-  // !!!!!!!!!!!!!!!!!!!
   let selectedValueDay = evt.target.textContent;
-  // console.log("🚀 ~ selectedValueDay", selectedValueDay)
 
   evt.target.classList.add('active');
 
@@ -191,9 +187,7 @@ daysTag.addEventListener('click', evt => {
     '/' +
     selectedValueDay.padStart(2, '0');
 
-  // !!!!!!!!!!!!!!!!!!!!!
   let selectedInputDate = refs.input.value;
-  // console.log(selectedInputDate);
   filterByDate(selectedInputDate);
 
   localStorage.setItem('day', JSON.stringify(selectedValueDay));

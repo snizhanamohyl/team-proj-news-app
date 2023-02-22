@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export default class SearchNews {
   constructor() {
-    // this.queryPage = 1;
     this.searchQuery = '';
     this.category = '';
     this.dateFilter = '';
@@ -17,8 +16,6 @@ export default class SearchNews {
 
     return response;
   }
-
-  // https://api.nytimes.com/svc/search/v2/articlesearch.json?q=cat&api-key=8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq
 
   async searchNewsWithDate() {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
@@ -56,19 +53,4 @@ export default class SearchNews {
 
     return response;
   }
-
-  // resetPage() {
-  //   this.queryPage = 1;
-  // }
-
-  // incrementPage() {
-  //   this.queryPage += 1;
-  // }
-  // get query() {
-  //   return this.searchQuery;
-  // }
-
-  // set query(newQuery) {
-  //   this.searchQuery = newQuery;
-  // }
 }

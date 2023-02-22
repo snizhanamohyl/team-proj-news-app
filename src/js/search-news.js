@@ -170,8 +170,6 @@ function onCategoryListClick(event) {
   categoriesBtnsArr.map(child => child.classList.remove('pressed'));
 
   if (
-    // ['others', 'categories', ''].includes(searchNews.category) ||
-    // button.tagName !== 'BUTTON'
     searchNews.category === 'others' ||
     button === othersBtn ||
     button === svg ||
@@ -195,10 +193,6 @@ async function renderNews() {
     if (categorySearch.data.results === null) {
       throw new Error('no results');
     }
-
-    // const markup = createCategoriesMarkup(categorySearch.data.results);
-
-    // gallery.innerHTML = '';
 
     valuePage.callback = createCategoriesMarkup;
     valuePage.curPage = 1;
