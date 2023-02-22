@@ -1,5 +1,6 @@
 import SearchNews from './api';
 import { createCategoriesMarkup } from './markup-function';
+import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
@@ -92,61 +93,36 @@ function onCategoryListClick(event) {
 
   api.category = button.textContent.toLowerCase();
 
-  if (api.category === 'others' || button === othersBtn || button === svg) {
+  if (
+    api.category === 'others' ||
+    button === othersBtn ||
+    button === svg ||
+    api.category === 'categories' ||
+    api.category === ''
+  ) {
     return;
   }
   renderNews();
 }
 
-// async function renderNews() {
-//   imageNoResults.style.display = 'none';
-//   try {
-//     const categorySearch = await api.categoryNews();
-
-//     if (categorySearch.data.results === null) {
-//       throw new Error('no results');
-//     }
-
-//     const markup = createCategoriesMarkup(categorySearch.data.results);
-
-//     gallery.innerHTML = '';
-//     gallery.innerHTML = markup;
-//   } catch (error) {
-//     console.log('ERROR', error);
-//     gallery.innerHTML = '';
-//     imageNoResults.style.display = 'block';
-//   }
-// }
-
 async function renderNews() {
   imageNoResults.style.display = 'none';
   try {
-    const date = JSON.parse(localStorage.getItem('date'));
-    api.dateFilter = date;
     let categorySearch;
-    if (api.dateFilter === '') {
-      categorySearch = await api.categoryNews();
+    categorySearch = await api.categoryNews();
 
-      if (categorySearch.data.results === null) {
-        throw new Error('no results');
-      }
-      console.log(categorySearch.data.results);
-      const markup = createCategoriesMarkup(categorySearch.data.results);
-
-      gallery.innerHTML = '';
-      gallery.innerHTML = markup;
-    } else {
-      categorySearch = await api.categoryNewsWithDate();
-
-      if (categorySearch.data.results === null) {
-        throw new Error('no results');
-      }
-      console.log(categorySearch.data.results);
-      const markup = createCategoriesMarkup(categorySearch.data.results);
-
-      gallery.innerHTML = '';
-      gallery.innerHTML = markup;
+    if (categorySearch.data.results === null) {
+      throw new Error('no results');
     }
+
+    const markup = createCategoriesMarkup(categorySearch.data.results);
+
+    gallery.innerHTML = '';
+    gallery.innerHTML = markup;
+    navigator.geolocation.getCurrentPosition(
+      renderWeatherAppGeo,
+      renderWeatherApp
+    );
   } catch (error) {
     console.log('ERROR', error);
     gallery.innerHTML = '';

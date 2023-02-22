@@ -1,0 +1,51 @@
+.container {
+  @extend %container;
+}
+
+.noresults {
+  @include tablet {
+    padding-top: 88px;
+    padding-bottom: 101px;
+  }
+
+  @include desktop {
+    padding-top: 61px;
+    padding-bottom: 166px;
+  }
+}
+
+.p-noresults {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: center;
+  width: 276px;
+  margin: 0 auto;
+
+  @include tablet {
+    font-size: 40px;
+    line-height: 55px;
+    width: 548px;
+  }
+}
+
+.img-noresults {
+  width: 248px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 19px;
+
+  @include tablet {
+    width: 560px;
+    margin-bottom: 0;
+  }
+
+  @include desktop {
+    width: 601px;
+  }
+}
+
+.p-dark {
+  color: var(--bcg-color);
+}

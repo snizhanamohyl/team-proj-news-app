@@ -40,17 +40,35 @@ body.dark {
     fill: var(--disabled-color);
   }
   .news-card {
-    &__title, &__text {
+    &__title,
+    &__text {
       color: var(--white);
     }
   }
   .categories__btn {
     background-color: var(--white);
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       color: var(--white);
       border-color: var(--accent-color);
       background-color: var(--accent-color);
     }
+  }
+  .js-menu-container.is-open {
+    background-color: var(--dark-bcg-color);
+  }
+  .close__button-icon,
+  .menu__logo,
+  .navigation-link,
+  .p-noresults,
+  .calendar-form__text,
+  .date-list__btn-text {
+    color: var(--bcg-color);
+  }
+  .calendar-input {
+    color: var(--bcg-color);
+    border-color: var(--bcg-color);
   }
 }
