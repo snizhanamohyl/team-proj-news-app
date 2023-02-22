@@ -18,6 +18,8 @@ export default class SearchNews {
     return response;
   }
 
+  // https://api.nytimes.com/svc/search/v2/articlesearch.json?q=cat&api-key=8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq
+
   async searchNewsWithDate() {
     const API_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     const API_KEY = '8n5KUMyFUl7iOAB9Zwf8IWBubkkgaMEq';
