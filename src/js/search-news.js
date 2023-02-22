@@ -5,6 +5,8 @@ import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 const form = document.getElementById('form-field');
 const imageNoResults = document.getElementById('img-noresults');
 
+const categoriesBtns = document.getElementsByClassName('categories__btn');
+
 const refs = {
   pg: document.getElementById('pagination'),
   btnNextPg: document.querySelector('.next-page'),
@@ -49,43 +51,16 @@ searchNews
       renderWeatherApp
     );
     pagination();
-    refs.pg.addEventListener('click', onBtnListClick);
-    //  e => {
-    // const elem = e.target;
-
-    // if (elem.dataset.page) {
-    //   const pageNumber = parseInt(elem.dataset.page, 10);
-
-    //   valuePage.curPage = pageNumber;
-    //   let arrToPopularMarkup = showPage(articles);
-    //   markup = createMostPopularMarkup(arrToPopularMarkup);
-    //   gallery.innerHTML = markup;
-    //   navigator.geolocation.getCurrentPosition(
-    //     renderWeatherAppGeo,
-    //     renderWeatherApp
-    //   );
-
-    //   pagination(valuePage);
-    //   // console.log(valuePage);
-    //   handleButtonLeft();
-    //   handleButtonRight();
-    // }
-    // });
-
-    function onBtnListClick(e) {
-      console.log(articles);
+    refs.pg.addEventListener('click', e => {
       const elem = e.target;
 
       if (elem.dataset.page) {
         const pageNumber = parseInt(elem.dataset.page, 10);
 
         valuePage.curPage = pageNumber;
-
-        const arrToPopularMarkup = showPage(articles);
+        let arrToPopularMarkup = showPage(articles);
         markup = createMostPopularMarkup(arrToPopularMarkup);
-
         gallery.innerHTML = markup;
-
         navigator.geolocation.getCurrentPosition(
           renderWeatherAppGeo,
           renderWeatherApp
@@ -96,8 +71,7 @@ searchNews
         handleButtonLeft();
         handleButtonRight();
       }
-    }
-
+    });
     refs.pageContainer.addEventListener('click', function (e) {
       if (e.target.nodeName === 'LI') {
         return;
@@ -119,7 +93,6 @@ form.addEventListener('submit', onSubmit);
 function onSubmit(e) {
   e.preventDefault();
 
-  refs.pg.removeEventListener('click', a);
   imageNoResults.style.display = 'none';
   valuePage.curPage = 1;
   const form = e.currentTarget;
@@ -146,6 +119,9 @@ function onSubmit(e) {
 
         let markup = createMarkup(arrToMarkup);
 
+        const categoriesBtnsArr = Array.from(categoriesBtns);
+        categoriesBtnsArr.map(child => child.classList.remove('pressed'));
+
         gallery.innerHTML = markup;
         navigator.geolocation.getCurrentPosition(
           renderWeatherAppGeo,
@@ -165,6 +141,9 @@ function onSubmit(e) {
         }
 
         let markup = createMarkup(arrToMarkup);
+
+        const categoriesBtnsArr = Array.from(categoriesBtns);
+        categoriesBtnsArr.map(child => child.classList.remove('pressed'));
 
         gallery.innerHTML = markup;
         navigator.geolocation.getCurrentPosition(

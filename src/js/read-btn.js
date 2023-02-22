@@ -8,5 +8,7 @@ function dateListUlClick(e) {
     if (cardSet.classList.contains('card-set')) {
       cardSet.classList.toggle('visually-hidden');
     }
+    const icon = e.target.querySelector('.date-list__btn-svg');
+    icon.classList.toggle('rotate');
   }
 }

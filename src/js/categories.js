@@ -11,6 +11,7 @@ const categoriesList = document.getElementById('categories__list');
 const svg = document.getElementById('categories__arrow');
 const imageNoResults = document.getElementById('img-noresults');
 const gallery = document.getElementById('news-list');
+const categoriesBtns = document.getElementsByClassName('categories__btn');
 
 const api = new SearchNews();
 
@@ -90,8 +91,10 @@ function onDropDownListClick(event) {
 
 function onCategoryListClick(event) {
   const button = event.target;
-
   api.category = button.textContent.toLowerCase();
+
+  const categoriesBtnsArr = Array.from(categoriesBtns);
+  categoriesBtnsArr.map(child => child.classList.remove('pressed'));
 
   if (
     api.category === 'others' ||
@@ -102,6 +105,9 @@ function onCategoryListClick(event) {
   ) {
     return;
   }
+
+  button.classList.add('pressed');
+
   renderNews();
 }
 

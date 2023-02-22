@@ -48,22 +48,23 @@
         }
 
 
-        &-svg {
-            height: 9px;
-            width: 15px;
-            fill: #111321;
-        }
-
         &-text {
             margin-right: 8px;
+            pointer-events: none;
         }
 
         &-elem {
             display: flex;
             align-items: center;
+            pointer-events: none;
         }
 
 
     }
 
+}
+
+.rotate {
+    transition: transform var(--transition);
+    transform: rotateX(180deg);
 }
