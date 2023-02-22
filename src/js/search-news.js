@@ -5,6 +5,8 @@ import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 const form = document.getElementById('form-field');
 const imageNoResults = document.getElementById('img-noresults');
 
+const categoriesBtns = document.getElementsByClassName('categories__btn');
+
 const refs = {
   pg: document.getElementById('pagination'),
   btnNextPg: document.querySelector('.next-page'),
@@ -90,6 +92,7 @@ form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
+
   imageNoResults.style.display = 'none';
   valuePage.curPage = 1;
   const form = e.currentTarget;
@@ -116,6 +119,9 @@ function onSubmit(e) {
 
         let markup = createMarkup(arrToMarkup);
 
+        const categoriesBtnsArr = Array.from(categoriesBtns);
+        categoriesBtnsArr.map(child => child.classList.remove('pressed'));
+
         gallery.innerHTML = markup;
         navigator.geolocation.getCurrentPosition(
           renderWeatherAppGeo,
@@ -135,6 +141,9 @@ function onSubmit(e) {
         }
 
         let markup = createMarkup(arrToMarkup);
+
+        const categoriesBtnsArr = Array.from(categoriesBtns);
+        categoriesBtnsArr.map(child => child.classList.remove('pressed'));
 
         gallery.innerHTML = markup;
         navigator.geolocation.getCurrentPosition(
