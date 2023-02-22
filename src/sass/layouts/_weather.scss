@@ -74,7 +74,7 @@
         font-size: 14px;
         display: flex;
         align-items: center;
-        gap: 4px;
+        // gap: 4px;
         padding: 8px;
 
         background-color: rgba(254, 254, 255, 0.3);
@@ -83,18 +83,19 @@
         @media screen and(min-width: $pre_tablet) {
             font-size: 20px;
             line-height: 1.15;
+            padding: 10px 17px;
           }
     }
     
-    svg{
-        width: 18px;
-        height: 18px;
+    // svg{
+    //     width: 18px;
+    //     height: 18px;
 
-        @media screen and(min-width: $pre_tablet) {
-            width: 27px;
-            height: 27px;
-          }
-    }
+    //     @media screen and(min-width: $pre_tablet) {
+    //         width: 27px;
+    //         height: 27px;
+    //       }
+    // }
 
     &--skyCons{
         width: 128px;
@@ -140,3 +141,19 @@
           }
     }
 }
+
+
+.fa-location-dot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+        // width: 18px;
+        // height: 18px;
+
+        @media screen and(min-width: $pre_tablet) {
+          margin-right: 12px;
+        //     width: 27px;
+        //     height: 27px;
+          }
+    }

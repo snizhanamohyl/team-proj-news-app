@@ -17,39 +17,22 @@ setInterval(() => {
 
 /////////////////////////////////////////////////////////////////
 
-//  74cebf96
-
-// let timeridSvgIcon = null;
-
-// timeridSvgIcon = setInterval(() => {
-//   const svgEl = document.querySelectorAll('.icon-js');
-//   const arrSvg = Array.from(svgEl);
-
-//   arrSvg.forEach(svg => {
-//     return (svg.href.baseVal =
-//       '/sprite.74cebf96.svg#icon-icons-heart-no-active');
-//   });
-// }, 500);
-
-// 74cebf96
-const ACTIVE_ICON = './sprite.74cebf96.svg#icon-icons-heart-active';
-const INACTIVE_ICON = './sprite.74cebf96.svg#icon-icons-heart-no-active';
+const ACTIVE_ICON = '<i class="fa-solid fa-heart"></i>';
+const INACTIVE_ICON = '<i class="fa-regular fa-heart"></i>';
 const cardSetEl = document.querySelector('.card-set');
 
 cardSetEl.addEventListener('click', onChangeIconFavorite);
 
 function onChangeIconFavorite(e) {
-  // clearInterval(timeridSvgIcon);
 
   if (
     e.target.nodeName !== 'BUTTON' &&
-    e.target.nodeName !== 'svg' &&
-    e.target.nodeName !== 'use' &&
+    e.target.nodeName !== 'I' &&
     e.target.nodeName !== 'A'
   ) {
     return;
   }
-
+  
   if (e.target.nodeName === 'BUTTON') {
     const btnEl = e.target;
     btnEl.classList.toggle('is-selected');
@@ -62,13 +45,11 @@ function onChangeIconFavorite(e) {
       btnEl.innerHTML = removeActiveStatus();
     }
   }
-
-  if (e.target.nodeName === 'svg') {
-    const svgEl = e.target;
-    const btnEl = svgEl.parentNode;
-    btnEl.classList.toggle('is-selected');
-
-    if (btnEl.classList.contains('is-selected')) {
+  if (e.target.nodeName === "I") {
+    const iEl = e.target;
+    const btnEl = iEl.parentNode;
+    btnEl.classList.toggle('is-selected')
+      if (btnEl.classList.contains('is-selected')) {
       btnEl.innerHTML = addActiveStatus();
     }
 
@@ -77,19 +58,6 @@ function onChangeIconFavorite(e) {
     }
   }
 
-  if (e.target.nodeName === 'use') {
-    const useEl = e.target;
-    const btnEl = useEl.closest('button');
-    btnEl.classList.toggle('is-selected');
-
-    if (btnEl.classList.contains('is-selected')) {
-      btnEl.innerHTML = addActiveStatus();
-    }
-
-    if (!btnEl.classList.contains('is-selected')) {
-      btnEl.innerHTML = removeActiveStatus();
-    }
-  }
 
   if (e.target.nodeName === 'A') {
     const linkEl = e.target;
@@ -113,13 +81,11 @@ function onChangeIconFavorite(e) {
 }
 
 function addActiveStatus() {
-  return `Remove from favorite <svg class="favorite-btn__icon" width="16" height="16">
-            <use class="icon-js" href="${ACTIVE_ICON}"></use></svg>`;
+  return `Remove from favorite ${ACTIVE_ICON}`;
 }
 
 function removeActiveStatus() {
-  return `Add to favorite <svg class="favorite-btn__icon" width="16" height="16">
-            <use class="icon-js" href="${INACTIVE_ICON}"></use></svg>`;
+  return `Add to favorite ${INACTIVE_ICON}`;
 }
 
 export { addActiveStatus, removeActiveStatus };
