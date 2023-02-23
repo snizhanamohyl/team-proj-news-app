@@ -19,7 +19,11 @@ setInterval(() => {
 const ACTIVE_ICON = '<i class="fa-solid fa-heart"></i>';
 const INACTIVE_ICON = '<i class="fa-regular fa-heart"></i>';
 
-changeFavoriteStatus();
+try {
+  changeFavoriteStatus();
+} catch {
+  console.log;
+}
 
 function changeFavoriteStatus() {
   const cardSetEl = document.querySelector('.card-set');
