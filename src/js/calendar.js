@@ -175,7 +175,7 @@ let selectedValueDay = null;
 
 daysTag.addEventListener('click', evt => {
   [...evt.currentTarget.children].forEach(item => {
-    item.classList.remove('active');
+    item.children[0].classList.remove('active');
   });
 
   selectedValueDay = evt.target.textContent;
