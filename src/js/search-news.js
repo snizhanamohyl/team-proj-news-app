@@ -1,4 +1,5 @@
 import SearchNews from './api';
+import { Notify } from 'notiflix';
 import {
   createMarkup,
   createMostPopularMarkup,
@@ -102,7 +103,10 @@ function onSubmit(e) {
   valuePage.curPage = 1;
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
-
+  if (searchNews.searchQuery === '') {
+    Notify.info('Please enter your query');
+    return;
+  }
   findNews();
 
   async function findNews() {
@@ -312,6 +316,7 @@ function handleButton(element) {
 }
 
 function handleButtonLeft() {
+  console.log('handleButtonLeft', valuePage.curPage);
   if (valuePage.curPage === 1) {
     refs.btnPrevPg.disabled = true;
   } else {
@@ -320,6 +325,7 @@ function handleButtonLeft() {
 }
 
 function handleButtonRight() {
+  console.log('handleButtonRight', valuePage.curPage);
   if (valuePage.curPage === totalPages) {
     refs.btnNextPg.disabled = true;
   } else {

@@ -9,8 +9,11 @@ export default function filterByDate(date) {
     card => card.getAttribute('data-date') === date
   );
   if (filteredCards.length === 0) {
-    Notify.info(`We haven't found news by this date. You can search the news on this date through the search box.
-`);
+    Notify.info(
+      `We haven't found news by this date. You can search the news on this date through the search box.
+`,
+      { timeout: 4000 }
+    );
     return;
   }
   html = filteredCards.reduce(function (html, { outerHTML }) {

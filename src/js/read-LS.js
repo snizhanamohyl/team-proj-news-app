@@ -19,6 +19,7 @@ function linkReadMore(event) {
     };
 
     const curStorageData = isLocalEmpty();
+
     const curDate = generateDate();
 
     const curStorageDataKeys = [...Object.keys(curStorageData)];
@@ -33,13 +34,12 @@ function linkReadMore(event) {
     if (curStorageDataKeys.length === 0) {
       curStorageData[curDate] = [cardData];
     } else {
-      curStorageDataKeys.map(el => {
-        if (el === curDate) {
-          curStorageData[el].push(cardData);
-        } else {
-          curStorageData[curDate] = [cardData];
-        }
-      });
+      console.log(curStorageDataKeys);
+      if (curStorageDataKeys.includes(curDate)) {
+        curStorageData[curDate].push(cardData);
+      } else {
+        curStorageData[curDate] = [cardData];
+      }
     }
 
     addReadCardToLS(curStorageData);
