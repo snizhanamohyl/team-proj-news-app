@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export default class SearchNews {
   constructor() {
-    // this.queryPage = 1;
     this.searchQuery = '';
     this.category = '';
     this.dateFilter = '';
@@ -54,19 +53,4 @@ export default class SearchNews {
 
     return response;
   }
-
-  // resetPage() {
-  //   this.queryPage = 1;
-  // }
-
-  // incrementPage() {
-  //   this.queryPage += 1;
-  // }
-  // get query() {
-  //   return this.searchQuery;
-  // }
-
-  // set query(newQuery) {
-  //   this.searchQuery = newQuery;
-  // }
 }

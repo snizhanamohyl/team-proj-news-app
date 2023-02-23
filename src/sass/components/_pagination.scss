@@ -101,13 +101,18 @@
     color: var(--bcg-color);
   }
 
-
 .pg-item-dot {
   line-height: 1.18;
 };
 
+.fa-angle-right, .fa-angle-left {
+  font-size: 12px;
+}
 
-.icon-arrow {
-  width: 24px;
-  height: 24px;
-};
+.fa-angle-right {
+  margin-left: 6px;
+}
+
+.fa-angle-left {
+  margin-right: 6px;
+}

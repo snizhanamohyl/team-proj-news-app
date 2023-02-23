@@ -1,4 +1,5 @@
 import { createReadListMarkup, createCardReadMarkup } from './markup-function';
+import { changeFavoriteStatus } from './news-cards';
 
 const gallery = document.querySelector('.date-list');
 const readNoresults = document.querySelector('.read-noresults');
@@ -17,6 +18,8 @@ function createReadMarkup(readDataLS) {
 
   gallery.innerHTML = '';
   gallery.innerHTML = markup;
+
+  changeFavoriteStatus();
 }
 
 function isLocalEmpty() {

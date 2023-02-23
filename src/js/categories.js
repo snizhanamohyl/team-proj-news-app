@@ -1,17 +1,10 @@
 import SearchNews from './api';
-import { createCategoriesMarkup } from './markup-function';
-import { renderWeatherAppGeo, renderWeatherApp } from './weather';
 
 const othersBtn = document.getElementById('others');
 const dropdown = document.getElementById('dropdown');
 const othersList = document.getElementById('others-list');
 const btnSpan = document.getElementById('categories-span');
 const btns = document.getElementsByClassName('categories__btn');
-const categoriesList = document.getElementById('categories__list');
-const svg = document.getElementById('categories__arrow');
-const imageNoResults = document.getElementById('img-noresults');
-const gallery = document.getElementById('news-list');
-const categoriesBtns = document.getElementsByClassName('categories__btn');
 
 const api = new SearchNews();
 
@@ -71,67 +64,4 @@ function createOthersMarkup(category) {
 
 function addOthersMarkup(markup) {
   othersList.insertAdjacentHTML('beforeend', markup);
-}
-
-// Fetch news by category
-
-categoriesList.addEventListener('click', onCategoryListClick);
-othersList.addEventListener('click', onDropDownListClick);
-
-function onDropDownListClick(event) {
-  openDropdown();
-
-  const button = event.target;
-  const encodedBtn = encodeURIComponent(button.textContent.toLowerCase());
-
-  api.category = encodedBtn;
-
-  renderNews();
-}
-
-function onCategoryListClick(event) {
-  const button = event.target;
-  api.category = button.textContent.toLowerCase();
-
-  const categoriesBtnsArr = Array.from(categoriesBtns);
-  categoriesBtnsArr.map(child => child.classList.remove('pressed'));
-
-  if (
-    api.category === 'others' ||
-    button === othersBtn ||
-    button === svg ||
-    api.category === 'categories' ||
-    api.category === ''
-  ) {
-    return;
-  }
-
-  button.classList.add('pressed');
-
-  renderNews();
-}
-
-async function renderNews() {
-  imageNoResults.style.display = 'none';
-  try {
-    let categorySearch;
-    categorySearch = await api.categoryNews();
-
-    if (categorySearch.data.results === null) {
-      throw new Error('no results');
-    }
-
-    const markup = createCategoriesMarkup(categorySearch.data.results);
-
-    gallery.innerHTML = '';
-    gallery.innerHTML = markup;
-    navigator.geolocation.getCurrentPosition(
-      renderWeatherAppGeo,
-      renderWeatherApp
-    );
-  } catch (error) {
-    console.log('ERROR', error);
-    gallery.innerHTML = '';
-    imageNoResults.style.display = 'block';
-  }
 }
