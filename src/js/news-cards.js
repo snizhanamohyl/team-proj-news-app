@@ -19,9 +19,10 @@ setInterval(() => {
 const ACTIVE_ICON = '<i class="fa-solid fa-heart"></i>';
 const INACTIVE_ICON = '<i class="fa-regular fa-heart"></i>';
 
+changeFavoriteStatus();
+
 function changeFavoriteStatus() {
   const cardSetEl = document.querySelector('.card-set');
-  console.log('🚀 ~ file: news-cards.js:23 ~ cardSetEl:', cardSetEl);
 
   cardSetEl.addEventListener('click', onChangeIconFavorite);
 
