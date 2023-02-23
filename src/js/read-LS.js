@@ -34,7 +34,6 @@ function linkReadMore(event) {
     if (curStorageDataKeys.length === 0) {
       curStorageData[curDate] = [cardData];
     } else {
-      console.log(curStorageDataKeys);
       if (curStorageDataKeys.includes(curDate)) {
         curStorageData[curDate].push(cardData);
       } else {

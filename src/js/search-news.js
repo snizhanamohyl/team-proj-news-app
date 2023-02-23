@@ -101,6 +101,9 @@ function onSubmit(e) {
   imageNoResults.style.display = 'none';
   paginationRef.style.display = 'flex';
   valuePage.curPage = 1;
+  handleButtonLeft();
+  handleButtonRight();
+
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
   if (searchNews.searchQuery === '') {
@@ -207,6 +210,9 @@ async function renderNews() {
 
     valuePage.callback = createCategoriesMarkup;
     valuePage.curPage = 1;
+    handleButtonLeft();
+    handleButtonRight();
+
     valuePage.array = categorySearch.data.results;
     updateTemplate();
     paginationRef.style.display = 'flex';
@@ -316,7 +322,6 @@ function handleButton(element) {
 }
 
 function handleButtonLeft() {
-  console.log('handleButtonLeft', valuePage.curPage);
   if (valuePage.curPage === 1) {
     refs.btnPrevPg.disabled = true;
   } else {
@@ -325,7 +330,6 @@ function handleButtonLeft() {
 }
 
 function handleButtonRight() {
-  console.log('handleButtonRight', valuePage.curPage);
   if (valuePage.curPage === totalPages) {
     refs.btnNextPg.disabled = true;
   } else {
