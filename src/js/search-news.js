@@ -14,6 +14,7 @@ const paginationRef = document.querySelector('.pagination');
 
 const categoriesBtns = document.getElementsByClassName('categories__btn');
 const othersList = document.getElementById('others-list');
+const dropdown = document.getElementById('dropdown');
 const categoriesList = document.getElementById('categories__list');
 const othersBtn = document.getElementById('others');
 const svg = document.getElementById('categories__arrow');
@@ -175,6 +176,11 @@ othersList.addEventListener('click', onCategoryListClick);
 function onCategoryListClick(event) {
   const button = event.target;
   searchNews.category = button.textContent.toLowerCase();
+
+  if (event.currentTarget === othersList) {
+    dropdown.classList.toggle('js-is-hidden');
+    othersBtn.classList.toggle('is-active');
+  }
 
   const categoriesBtnsArr = Array.from(categoriesBtns);
   categoriesBtnsArr.map(child => child.classList.remove('pressed'));
