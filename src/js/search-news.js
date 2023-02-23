@@ -52,7 +52,6 @@ function updateTemplate() {
     renderWeatherAppGeo,
     renderWeatherApp
   );
-  paginationRef.style.display = 'flex';
 }
 
 refs.pg.addEventListener('click', e => {
@@ -99,6 +98,7 @@ function onSubmit(e) {
   e.preventDefault();
 
   imageNoResults.style.display = 'none';
+  paginationRef.style.display = 'flex';
   valuePage.curPage = 1;
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
@@ -127,6 +127,7 @@ function onSubmit(e) {
         valuePage.callback = createMarkup;
         valuePage.array = newSearch.data.response.docs;
         updateTemplate();
+        paginationRef.style.display = 'flex';
         pagination();
       } else {
         searchNews.dateFilter = date.replace('/', '').replace('/', '');
@@ -145,12 +146,14 @@ function onSubmit(e) {
         valuePage.callback = createMarkup;
         valuePage.array = newSearch.data.response.docs;
         updateTemplate();
+        paginationRef.style.display = 'flex';
         pagination();
       }
     } catch (err) {
       console.log('ERROR', err);
       gallery.innerHTML = '';
       imageNoResults.style.display = 'block';
+      paginationRef.style.display = 'none';
     } finally {
       form.reset();
     }
@@ -187,6 +190,7 @@ function onCategoryListClick(event) {
 
 async function renderNews() {
   imageNoResults.style.display = 'none';
+
   try {
     let categorySearch = await searchNews.categoryNews();
 
@@ -194,15 +198,20 @@ async function renderNews() {
       throw new Error('no results');
     }
 
+    const totalItem = categorySearch.data.results.length;
+    totalPages = Math.ceil(totalItem / itemsPerPage);
+
     valuePage.callback = createCategoriesMarkup;
     valuePage.curPage = 1;
     valuePage.array = categorySearch.data.results;
     updateTemplate();
+    paginationRef.style.display = 'flex';
     pagination();
   } catch (error) {
     console.log('ERROR', error);
     gallery.innerHTML = '';
     imageNoResults.style.display = 'block';
+    paginationRef.style.display = 'none';
   }
 }
 
