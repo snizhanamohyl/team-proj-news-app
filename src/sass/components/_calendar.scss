@@ -132,7 +132,6 @@
 
     &.is-hidden-wrapper>.calendar-wrapper__container {
         transform: translateY(-104%);
-        // box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
 
         transition: transform var(--transition);
     }
@@ -148,11 +147,8 @@
     width: 250px;
     right: 0px;
     background-color: var(--dropdown-list);
-    // box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 
-    // transition-duration: 250ms;
-    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calendar__button-arrow-icon {
@@ -165,11 +161,6 @@
     align-items: center;
     padding: 11px 5px;
     margin-bottom: 2px;
-
-    // & svg:hover {
-    //     height: 12px;
-    // }
-
 }
 
 .current-month {
@@ -177,9 +168,6 @@
     justify-content: space-between;
     align-items: center;
 
-    // & svg:hover {
-    //         height: 10px;
-    //     }
 }
 
 .calendar__button-next,
@@ -212,17 +200,12 @@
     & span {
         width: 27px;
 
-        // border-radius: 50%;
         fill: var(--accent-color);
     }
 
     & span:last-child {
         margin-right: -12px;
     }
-
-    // & span:hover {
-    //     background: var(--white);
-    // }
 }
 
 // Calendar weeks
@@ -259,14 +242,9 @@
     &:nth-last-child(-n + 7) {
         margin-bottom: 0;
     }
-
-    // &:nth-child(6n + 1),
-    // &:nth-child(7n + 1) {
-    //   color: var(--disabled-color);
-    // }
 }
 
-.days li::before {
+.days button::before {
     position: absolute;
     content: '';
     left: 50%;
@@ -278,7 +256,7 @@
     transform: translate(-50%, -50%);
 }
 
-.days li.active {
+.days button.active {
     color: var(--white);
 
  &::before {
@@ -286,6 +264,6 @@
 }
 }
 
-.days li.inactive {
+.days button.inactive {
     color: var(--disabled-color);
 }

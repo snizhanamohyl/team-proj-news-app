@@ -21,8 +21,8 @@ const INACTIVE_ICON = '<i class="fa-regular fa-heart"></i>';
 
 try {
   changeFavoriteStatus();
-} catch {
-  console.log;
+} catch (error) {
+  // console.log(error);
 }
 
 function changeFavoriteStatus() {

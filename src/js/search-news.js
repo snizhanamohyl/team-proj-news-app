@@ -1,4 +1,5 @@
 import SearchNews from './api';
+import { Notify } from 'notiflix';
 import {
   createMarkup,
   createMostPopularMarkup,
@@ -101,9 +102,15 @@ function onSubmit(e) {
   imageNoResults.style.display = 'none';
   paginationRef.style.display = 'flex';
   valuePage.curPage = 1;
+  handleButtonLeft();
+  handleButtonRight();
+
   const form = e.currentTarget;
   searchNews.searchQuery = form.elements.searchQuery.value.trim();
-
+  if (searchNews.searchQuery === '') {
+    Notify.info('Please enter your query');
+    return;
+  }
   findNews();
 
   async function findNews() {
@@ -209,6 +216,9 @@ async function renderNews() {
 
     valuePage.callback = createCategoriesMarkup;
     valuePage.curPage = 1;
+    handleButtonLeft();
+    handleButtonRight();
+
     valuePage.array = categorySearch.data.results;
     updateTemplate();
     paginationRef.style.display = 'flex';

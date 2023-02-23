@@ -81,7 +81,9 @@ const renderCalendar = number => {
 
   for (let i = firstDayofMonth; i > 0; i--) {
     // creating li of previous month last days
-    liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    liTag += `<li ><button class="inactive" disabled>${
+      lastDateofLastMonth - i + 1
+    }</button></li>`;
   }
 
   for (let i = 1; i <= lastDateofMonth; i++) {
@@ -93,13 +95,15 @@ const renderCalendar = number => {
       currYear === new Date().getFullYear();
     //   ? 'active'
     //   : '';
-    liTag += `<li class="${isToday}">${i}</li>`;
+    liTag += `<li><button class="${isToday}">${i}</button></li>`;
     //console.log(isToday);
   }
 
   for (let i = lastDayofMonth; i < 6; i++) {
     // creating li of next month first days
-    liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    liTag += `<li ><button class="inactive" disabled>${
+      i - lastDayofMonth + 1
+    }</button></li>`;
   }
 
   currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
@@ -159,7 +163,7 @@ function paginationForMonth() {
   let daysArray = daysTag.childNodes;
   daysArray.forEach(elem => {
     if (elem.textContent === selectedDay) {
-      elem.classList.add('active');
+      elem.children[0].classList.add('active');
     }
   });
 }
@@ -174,7 +178,7 @@ daysTag.addEventListener('click', evt => {
     item.classList.remove('active');
   });
 
-  let selectedValueDay = evt.target.textContent;
+  selectedValueDay = evt.target.textContent;
 
   evt.target.classList.add('active');
 
@@ -187,7 +191,7 @@ daysTag.addEventListener('click', evt => {
     '/' +
     selectedValueDay.padStart(2, '0');
 
-  let selectedInputDate = refs.input.value;
+  selectedInputDate = refs.input.value;
   filterByDate(selectedInputDate);
 
   localStorage.setItem('day', JSON.stringify(selectedValueDay));
