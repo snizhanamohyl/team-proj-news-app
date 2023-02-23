@@ -30,7 +30,8 @@ body.dark {
     color: var(--accent-color);
   }
   .search__icon,
-  .icon {
+  .icon,
+  .calendar__button-arrow {
     fill: var(--white);
   }
   #search-field__input {
@@ -47,13 +48,21 @@ body.dark {
   }
   .categories__btn {
     background-color: var(--white);
-
     &:hover,
     &:focus,
     &:active {
       color: var(--white);
       border-color: var(--accent-color);
       background-color: var(--accent-color);
+    }
+    &.pressed {
+      background-color: var(--accent-color);
+    }
+    &.is-active {
+      background-color: var(--accent-color);
+      & .categories__arrow {
+        fill: var(--white);
+      }
     }
   }
   .js-menu-container.is-open {
@@ -64,7 +73,8 @@ body.dark {
   .navigation-link,
   .p-noresults,
   .calendar-form__text,
-  .date-list__btn-text {
+  .date-list__btn-text,
+  .date-list__btn-svg {
     color: var(--bcg-color);
   }
   .calendar-input {

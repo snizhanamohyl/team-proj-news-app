@@ -8,16 +8,16 @@ const favoriteCardsArray = [];
 
 getFavoritesFromLS();
 showFavoritesNews();
-updateRefs();
-changeBtnState();
+setTimeout(() => {
+  updateRefs();
+  changeBtnState();
+}, 500);
 
 function updateRefs() {
-  setInterval(() => {
-    const cardRef = document.querySelectorAll('.news-card');
-    cardRef.forEach(card => {
-      card.addEventListener('click', onClick);
-    });
-  }, 200);
+  const cardRef = document.querySelectorAll('.news-card');
+  cardRef.forEach(card => {
+    card.addEventListener('click', onClick);
+  });
 }
 
 function onClick(evt) {
@@ -68,7 +68,8 @@ function showFavoritesNews() {
         noResultsRef.style = 'display: block';
       }
       markUpFavoriteNews();
-      enableBtn();
+      updateRefs();
+      changeBtnState();
     }
   } catch (error) {
     Notify.error('Failed to markup your favorites news');
@@ -80,14 +81,6 @@ function markUpFavoriteNews() {
     return arr + markup;
   }, '');
   cardsContainerRef.innerHTML = markupArr;
-}
-
-function enableBtn() {
-  const btnRef = document.querySelectorAll('#favorites-card-set .favorite-btn');
-  btnRef.forEach(btn => {
-    btn.innerHTML = addActiveStatus();
-    btn.classList.add('is-selected');
-  });
 }
 
 function searchCardInLS(searchValue) {
@@ -109,22 +102,20 @@ function removeCardFromFavorites(index) {
   saveFavoritesToLS(favoriteCardsArray);
   showFavoritesNews();
   updateRefs();
+  changeBtnState();
 }
 
 function changeBtnState() {
-  setInterval(() => {
-    const titlesRefs = document.querySelectorAll('.news-card__title');
-    favoriteCardsArray.forEach(obj => {
-      const searchValue = obj.title;
+  const titlesRefs = document.querySelectorAll('.news-card__title');
+  favoriteCardsArray.forEach(obj => {
+    const searchValue = obj.title;
 
-      for (let i = 0; i < titlesRefs.length; i++) {
-        if (titlesRefs[i].textContent === searchValue) {
-          const pinnedCards =
-            titlesRefs[i].parentElement.children[0].children[3];
-          pinnedCards.innerHTML = addActiveStatus();
-          pinnedCards.classList.add('is-selected');
-        }
+    for (let i = 0; i < titlesRefs.length; i++) {
+      if (titlesRefs[i].textContent === searchValue) {
+        const pinnedCards = titlesRefs[i].parentElement.children[0].children[3];
+        pinnedCards.innerHTML = addActiveStatus();
+        pinnedCards.classList.add('is-selected');
       }
-    });
-  }, 500);
+    }
+  });
 }
