@@ -1,0 +1,1 @@
+{"mappings":"oeAAAA,EAAA,S","sources":["src/favorite.js"],"sourcesContent":["import './js/mob-menu';\nimport './js/dark-theme';\nimport './js/favorite-news';\nimport './js/current-page';\nimport './js/news-cards';\nimport './js/read-LS';\n"],"names":["parcelRequire"],"version":3,"file":"favorite.52c7388f.js.map"}
