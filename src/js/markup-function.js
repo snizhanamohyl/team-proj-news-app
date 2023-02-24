@@ -13,7 +13,9 @@ function createMarkup(articles) {
         const image = multimedia.find(image => {
           return image.type === 'image';
         });
-        const link = image ? 'http://www.nytimes.com/' + image.url : '#';
+        const link = image
+          ? 'http://www.nytimes.com/' + image.url
+          : 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000';
         return `<li class="card-set__item news-card" data-date="${pub_date
           .split('')
           .splice(0, 10)
@@ -54,7 +56,9 @@ function createMostPopularMarkup(articles) {
   const markup = articles
     .map(({ uri, url, abstract, title, published_date, media, section }) => {
       let image = media[0];
-      const link = image ? image['media-metadata'][2].url : '#';
+      const link = image
+        ? image['media-metadata'][2].url
+        : 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000';
       return `<li class="card-set__item news-card" data-date="${published_date
         .split('')
         .splice(0, 10)
@@ -104,7 +108,9 @@ function createCategoriesMarkup(articles) {
         section,
         created_date,
       }) => {
-        const image = multimedia ? multimedia[2].url : '#';
+        const image = multimedia
+          ? multimedia[2].url
+          : 'https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=2000';
 
         return `<li class="card-set__item news-card" data-date="${created_date
           .split('')
